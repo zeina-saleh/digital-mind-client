@@ -2,10 +2,10 @@ import React from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import { useState } from 'react';
 import logo from '../../../assets/logo.svg'
-import chat from '../../../assets/chat.svg'
 import Button from '../../UI/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faXmark ,faBars} from '@fortawesome/free-solid-svg-icons';
+import './style.css'
 
 
 const Navbar = () => {
@@ -30,12 +30,11 @@ const Navbar = () => {
                 </ul>
                 {!nav ? <>
                     <div className='flex items-center'>
-                        <img src={chat} alt="chat" className="w-16 h-8 cursor-pointer" />
-                        <Button text={"Logout"} onClick={logout} classname={'nav-link'}/>
+                        <Button text={"Logout"} onClick={logout} classname={'nav-link w-20 h-10'}/>
                     </div>
                 </>
                     : <>
-                        <FontAwesomeIcon icon={faBars} style={{color: "#1e1e1e",}} className="w-16 h-8 cursor-pointer"/> 
+                        <FontAwesomeIcon icon={faBars} style={{color: "#1e1e1e",}} className="w-14 h-6 cursor-pointer"/> 
                         {/* <ul className='hidden md:flex space-x-4'>
                             <li className='p-4 cursor-pointer'>Explore</li>
                             <li className='p-4 cursor-pointer'>Planner</li>
