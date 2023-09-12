@@ -18,7 +18,7 @@ const RegisterForm = ({ onToggle }) => {
   const registerHandler = async () => {
     try {
       const response = await sendRequest({method: "POST", route: "/register", body: credentials});
-      localStorage.setItem("access_token", response.token);
+      localStorage.setItem("access_token", response.authorization.token);
       navigation("/home");
     } catch (error) {
       console.log(error);
