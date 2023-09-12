@@ -2,8 +2,19 @@ import React from 'react'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { sendRequest } from '../../../config/request';
 
-const IdeaCard = ({idea}) => {
+const IdeaCard = ({ idea, setIsLiked, isLiked, setIdeasCount }) => {
+
+    async function likeIdea() {
+        try {
+            const response = await sendRequest({ method: "POST", route: `/likeIdea/${idea.id}`, body: '' });
+            setIsLiked(!isLiked)
+            setIdeasCount(idea.likes_count)
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <>
             <div className='flex flex-col'>
@@ -14,7 +25,7 @@ const IdeaCard = ({idea}) => {
                         <p>{idea.title}</p>
                         <div className='flex items-center gap-2'>
                             <p>{idea.likes_count}</p>
-                        <FontAwesomeIcon icon={faHeart} style={{ color: "#20e399", }} className='w-5 h-5' />
+                            <FontAwesomeIcon icon={faHeart} style={{ color: "#20e399", }} className='w-5 h-5 cursor-pointer' onClick={likeIdea} />
                         </div>
                     </div>
                 </div>
