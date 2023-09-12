@@ -3,7 +3,7 @@ import './style.css'
 import SearchBar from '../../components/UI/SearchBar'
 import { useEffect, useState } from 'react'
 import { sendRequest } from '../../config/request'
-import IdeaCard from '../../components/UI/IdeaCard'
+import IdeaCard from '../../components/base/IdeaCard'
 
 const Explore = () => {
 
