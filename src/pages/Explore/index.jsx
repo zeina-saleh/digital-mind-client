@@ -10,6 +10,7 @@ const Explore = () => {
   const [ideas, setIdeas] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
   const [ideasCount, setIdeasCount] = useState(0);
+  const [searchField, setSearchField] = useState('')
 
   const fetchIdeas = async () => {
     try {
@@ -22,14 +23,18 @@ const Explore = () => {
 
   useEffect(() => {
     fetchIdeas();
-  }, [ideasCount]);
+  }, [ideasCount, ideas]);
+
+  const filteredIdeas = ideas.filter((idea) => {
+    return idea.title.toLowerCase().includes(searchField) | idea.collection.user.name.toLowerCase().includes(searchField)
+  })
 
   return (
     <div className='flex flex-col items-center gap-5'>
-      <SearchBar />
+      <SearchBar setSearchField={setSearchField}/>
       <h6>Explore ideas and find people with similar interests</h6>
       <div className='flex pl-5 w-10/12 h-screen gap-5 flex-wrap'>
-        {ideas.map(idea => (
+        {filteredIdeas.map(idea => (
             <IdeaCard key={idea.id} idea={idea} setIsLiked={setIsLiked} setIdeasCount={setIdeasCount}/>
         ))}
       </div>
