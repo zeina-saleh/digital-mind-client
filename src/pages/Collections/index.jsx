@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Button2 from '../../components/UI/Button2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faBookmark } from '@fortawesome/free-solid-svg-icons';
-import CollectionItem from '../../components/UI/CollectionItem';
+import CollectionItem from '../../components/base/CollectionItem'
 import './style.css'
 
 const Collections = () => {
