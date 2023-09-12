@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const IdeaCard = ({idea}) => {
-    console.log(idea)
     return (
         <>
             <div className='flex flex-col'>

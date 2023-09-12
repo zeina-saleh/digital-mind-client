@@ -14,7 +14,6 @@ const Explore = () => {
     try {
       const response = await sendRequest({ route: "/getIdeas", body: "" });
       setIdeas(response);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
