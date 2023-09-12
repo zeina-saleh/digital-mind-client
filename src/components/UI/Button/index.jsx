@@ -8,7 +8,7 @@ const Button = ({ text, onClick, classname, enabled = true }) => {
         }
     };
     return (
-        <button className={`${classname} bg-[#20E399] w-[100px] h-10 rounded-l-full rounded-r-full font-medium`}
+        <button className={`${classname} bg-[#20E399] rounded-l-full rounded-r-full font-medium`}
             onClick={(e) => clickHandler(e)}>{text}</button>
     )
 }

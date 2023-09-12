@@ -30,7 +30,7 @@ const Navbar = () => {
                 </div>
                 {!nav ? <>
                     <div className='flex items-center'>
-                        <Button text={"Logout"} onClick={logout} classname={'nav-link w-20 h-10'}/>
+                        <Button text={"Logout"} onClick={logout} classname={'nav-link w-24 h-10'}/>
                     </div>
                 </>
                     : <>
