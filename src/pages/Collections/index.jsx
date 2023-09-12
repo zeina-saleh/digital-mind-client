@@ -34,7 +34,7 @@ const Collections = () => {
           <Button2 text={"Saved Ideas"} onClick={print} icon={faBookmark} />
           <Button2 text={"Create Collection"} onClick={print} icon={faPlus} />
         </div>
-        <div className='flex flex-col w-10/12 gap-5'>
+        <div className='flex flex-col w-10/12 gap-6'>
           {collections.map(collection => (
             <Link key={collection.id} to={`/home/planner`}>
               <CollectionItem collection={collection} />
