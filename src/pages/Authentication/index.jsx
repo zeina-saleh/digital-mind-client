@@ -7,12 +7,12 @@ const Authentication = () => {
     const [login, setLogin] = useState(true);
   return (
     <div className="flex justify-center items-center gap-10 mt-20">
-      {!login ? (
+      {login ? (
         <LoginForm onToggle={() => setLogin(false)} />
       ) : (
         <RegisterForm onToggle={() => setLogin(true)} />
       )}
-      <div className="flex justify-center items-center p-2"><img src={brain}></img></div>
+      <div className="flex justify-center items-center p-2"><img src={brain} alt="logo"></img></div>
     </div>
   )
 }
