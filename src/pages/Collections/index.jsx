@@ -5,6 +5,9 @@ import Button2 from '../../components/UI/Button2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import CollectionItem from '../../components/base/CollectionItem'
+import Modal from 'react-modal'
+import Input from '../../components/UI/Input'
+import Button from '../../components/UI/Button';
 import './style.css'
 
 const Collections = () => {
@@ -12,6 +15,11 @@ const Collections = () => {
     console.log('clicked')
   }
   const [collections, setCollections] = useState([]);
+  const [collectionTitle, setCollectionTitle] = useState('');
+
+  const [openModal, setOpenModal] = useState(false)
+  const handleOpenModal = () => setOpenModal(true)
+  const handleCloseModal = () => setOpenModal(false)
 
   const fetchCollections = async () => {
     try {
@@ -24,20 +32,45 @@ const Collections = () => {
 
   useEffect(() => {
     fetchCollections();
-  }, []);
+  }, [collections]);
+
+  const createCollection = async() => {
+    console.log(collectionTitle)
+    try {
+      const response = await sendRequest({
+          method: 'POST',
+          route: '/createCollection',
+          body: {title: collectionTitle},
+      });
+      console.log(response);
+      setCollectionTitle('');
+      handleCloseModal();
+  } catch (error) {
+      console.log(error);
+  }
+  }
 
   return (
     <div className='flex flex-col items-center gap-5'>
       <div className='flex flex-col items-center w-10/12 h-screen gap-12'>
         <div className='flex w-full justify-between'>
           <Button2 text={"Saved Ideas"} onClick={print} icon={faBookmark} />
-          <Button2 text={"Create Collection"} onClick={print} icon={faPlus} />
+          <Button2 text={"Create Collection"} onClick={handleOpenModal} icon={faPlus} />
         </div>
         <div className='flex flex-col w-10/12 gap-6'>
           {collections.map(collection => (
-              <CollectionItem key={collection.id} collection={collection}/>
+            <CollectionItem key={collection.id} collection={collection} />
           ))}
         </div>
+        <Modal isOpen={openModal} onRequestClose={handleCloseModal} className='mini-modal flex flex-col items-center w-96 h-50 bg-white'>
+          <div className='flex flex-col gap-7 w-full'>
+            <Input label={'Add a title for your collection'} className={"input2"} wrapper={"wrapper2"} placeholder='type something' onChange={(collectionTitle) => setCollectionTitle(collectionTitle )} />
+            <div className='flex gap-5 w-full'>
+              <Button classname={"w-20 h-8"} text={'Add'} onClick={createCollection} />
+              <Button classname={"w-20 h-8"} text={'Cancel'} onClick={handleCloseModal} />
+            </div>
+          </div>
+        </Modal>
       </div>
     </div>
   )
