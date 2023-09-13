@@ -17,7 +17,7 @@ const RegisterForm = ({ onToggle }) => {
 
   const registerHandler = async () => {
     try {
-      const response = await sendRequest({method: "POST", route: "/register", body: credentials});
+      const response = await sendRequest({ method: "POST", route: "/register", body: credentials });
       localStorage.setItem("access_token", response.authorization.token);
       navigation("/home");
     } catch (error) {
@@ -34,8 +34,11 @@ const RegisterForm = ({ onToggle }) => {
       <Input label={'Email'} className={"input"} wrapper={'wrapper'} value={credentials.email} onChange={(email) => setCredentials({ ...credentials, email })} />
       <Input label={'Password'} className={"input"} wrapper={'wrapper'} value={credentials.password} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
       <h6>Forgot password?</h6>
-      <h6 className='flex w-full text-[#20E399] cursor-pointer' onClick={onToggle}>Already have an account? Login</h6>
-      <Button text={"Signup"} onClick={registerHandler} classname={'w-full text-white'} />
+      <div className='flex gap-1'>
+        <p className='flex w-full cursor-pointer'>Already have an account?</p>
+        <span className='text-[#20E399]' onClick={onToggle}>Login</span>
+      </div>
+      <Button text={"Signup"} onClick={registerHandler} classname={'w-full h-9 text-white'} />
     </div>
   )
 }
