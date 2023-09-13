@@ -16,6 +16,9 @@ const Collections = () => {
   }
   const [collections, setCollections] = useState([]);
   const [collectionTitle, setCollectionTitle] = useState('');
+  const [ideaTitle, setIdeaTitle] = useState('');
+  const [isAddIdeaClicked, setIsAddIdeaClicked] = useState(false);
+  const [collectionId, setCollectionId] = useState('')
 
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => setOpenModal(true)
@@ -32,41 +35,58 @@ const Collections = () => {
 
   useEffect(() => {
     fetchCollections();
-  }, [collections]);
+  }, [collectionTitle, ideaTitle]);
 
-  const createCollection = async() => {
-    console.log(collectionTitle)
+
+  const handleCreateCollection = () => {
+    setIsAddIdeaClicked(false)
+    handleOpenModal()
+  }
+
+  const createCollection = async () => {
     try {
-      const response = await sendRequest({
-          method: 'POST',
-          route: '/createCollection',
-          body: {title: collectionTitle},
-      });
+      const response = await sendRequest({ method: 'POST', route: '/createCollection', body: { title: collectionTitle }, });
       console.log(response);
       setCollectionTitle('');
       handleCloseModal();
-  } catch (error) {
+    } catch (error) {
       console.log(error);
+    }
   }
+
+  const addIdea = async () => {
+    try {
+      const response = await sendRequest({ method: 'POST', route: `/addIdea/${collectionId}`, body: { title: ideaTitle }, });
+      console.log(response);
+      setIdeaTitle('')
+      handleCloseModal();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <div className='flex flex-col items-center gap-5'>
+
       <div className='flex flex-col items-center w-10/12 h-screen gap-12'>
         <div className='flex justify-between w-10/12'>
           <Button2 text={"Saved Ideas"} onClick={print} icon={faBookmark} />
-          <Button2 text={"Create Collection"} onClick={handleOpenModal} icon={faPlus} />
+          <Button2 text={"Create Collection"} onClick={handleCreateCollection} icon={faPlus} />
         </div>
+
         <div className='flex flex-col w-10/12 gap-6 py-2'>
           {collections.map(collection => (
-            <CollectionItem key={collection.id} collection={collection} />
+            <CollectionItem key={collection.id} collection={collection} handleOpenModal={handleOpenModal}
+              setIsAddIdeaClicked={setIsAddIdeaClicked} setCollectionId={setCollectionId} />
           ))}
         </div>
         <Modal isOpen={openModal} onRequestClose={handleCloseModal} className='mini-modal flex flex-col items-center w-96 h-50 bg-white'>
           <div className='flex flex-col gap-7 w-full'>
-            <Input label={'Add a title for your collection'} className={"input2"} wrapper={"wrapper2"} placeholder='type something' onChange={(collectionTitle) => setCollectionTitle(collectionTitle )} />
+            <Input label={`Add a title for your ${isAddIdeaClicked ? 'idea' : 'collection'}`} className={"input2"} wrapper={"wrapper2"} placeholder='type something'
+              onChange={isAddIdeaClicked ? (ideaTitle) => setIdeaTitle(ideaTitle) : (collectionTitle) => setCollectionTitle(collectionTitle)} />
+
             <div className='flex gap-5 w-full'>
-              <Button classname={"w-20 h-8"} text={'Add'} onClick={createCollection} />
+              <Button classname={"w-20 h-8"} text={'Add'} onClick={isAddIdeaClicked ? addIdea : createCollection} />
               <Button classname={"w-20 h-8"} text={'Cancel'} onClick={handleCloseModal} />
             </div>
           </div>
