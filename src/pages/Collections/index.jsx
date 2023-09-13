@@ -11,18 +11,21 @@ import Button from '../../components/UI/Button';
 import './style.css'
 
 const Collections = () => {
-  const print = () => {
-    console.log('clicked')
-  }
+  
   const [collections, setCollections] = useState([]);
   const [collectionTitle, setCollectionTitle] = useState('');
   const [ideaTitle, setIdeaTitle] = useState('');
   const [isAddIdeaClicked, setIsAddIdeaClicked] = useState(false);
   const [collectionId, setCollectionId] = useState('')
+  const [ideaId, setIdeaId] = useState('')
 
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => setOpenModal(true)
   const handleCloseModal = () => setOpenModal(false)
+
+  const [openConsentModal, setOpenConsentModal] = useState(false)
+  const handleOpenConsentModal = () => setOpenConsentModal(true)
+  const handleCloseConsentModal = () => setOpenConsentModal(false)
 
   const fetchCollections = async () => {
     try {
@@ -35,7 +38,7 @@ const Collections = () => {
 
   useEffect(() => {
     fetchCollections();
-  }, [collectionTitle, ideaTitle]);
+  }, [collectionTitle, ideaTitle, ideaId]);
 
 
   const handleCreateCollection = () => {
@@ -65,6 +68,17 @@ const Collections = () => {
     }
   }
 
+  const deleteIdea = async () => {
+    try {
+      const response = await sendRequest({ route: `/deleteIdea/${ideaId}`, body: "", });
+      console.log(response);
+      setIdeaId('')
+      handleCloseConsentModal();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className='flex flex-col items-center gap-5'>
 
@@ -77,7 +91,8 @@ const Collections = () => {
         <div className='flex flex-col w-10/12 gap-6 py-2'>
           {collections.map(collection => (
             <CollectionItem key={collection.id} collection={collection} handleOpenModal={handleOpenModal}
-              setIsAddIdeaClicked={setIsAddIdeaClicked} setCollectionId={setCollectionId} />
+              setIsAddIdeaClicked={setIsAddIdeaClicked} setCollectionId={setCollectionId}
+              handleOpenConsentModal={handleOpenConsentModal} setIdeaId={setIdeaId} />
           ))}
         </div>
         <Modal isOpen={openModal} onRequestClose={handleCloseModal} className='mini-modal flex flex-col items-center w-96 h-50 bg-white'>
@@ -89,6 +104,14 @@ const Collections = () => {
               <Button classname={"w-20 h-8"} text={'Add'} onClick={isAddIdeaClicked ? addIdea : createCollection} />
               <Button classname={"w-20 h-8"} text={'Cancel'} onClick={handleCloseModal} />
             </div>
+          </div>
+        </Modal>
+
+        <Modal isOpen={openConsentModal} onRequestClose={handleCloseConsentModal} className='mini-modal flex flex-col gap-5 items-center w-96 h-50 bg-white'>
+          <div className='flex flex-col gap-7 w-full'>Are you sure you want to delete this idea?</div>
+          <div className='flex gap-5 w-full'>
+            <Button classname={"w-20 h-8"} text={'Yes'} onClick={deleteIdea} />
+            <Button classname={"w-20 h-8"} text={'No'} onClick={handleCloseConsentModal} />
           </div>
         </Modal>
       </div>
