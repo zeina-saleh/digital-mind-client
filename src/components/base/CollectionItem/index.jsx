@@ -16,15 +16,6 @@ const CollectionItem = ({ collection, setIdeas }) => {
         setShowIdeas(!showIdeas);
         chevron == faChevronDown ? setChevron(faChevronUp) : setChevron(faChevronDown);
     }
-
-    // const fetchIdeas = async () => {
-    //     try {
-    //       const response = await sendRequest({ route: "/getIdeas/${idea.id}", body: "" });
-    //       setIdeas(response);
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   };
     return (
         <div className='flex flex-col'>
             <div className='collection-item flex items-center justify-between px-2'>
