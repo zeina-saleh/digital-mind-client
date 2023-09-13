@@ -8,7 +8,6 @@ import logo from '../../../assets/logo.svg'
 
 const CollectionItem = ({ collection, setIdeas }) => {
 
-    console.log(collection)
     const [showIdeas, setShowIdeas] = useState(false)
     const [chevron, setChevron] = useState(faChevronDown)
 
@@ -18,11 +17,11 @@ const CollectionItem = ({ collection, setIdeas }) => {
     }
     return (
         <div className='flex flex-col'>
-            <div className='collection-item flex items-center justify-between px-2'>
+            <div className='collection-item flex items-center justify-between p-2'>
                 <p className='text-xl'>{collection.title}</p>
                 <FontAwesomeIcon icon={chevron} style={{ color: "#1e1e1e", }} className='cursor-pointer' onClick={onToggle} />
             </div>
-            {showIdeas ? <div className='flex px-2 py-4 gap-5'>
+            {showIdeas ? <div className='flex px-2 py-4 gap-5 mt-4'>
                 {collection.ideas.map(idea => (
                     <Link key={idea.id} to={`/home/planner`}>
                     <div className='flex flex-col'>
