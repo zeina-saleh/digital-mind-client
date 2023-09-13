@@ -30,8 +30,8 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4'>
-                <img src={logo} alt="logo" className="w-20 h-12" />
+            <div className='flex justify-between items-center h-24 max-w-5xl mx-auto px-4 mb-10'>
+                <img src={logo} alt="logo" className="w-20 h-12"/>
                 <div className='hidden md:flex space-x-4 text-2xl'>
                     <Link to='/home' className='nav-link p-4 cursor-pointer '>Explore</Link>
                     <Link to='/home/planner' className='nav-link p-4 cursor-pointer'>Planner</Link>
