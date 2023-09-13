@@ -1,8 +1,20 @@
-.text-input {
+.input {
     outline: none;
     border: none;
 }
 
-.input-wrapper1{ 
+.wrapper{ 
     border-bottom: solid 1px #20E399;
+}
+
+.wrapper2{ 
+    border: none;
+}
+
+.input2 {
+    outline: none;
+    border: none;
+    border: solid 1px #1e1e1e;
+    border-radius: 20px;
+    padding: 5px;
 }

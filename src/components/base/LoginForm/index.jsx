@@ -45,8 +45,8 @@ const LoginForm = ({ onToggle }) => {
         <h1 className='title'>Login</h1>
         <h6 className='font-semibold'>Enter your account details</h6>
       </div>
-      <Input label={'Email'} className={'input-wrapper1'} onChange={(email) => setCredentials({ ...credentials, email })} />
-      <Input label={'Password'} className={'input-wrapper1'} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
+      <Input label={'Email'} className={'input'} wrapper={"wrapper"} onChange={(email) => setCredentials({ ...credentials, email })} />
+      <Input label={'Password'} className={'input'} wrapper={"wrapper"} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
       <h6>Forgot password?</h6>
       <h6 className='flex w-full text-[#20E399] cursor-pointer' onClick={onToggle}>Don't have an account? Register</h6>
       <Button text={"Login"} onClick={loginHandler} classname={'w-full text-white'} />

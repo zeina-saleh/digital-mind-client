@@ -30,9 +30,9 @@ const RegisterForm = ({ onToggle }) => {
         <h1 className='title'>Signup</h1>
         <h6 className='font-semibold'>Enter your account details</h6>
       </div>
-      <Input label={'Name'} className={'input-wrapper1'} value={credentials.name} onChange={(name) => setCredentials({ ...credentials, name })} />
-      <Input label={'Email'} className={'input-wrapper1'} value={credentials.email} onChange={(email) => setCredentials({ ...credentials, email })} />
-      <Input label={'Password'} className={'input-wrapper1'} value={credentials.password} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
+      <Input label={'Name'} className={"input"} wrapper={'wrapper'} value={credentials.name} onChange={(name) => setCredentials({ ...credentials, name })} />
+      <Input label={'Email'} className={"input"} wrapper={'wrapper'} value={credentials.email} onChange={(email) => setCredentials({ ...credentials, email })} />
+      <Input label={'Password'} className={"input"} wrapper={'wrapper'} value={credentials.password} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
       <h6>Forgot password?</h6>
       <h6 className='flex w-full text-[#20E399] cursor-pointer' onClick={onToggle}>Already have an account? Login</h6>
       <Button text={"Signup"} onClick={registerHandler} classname={'w-full text-white'} />
