@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { sendRequest } from '../../config/request'
-import { Link } from 'react-router-dom'
 import Button2 from '../../components/UI/Button2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -36,9 +35,7 @@ const Collections = () => {
         </div>
         <div className='flex flex-col w-10/12 gap-6'>
           {collections.map(collection => (
-            <Link key={collection.id} to={`/home/planner`}>
-              <CollectionItem collection={collection} />
-            </Link>
+              <CollectionItem key={collection.id} collection={collection}/>
           ))}
         </div>
       </div>
