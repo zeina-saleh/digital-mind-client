@@ -49,8 +49,8 @@ const LoginForm = ({ onToggle }) => {
       <Input label={'Password'} className={'input'} wrapper={"wrapper"} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
       <h6>Forgot password?</h6>
       <div className='flex gap-1'>
-        <p className='flex w-full cursor-pointer'>Don't have an account?</p>
-        <span className='text-[#20E399]' onClick={onToggle}>Register</span>
+        <p className='flex w-full'>Don't have an account?</p>
+        <span className='text-[#20E399] cursor-pointer' onClick={onToggle}>Register</span>
       </div>
       <Button text={"Login"} onClick={loginHandler} classname={'w-full h-9 text-white'} />
     </div>

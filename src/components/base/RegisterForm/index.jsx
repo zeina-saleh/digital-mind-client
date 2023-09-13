@@ -35,8 +35,8 @@ const RegisterForm = ({ onToggle }) => {
       <Input label={'Password'} className={"input"} wrapper={'wrapper'} value={credentials.password} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
       <h6>Forgot password?</h6>
       <div className='flex gap-1'>
-        <p className='flex w-full cursor-pointer'>Already have an account?</p>
-        <span className='text-[#20E399]' onClick={onToggle}>Login</span>
+        <p className='flex w-full'>Already have an account?</p>
+        <span className='text-[#20E399] cursor-pointer' onClick={onToggle}>Login</span>
       </div>
       <Button text={"Signup"} onClick={registerHandler} classname={'w-full h-9 text-white'} />
     </div>
