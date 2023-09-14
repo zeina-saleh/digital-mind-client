@@ -7,17 +7,22 @@ import Authentication from './pages/Authentication';
 import Explore from './pages/Explore'
 import Planner from './pages/Planner';
 import Collections from './pages/Collections';
+import Map from './pages/Map';
 
 function App() {
   return (
-    <Routes>
-      <Route path='/login' element={<Authentication />}></Route>
-      <Route path='/home' element={<Navbar />}>
-        <Route index element={<Explore />} />
-        <Route path='/home/planner' element={<Planner />} />
-        <Route path='/home/collections' element={<Collections />} />
-      </Route>
-    </Routes>
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<Landing />}></Route>
+        <Route path='/login' element={<Authentication />}></Route>
+        <Route path='/home' element={<Navbar />}>
+          <Route index element={<Explore />} />
+          <Route path='/home/planner' element={<Planner />} />
+          <Route path='/home/collections' element={<Collections />} />
+          <Route path='/home/collections/idea' element={<Map />} />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 
