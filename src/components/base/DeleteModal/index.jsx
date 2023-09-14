@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 import Button from '../../UI/Button'
 import { sendRequest } from '../../../config/request'
 
-const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, ideaId }) => {
+const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, ideaId, editMode, setEditMode }) => {
 
     const deleteIdea = async () => {
         try {
@@ -23,6 +23,7 @@ const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, id
             console.log(response);
             setTitle('deleted collection')
             onCancel();
+            editMode ? setEditMode(!editMode) : editMode
         } catch (error) {
             console.log(error);
         }
