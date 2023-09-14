@@ -49,7 +49,7 @@ const Collections = () => {
         <div className='flex items-center justify-between w-10/12'>
           <div className='text-3xl page-title'>My Collections</div>
           <div className='flex gap-1'>
-            <Button2 text={"Saved Ideas"} onClick={print} icon={faBookmark} />
+            <Button2 text={"Saved Ideas"} onClick={unhide} icon={faBookmark} />
             <Button2 text={"Create Collection"} onClick={() => handleOpenModal()} icon={faPlus} />
             <Button2 text={"Edit"} onClick={unhide} icon={faPen} />
           </div>
@@ -63,8 +63,8 @@ const Collections = () => {
           ))}
         </div>
 
-        <AddModal openModal={openModal} ideaFunc={ideaFunc} onCancel={handleCloseModal} title={title} setTitle={setTitle} collectionId={collectionId} />
-        <DeleteModal openModal={openConsentModal} ideaFunc={ideaFunc} onCancel={handleCloseConsentModal} setTitle={setTitle} collectionId={collectionId} ideaId={ideaId} />
+        <AddModal openModal={openModal} ideaFunc={ideaFunc} onCancel={handleCloseModal} title={title} setTitle={setTitle} collectionId={collectionId} editMode={editMode} setEditMode={setEditMode}/>
+        <DeleteModal openModal={openConsentModal} ideaFunc={ideaFunc} onCancel={handleCloseConsentModal} setTitle={setTitle} collectionId={collectionId} ideaId={ideaId} editMode={editMode} setEditMode={setEditMode}/>
 
       </div>
     </div>

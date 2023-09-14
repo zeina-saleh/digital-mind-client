@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faSquarePlus, faSquareMinus, faPen, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faSquareMinus, faPen, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import './style.css'
 import logo from '../../../assets/logo.svg'
@@ -36,13 +36,19 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
         handleOpenConsentModal()
     }
 
+    const handleEditCollection = () => {
+        setIdeaFunc(false);
+        setCollectionId(collection.id);
+        handleOpenModal()
+    }
+
     return (
         <div className='flex flex-col'>
             <div className='collection-item flex items-center justify-between p-2'>
                 <div className='flex items-center gap-6'>
                     <p className='text-xl'>{collection.title}</p>
                     <div className='flex gap-5'>
-                        <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b] cursor-pointer hover:text-[#1ed690]`} onClick={onToggle} />
+                        <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b] cursor-pointer hover:text-[#1ed690]`} onClick={handleEditCollection} />
                         <FontAwesomeIcon icon={faTrashCan} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={handleDeleteCollection} />
                     </div>
                 </div>
