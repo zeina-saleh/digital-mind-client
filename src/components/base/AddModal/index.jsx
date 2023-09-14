@@ -13,7 +13,7 @@ const AddModal = ({ openModal, placeholder = 'title', ideaFunc, onCancel, setTit
       console.log(response);
       setTitle('');
       onCancel();
-      editMode ? setEditMode(!editMode) : editMode
+      if(editMode) setEditMode(!editMode)
     } catch (error) {
       console.log(error);
     }

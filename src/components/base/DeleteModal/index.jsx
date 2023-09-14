@@ -23,7 +23,7 @@ const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, id
             console.log(response);
             setTitle('deleted collection')
             onCancel();
-            editMode ? setEditMode(!editMode) : editMode
+            if(editMode) setEditMode(!editMode)
         } catch (error) {
             console.log(error);
         }
