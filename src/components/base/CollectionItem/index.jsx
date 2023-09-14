@@ -2,12 +2,12 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faSquarePlus, faSquareMinus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faSquarePlus, faSquareMinus, faPen, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import './style.css'
 import logo from '../../../assets/logo.svg'
 
-const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectionId, 
+const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectionId,
     handleOpenConsentModal, setIdeaId, editMode }) => {
 
     const [showIdeas, setShowIdeas] = useState(false)
@@ -53,13 +53,18 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
                             <Link to={`/home/collections/idea`}><div className='w-fit p-2 font-normal hover:text-[#1ED690]'>{idea.title}</div></Link>
                         </div>
                     ))}
-                    <FontAwesomeIcon icon={faSquarePlus} style={{ color: "#1ED690", }} className='add-idea h-7 w-7 cursor-pointer' onClick={handleAddIdea} />
+                    <div className='idea-item flex justify-center items-center gap-2 w-64 h-60 px-2 pt-2'>
+                        <p>add idea </p>
+                        <FontAwesomeIcon icon={faPlus} style={{ color: "#1ED690", }} onClick={handleAddIdea} className='cursor-pointer h-7 w-7' />
+                    </div>
                 </div>
             ) : (
                 collection.ideas.length === 0 && showIdeas && (
-                    <div className='flex px-2 mt-4 items-center cursor-pointer gap-2'>
-                        <FontAwesomeIcon icon={faSquarePlus} style={{ color: "#1ED690", }} className='h-7 w-7' onClick={handleAddIdea} />
-                        <div>Add ideas</div>
+                    <div className='flex flex-wrap px-10 py-4 gap-5 mt-4'>
+                        <div className='idea-item flex justify-center items-center gap-2 w-64 h-60 px-2 pt-2'>
+                            <p>add idea </p>
+                            <FontAwesomeIcon icon={faPlus} style={{ color: "#1ED690", }} onClick={handleAddIdea} className='cursor-pointer h-7 w-7' />
+                        </div>
                     </div>
                 )
             )}
