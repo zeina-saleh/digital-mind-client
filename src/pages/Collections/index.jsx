@@ -4,29 +4,26 @@ import { sendRequest } from '../../config/request'
 import Button2 from '../../components/UI/Button2'
 import { faPlus, faBookmark, faPen } from '@fortawesome/free-solid-svg-icons';
 import CollectionItem from '../../components/base/CollectionItem'
-import Modal from 'react-modal'
-import Input from '../../components/UI/Input'
-import Button from '../../components/UI/Button';
 import './style.css'
-import EditModal from '../../components/base/EditModal';
 import AddModal from '../../components/base/AddModal';
+import DeleteModal from '../../components/base/DeleteModal';
 
 const Collections = () => {
 
   const [collections, setCollections] = useState([]);
-  // const [collectionTitle, setCollectionTitle] = useState('');
-  // const [ideaTitle, setIdeaTitle] = useState('');
   const [title, setTitle] = useState('');
-  // const [isAddIdeaClicked, setIsAddIdeaClicked] = useState(false);
   const [collectionId, setCollectionId] = useState('')
   const [ideaId, setIdeaId] = useState('')
   const [ideaFunc, setIdeaFunc] = useState(false)
+  const [editMode, setEditMode] = useState(false)
 
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => setOpenModal(true)
   const handleCloseModal = () => setOpenModal(false)
 
- 
+  const [openConsentModal, setOpenConsentModal] = useState(false)
+  const handleOpenConsentModal = () => setOpenConsentModal(true)
+  const handleCloseConsentModal = () => setOpenConsentModal(false)
 
   const fetchCollections = async () => {
     try {
@@ -41,6 +38,10 @@ const Collections = () => {
     fetchCollections();
   }, [title, ideaId]);
 
+  const unhide = () => {
+    setEditMode(!editMode)
+  }
+
   return (
     <div className='flex flex-col items-center gap-5'>
 
@@ -49,7 +50,7 @@ const Collections = () => {
           <Button2 text={"Saved Ideas"} onClick={print} icon={faBookmark} />
           <div className='flex gap-1'>
             <Button2 text={"Create Collection"} onClick={() => handleOpenModal()} icon={faPlus} />
-            <Button2 text={"Edit"} onClick={print} icon={faPen} />
+            <Button2 text={"Edit"} onClick={unhide} icon={faPen} />
           </div>
         </div>
 
@@ -57,11 +58,12 @@ const Collections = () => {
           {collections.map(collection => (
             <CollectionItem key={collection.id} collection={collection} handleOpenModal={handleOpenModal}
               setIdeaFunc={setIdeaFunc} setCollectionId={setCollectionId}
-              handleOpenConsentModal={handleOpenConsentModal} setIdeaId={setIdeaId} editMode={editMode}/>
+              handleOpenConsentModal={handleOpenConsentModal} setIdeaId={setIdeaId} editMode={editMode} />
           ))}
         </div>
 
-       <AddModal openModal={openModal} ideaFunc={ideaFunc} onCancel={handleCloseModal} title={title} setTitle={setTitle} collectionId={collectionId} />
+        <AddModal openModal={openModal} ideaFunc={ideaFunc} onCancel={handleCloseModal} title={title} setTitle={setTitle} collectionId={collectionId} />
+        <DeleteModal openModal={openConsentModal} ideaFunc={ideaFunc} onCancel={handleCloseConsentModal} setTitle={setTitle} collectionId={collectionId} ideaId={ideaId} />
 
       </div>
     </div>
