@@ -19,7 +19,7 @@ function App() {
           <Route index element={<Explore />} />
           <Route path='/home/planner' element={<Planner />} />
           <Route path='/home/collections' element={<Collections />} />
-          <Route path='/home/collections/idea' element={<Map />} />
+          <Route path='/home/collections/idea/:ideaId' element={<Map />} />
         </Route>
       </Routes>
     </div>
