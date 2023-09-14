@@ -15,7 +15,7 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
 
     const onToggle = () => {
         setShowIdeas(!showIdeas);
-        chevron == faChevronDown ? setChevron(faChevronUp) : setChevron(faChevronDown);
+        chevron === faChevronDown ? setChevron(faChevronUp) : setChevron(faChevronDown);
     }
 
     const handleAddIdea = () => {
@@ -62,7 +62,7 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
                                 <FontAwesomeIcon icon={faSquareMinus} style={{ color: "#1ED690", }} onClick={() => handleDeleteIdea(idea.id)} className='self-end cursor-pointer h-7 w-7' />
                                 <img src={logo} alt="" className='w-40 h-40' />
                             </div>
-                            <Link to={`/home/collections/idea`}><div className='w-fit p-2 font-normal hover:text-[#1ED690]'>{idea.title}</div></Link>
+                            <Link to={`/home/collections/idea/${idea.id}`}><div className='w-fit p-2 font-normal hover:text-[#1ED690]'>{idea.title}</div></Link>
                         </div>
                     ))}
                     <div className='idea-item flex justify-center items-center gap-2 w-64 h-60 px-2 pt-2'>
