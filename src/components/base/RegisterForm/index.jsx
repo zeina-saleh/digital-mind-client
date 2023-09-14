@@ -36,9 +36,9 @@ const RegisterForm = ({ onToggle }) => {
       <h6>Forgot password?</h6>
       <div className='flex gap-1'>
         <p className='flex w-full'>Already have an account?</p>
-        <span className='text-[#20E399] cursor-pointer' onClick={onToggle}>Login</span>
+        <span className='text-[#1ED690] cursor-pointer' onClick={onToggle}>Login</span>
       </div>
-      <Button text={"Signup"} onClick={registerHandler} classname={'w-full h-9 text-white'} />
+      <Button text={"SIGNUP"} onClick={registerHandler} classname={'w-full h-9 text-white'} />
     </div>
   )
 }

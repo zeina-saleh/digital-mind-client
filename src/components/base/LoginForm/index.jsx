@@ -52,7 +52,7 @@ const LoginForm = ({ onToggle }) => {
         <p className='flex w-full'>Don't have an account?</p>
         <span className='text-[#20E399] cursor-pointer' onClick={onToggle}>Register</span>
       </div>
-      <Button text={"Login"} onClick={loginHandler} classname={'w-full h-9 text-white'} />
+      <Button text={"LOGIN"} onClick={loginHandler} classname={'w-full h-9 text-white'} />
     </div>
   )
 }
