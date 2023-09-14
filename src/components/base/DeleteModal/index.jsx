@@ -17,8 +17,9 @@ const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, id
     }
 
     const deleteCollection = async () => {
+        console.log(collectionId )
         try {
-            const response = await sendRequest({ route: `/deletecollection/${collectionId}`, body: "", });
+            const response = await sendRequest({ route: `/deleteCollection/${collectionId}`, body: "", });
             console.log(response);
             setTitle('deleted collection')
             onCancel();

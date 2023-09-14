@@ -30,14 +30,20 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
         handleOpenConsentModal()
     }
 
+    const handleDeleteCollection = () => {
+        setIdeaFunc(false);
+        setCollectionId(collection.id);
+        handleOpenConsentModal()
+    }
+
     return (
         <div className='flex flex-col'>
             <div className='collection-item flex items-center justify-between p-2'>
-                <div className='flex items-center gap-5'>
+                <div className='flex items-center gap-6'>
                     <p className='text-xl'>{collection.title}</p>
-                    <div className='flex gap-3'>
-                        <FontAwesomeIcon icon={faPen} style={{ color: "#1e1e1e", }} className={`${editMode ? "" : 'hidden'} cursor-pointer`} onClick={onToggle} />
-                        <FontAwesomeIcon icon={faTrashCan} style={{ color: "#1e1e1e", }} className={`${editMode ? "" : 'hidden'} cursor-pointer`} onClick={onToggle} />
+                    <div className='flex gap-5'>
+                        <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b] cursor-pointer hover:text-[#1ed690]`} onClick={onToggle} />
+                        <FontAwesomeIcon icon={faTrashCan} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={handleDeleteCollection} />
                     </div>
                 </div>
                 <FontAwesomeIcon icon={chevron} style={{ color: "#1e1e1e", }} className='cursor-pointer' onClick={onToggle} />
