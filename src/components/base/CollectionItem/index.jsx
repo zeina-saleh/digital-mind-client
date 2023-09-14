@@ -25,6 +25,7 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
     }
 
     const handleDeleteIdea = (ideaId) => {
+        setIdeaFunc(true);
         setIdeaId(ideaId);
         handleOpenConsentModal()
     }
@@ -46,18 +47,18 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
                     {collection.ideas.map(idea => (
                         <div key={idea.id} className='flex flex-col'>
                             <div className='idea-item flex flex-col items-center w-64 h-60 px-2 pt-2'>
-                                <FontAwesomeIcon icon={faSquareMinus} style={{ color: "#20e399", }} onClick={() => handleDeleteIdea(idea.id)} className='self-end cursor-pointer h-7 w-7' />
+                                <FontAwesomeIcon icon={faSquareMinus} style={{ color: "#1ED690", }} onClick={() => handleDeleteIdea(idea.id)} className='self-end cursor-pointer h-7 w-7' />
                                 <img src={logo} alt="" className='w-40 h-40' />
                             </div>
-                            <Link to={`/home/planner`}><div className='w-fit p-2 font-normal hover:text-[#20e399]'>{idea.title}</div></Link>
+                            <Link to={`/home/collections/idea`}><div className='w-fit p-2 font-normal hover:text-[#1ED690]'>{idea.title}</div></Link>
                         </div>
                     ))}
-                    <FontAwesomeIcon icon={faSquarePlus} style={{ color: "#20e399", }} className='add-idea h-7 w-7 cursor-pointer' onClick={handleAddIdea} />
+                    <FontAwesomeIcon icon={faSquarePlus} style={{ color: "#1ED690", }} className='add-idea h-7 w-7 cursor-pointer' onClick={handleAddIdea} />
                 </div>
             ) : (
                 collection.ideas.length === 0 && showIdeas && (
                     <div className='flex px-2 mt-4 items-center cursor-pointer gap-2'>
-                        <FontAwesomeIcon icon={faSquarePlus} style={{ color: "#20e399", }} className='h-7 w-7' onClick={handleAddIdea} />
+                        <FontAwesomeIcon icon={faSquarePlus} style={{ color: "#1ED690", }} className='h-7 w-7' onClick={handleAddIdea} />
                         <div>Add ideas</div>
                     </div>
                 )
