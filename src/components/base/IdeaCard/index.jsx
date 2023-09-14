@@ -20,7 +20,7 @@ const IdeaCard = ({ idea, setIdeasCount }) => {
             <div className='flex flex-col'>
                 <div className='card flex items-center justify-center w-64 h-60'></div>
                 <div className='flex flex-col w-full p-2'>
-                    <p className='font-semibold'>{idea.collection.user.name}</p>
+                    <p className='font-semibold text-lg'>{idea.collection.user.name}</p>
                     <div className='flex justify-between items-center w-full'>
                         <p>{idea.title}</p>
                         <div className='flex items-center gap-2'>
