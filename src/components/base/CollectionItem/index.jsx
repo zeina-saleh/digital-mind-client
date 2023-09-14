@@ -2,11 +2,13 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faSquarePlus, faSquareMinus } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faSquarePlus, faSquareMinus, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import './style.css'
 import logo from '../../../assets/logo.svg'
 
-const CollectionItem = ({ collection, setIsAddIdeaClicked, handleOpenModal, setCollectionId, handleOpenConsentModal, setIdeaId }) => {
+const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectionId, 
+    handleOpenConsentModal, setIdeaId, editMode }) => {
 
     const [showIdeas, setShowIdeas] = useState(false)
     const [chevron, setChevron] = useState(faChevronDown)
@@ -17,7 +19,7 @@ const CollectionItem = ({ collection, setIsAddIdeaClicked, handleOpenModal, setC
     }
 
     const handleAddIdea = () => {
-        setIsAddIdeaClicked(true);
+        setIdeaFunc(true);
         setCollectionId(collection.id);
         handleOpenModal()
     }
@@ -30,7 +32,13 @@ const CollectionItem = ({ collection, setIsAddIdeaClicked, handleOpenModal, setC
     return (
         <div className='flex flex-col'>
             <div className='collection-item flex items-center justify-between p-2'>
-                <p className='text-xl'>{collection.title}</p>
+                <div className='flex items-center gap-5'>
+                    <p className='text-xl'>{collection.title}</p>
+                    <div className='flex gap-3'>
+                        <FontAwesomeIcon icon={faPen} style={{ color: "#1e1e1e", }} className={`${editMode ? "" : 'hidden'} cursor-pointer`} onClick={onToggle} />
+                        <FontAwesomeIcon icon={faTrashCan} style={{ color: "#1e1e1e", }} className={`${editMode ? "" : 'hidden'} cursor-pointer`} onClick={onToggle} />
+                    </div>
+                </div>
                 <FontAwesomeIcon icon={chevron} style={{ color: "#1e1e1e", }} className='cursor-pointer' onClick={onToggle} />
             </div>
             {(collection.ideas.length !== 0 && showIdeas) ? (
@@ -45,7 +53,6 @@ const CollectionItem = ({ collection, setIsAddIdeaClicked, handleOpenModal, setC
                         </div>
                     ))}
                     <FontAwesomeIcon icon={faSquarePlus} style={{ color: "#20e399", }} className='add-idea h-7 w-7 cursor-pointer' onClick={handleAddIdea} />
-
                 </div>
             ) : (
                 collection.ideas.length === 0 && showIdeas && (
