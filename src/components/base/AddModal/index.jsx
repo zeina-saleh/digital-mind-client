@@ -31,7 +31,7 @@ const AddModal = ({ openModal, placeholder = 'type something', ideaFunc, onCance
       }
 
     return (
-        <Modal isOpen={openModal} onRequestClose={onCancel} className='mini-modal flex flex-col gap-5 items-center w-96 h-50 bg-white'>
+        <Modal overlayClassName='overlay' isOpen={openModal} onRequestClose={onCancel} className='mini-modal flex flex-col gap-5 items-center w-96 h-50 bg-white'>
             <div className='flex flex-col gap-7 w-full'>
                 <Input label={'Add a title'} className={"input2"} wrapper={"wrapper2"} placeholder={placeholder}
                     onChange={(title) => setTitle(title)} />
