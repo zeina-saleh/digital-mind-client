@@ -5,7 +5,7 @@ html {
 }
 
 .mini-modal {
-    border: 1px solid #1e1e1e;
+    /* border: 1px solid #1e1e1e; */
     border-radius: 20px;
     position: absolute;
     top: 50%;
@@ -22,4 +22,8 @@ html {
     right: 0;
     bottom: 0;
     background-color: #7c7c7f73;
+  }
+
+  .page-title {
+    font-family: 'Ropa Sans';
   }

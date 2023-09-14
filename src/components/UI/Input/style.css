@@ -4,7 +4,7 @@
 }
 
 .wrapper{ 
-    border-bottom: solid 1px #20E399;
+    border-bottom: solid 1px #1ED690;
 }
 
 .wrapper2{ 
@@ -14,6 +14,6 @@
 .input2 {
     outline: none;
     border: none;
-    border: solid 1px #1e1e1e;
+    border: solid 1px #cccccc;
     border-radius: 15px;
 }

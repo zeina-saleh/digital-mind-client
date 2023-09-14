@@ -29,9 +29,9 @@ const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, id
 
     return (
         <Modal overlayClassName='overlay' isOpen={openModal} onRequestClose={onCancel} className='mini-modal flex flex-col gap-5 items-center w-96 h-50 bg-white'>
-            <div className='flex flex-col gap-7 w-full'>
-                <div className='flex flex-col gap-7 w-full'>Are you sure you want to delete?</div>
-                <div className='flex gap-5 w-full'>
+            <div className='flex flex-col items-center gap-7 w-full'>
+                <div className=''>Are you sure you want to delete?</div>
+                <div className='flex justify-center gap-5 w-full'>
                     <Button classname={"w-20 h-8"} text={'Yes'} onClick={ideaFunc ? deleteIdea : deleteCollection} />
                     <Button classname={"w-20 h-8"} text={'No'} onClick={onCancel} />
                 </div>
