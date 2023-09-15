@@ -32,7 +32,7 @@ const Navbar = () => {
         <>
             <div className='flex justify-between items-center h-24 max-w-5xl mx-auto px-4 mb-10'>
                 <img src={logo} alt="logo" className="w-20 h-12"/>
-                <div className='hidden md:flex space-x-4 text-2xl'>
+                <div className='hidden md:flex space-x-4 text-3xl'>
                     <Link to='/home' className='nav-link p-4 cursor-pointer '>Explore</Link>
                     <Link to='/home/planner' className='nav-link p-4 cursor-pointer'>Planner</Link>
                     <Link to='/home/collections' className='nav-link p-4 cursor-pointer'>Collections</Link>
