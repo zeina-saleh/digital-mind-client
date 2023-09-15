@@ -20,9 +20,9 @@ const Navbar = () => {
 
     const logout = async () => {
         try {
-            const response = await sendRequest({ route: "/logout", body: "" });
-            console.log(response);
-            navigation('/landing')
+            // const response = await sendRequest({ route: "/logout", body: "" });
+            localStorage.clear()
+            navigation('/')
         } catch (error) {
             console.log(error);
         }
@@ -35,7 +35,7 @@ const Navbar = () => {
                 <div className='hidden md:flex space-x-4 text-2xl'>
                     <Link to='/home' className='nav-link p-4 cursor-pointer '>Explore</Link>
                     <Link to='/home/planner' className='nav-link p-4 cursor-pointer'>Planner</Link>
-                    <Link to='/home/collections' className='nav-link p-4 cursor-pointer'>My Collections</Link>
+                    <Link to='/home/collections' className='nav-link p-4 cursor-pointer'>Collections</Link>
                 </div>
                 {!nav ? <>
                     <div className='flex items-center'>
