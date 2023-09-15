@@ -5,12 +5,13 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { sendRequest } from '../../../config/request';
 
-const IdeaCard = ({ idea, setIdeasCount }) => {
+const IdeaCard = ({ idea, setLiked, liked, setLikesCount }) => {
 
     async function likeIdea() {
         try {
             const response = await sendRequest({ method: "POST", route: `/likeIdea/${idea.id}`, body: '' });
-            setIdeasCount(idea.likes_count)
+            setLiked(response.liked)
+            setLikesCount(response.likes_count)
         } catch (error) {
             console.log(error);
         }
@@ -25,7 +26,7 @@ const IdeaCard = ({ idea, setIdeasCount }) => {
                         <p>{idea.title}</p>
                         <div className='flex items-center gap-2'>
                             <p>{idea.likes_count}</p>
-                            <FontAwesomeIcon icon={idea.liked? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-5 h-5 cursor-pointer' onClick={likeIdea} />
+                            <FontAwesomeIcon icon={idea.liked ? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-5 h-5 cursor-pointer' onClick={likeIdea} />
                         </div>
                     </div>
                 </div>
