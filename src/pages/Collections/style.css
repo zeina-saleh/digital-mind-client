@@ -5,13 +5,16 @@ html {
 }
 
 .mini-modal {
-    /* border: 1px solid #1e1e1e; */
     border-radius: 20px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Roboto';
+}
+
+.mini-modal:active {
+  border: none;
 }
 
 .overlay{
