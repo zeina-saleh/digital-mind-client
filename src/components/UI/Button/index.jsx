@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 const Button = ({ text, onClick, classname, enabled = true }) => {
     const clickHandler = (e) => {
@@ -8,7 +9,7 @@ const Button = ({ text, onClick, classname, enabled = true }) => {
         }
     };
     return (
-        <button className={`${classname} bg-[#20E399] rounded-l-full rounded-r-full font-medium`}
+        <button className={`${classname} bg-[#1ED690] btn-primary font-semibold rounded-l-full rounded-r-full hover:brightness-90`}
             onClick={(e) => clickHandler(e)}>{text}</button>
     )
 }
