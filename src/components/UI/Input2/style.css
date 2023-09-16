@@ -1,0 +1,19 @@
+.input {
+    outline: none;
+    border: none;
+}
+
+.wrapper{ 
+    border-bottom: solid 1px #1ED690;
+}
+
+.wrapper2{ 
+    border: none;
+}
+
+.input2 {
+    outline: none;
+    border: none;
+    border: solid 1px #cccccc;
+    border-radius: 15px;
+}
