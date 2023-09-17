@@ -4,11 +4,20 @@
     stroke: #1ED690;
     paint-order: stroke;
     cursor: pointer;
-    text-anchor: middle;
 }
 
 .text {
     font-size: 10px;
     alignment-baseline: middle;
+    text-anchor: middle;
+}
+
+.t-left{
+    text-anchor: end;
+}
+.t-right{
+    text-anchor: start;
+}
+.t-middle{
     text-anchor: middle;
 }

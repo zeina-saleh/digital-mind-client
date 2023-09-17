@@ -8,13 +8,20 @@ import Button2 from '../../components/UI/Button2';
 import Modal from 'react-modal';
 import ModalForm from '../../components/base/ModalForm';
 import TreeNode from '../../components/base/TreeNode';
+import Lines from '../../components/base/Lines';
 import './style.css'
 
 const Map = () => {
 
+    const width = 400;
+    const height = 200;
+    const R = 90;
+    const x0 = width / 2;
+    const y0 = height / 2;
+
     const { ideaId } = useParams();
     const [openModal, setOpenModal] = useState(false)
-    const [idea, setIdea ] = useState({})
+    const [idea, setIdea] = useState({})
     const [elements, setElements] = useState([])
     const [isUploaded, setIsUploaded] = useState(false)
 
@@ -25,7 +32,9 @@ const Map = () => {
         try {
             const response = await sendRequest({ route: `/getIdeas/${ideaId}`, body: "" });
             setIdea(response)
-            setElements([...response.text_res, ...response.file_res])
+            setElements([{ id: response.id, level: 0, caption: response.title, x: x0, y: y0 },
+            ...response.text_res, ...response.file_res])
+
         } catch (error) {
             console.log(error);
         }
@@ -36,14 +45,8 @@ const Map = () => {
     }, [isUploaded]);
 
     const print = () => {
-        console.log('print')
+        console.log(elements)
     }
-
-    const width = 400;
-    const height = 200;
-    const R = 90;
-    const x0 = width / 2;
-    const y0 = height / 2;
 
     return (
         <>
@@ -55,21 +58,27 @@ const Map = () => {
                 </div>
             </div>
             <div className='flex flex-col justify-center items-center w-full min-h-screen'>
-                {/* <div className='idea-title text-2xl font-medium'>{idea.title}</div> */}
                 <svg viewBox='0 0 600 400'>
-                <TreeNode
-                    x={x0} y={y0} caption={idea.title} level={0} />
-                {elements.map((element, index) => (
-                    <TreeNode key={index}
-                        x={x0 + R * Math.cos(index * Math.PI * 2 / (elements.length + 1))}
-                        y={y0 + R * Math.sin(index * Math.PI * 2 / (elements.length + 1))}
-                        caption={element.caption!==null? element.caption : element.text} level={1} />
-                ))}
-            </svg>
-                
+                    {elements.map((element, index) => (
+                        <Lines key={index} 
+                        x={x0 + R * Math.cos((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))} 
+                        y={y0 + R * Math.sin((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))}
+                        px={x0} py={y0} level={index === 0 ? 0 : 1}/>
+                    ))}
+                    {elements.map((element, index) => (
+                        <TreeNode key={index}
+                            phi={index * Math.PI * 2 / elements.length}
+                            x={index === 0 ? x0 : x0 + R * Math.cos((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))}
+                            y={index === 0 ? y0 : y0 + R * Math.sin((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))}
+                            px={x0} py={y0} level={index === 0 ? 0 : 1} 
+                            isLeftSide = {(index * Math.PI * 2 / elements.length > Math.PI / 2) && (index * Math.PI * 2 / elements.length < 3 * Math.PI / 2)}
+                            caption={element.caption !== null ? element.caption : element.text} />
+                    ))}
+                </svg>
+
             </div>
             <Modal overlayClassName='overlay' isOpen={openModal} onRequestClose={handleCloseModal} className={'modal w-1/3 h-fit flex flex-col gap-5 py-8 px-9 active:border-0 bg-white'}>
-                <ModalForm handleCloseModal={handleCloseModal} ideaId={ideaId} setIsUploaded={setIsUploaded}/>
+                <ModalForm handleCloseModal={handleCloseModal} ideaId={ideaId} setIsUploaded={setIsUploaded} isUploaded={isUploaded} />
             </Modal>
         </>
     )
