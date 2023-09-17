@@ -1,0 +1,14 @@
+.containerr {
+    fill: #F3F5F8;
+    fill-opacity: 0.9;
+    stroke: #1ED690;
+    paint-order: stroke;
+    cursor: pointer;
+    text-anchor: middle;
+}
+
+.text {
+    font-size: 10px;
+    alignment-baseline: middle;
+    text-anchor: middle;
+}
