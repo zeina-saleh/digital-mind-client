@@ -6,7 +6,7 @@ import Input2 from '../../UI/Input2'
 import Button from '../../UI/Button'
 import { sendRequest } from '../../../config/request'
 
-const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded }) => {
+const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) => {
 
     const [type, setType] = useState({ value: 4, label: 'tag' })
     const [link, setLink] = useState('')
@@ -29,7 +29,7 @@ const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded }) => {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
-                setIsUploaded(true)
+                setIsUploaded(!isUploaded)
                 handleCloseModal();
                 console.log(response);
             } else {
@@ -39,7 +39,7 @@ const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded }) => {
                     type_id: type.value,
                 };
                 const response = await sendRequest({ method: 'POST', route: `/addResource/text/${ideaId}`, body: data, });
-                setIsUploaded(true)
+                setIsUploaded(!isUploaded)
                 handleCloseModal();
                 console.log(response);
             }
