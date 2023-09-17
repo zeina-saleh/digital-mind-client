@@ -34,6 +34,7 @@ const Map = () => {
             setIdea(response)
             setElements([{ id: response.id, level: 0, caption: response.title, x: x0, y: y0 },
             ...response.text_res, ...response.file_res])
+            console.log(elements)
 
         } catch (error) {
             console.log(error);
@@ -58,7 +59,7 @@ const Map = () => {
                 </div>
             </div>
             <div className='flex flex-col justify-center items-center w-full min-h-screen'>
-                <svg viewBox='0 0 600 400'>
+                <svg viewBox='0 0 400 200'>
                     {elements.map((element, index) => (
                         <Lines key={index} 
                         x={x0 + R * Math.cos((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))} 
@@ -72,7 +73,7 @@ const Map = () => {
                             y={index === 0 ? y0 : y0 + R * Math.sin((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))}
                             px={x0} py={y0} level={index === 0 ? 0 : 1} 
                             isLeftSide = {(index * Math.PI * 2 / elements.length > Math.PI / 2) && (index * Math.PI * 2 / elements.length < 3 * Math.PI / 2)}
-                            caption={element.caption !== null ? element.caption : element.text} />
+                            caption={element.caption !== null ? element.caption : element.text} type={element.type_id} />
                     ))}
                 </svg>
 
