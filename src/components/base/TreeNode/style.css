@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300;400;700;900&family=Ropa+Sans&display=swap');
+
 .containerr {
     fill: #F3F5F8;
     fill-opacity: 0.9;
-    stroke: #1ED690;
+    stroke: none;
     paint-order: stroke;
     cursor: pointer;
 }
 
 .text {
-    font-size: 10px;
+    font-size: 7px;
     alignment-baseline: middle;
     text-anchor: middle;
+    font-family: 'Ropa Sans';
 }
 
 .t-left{
