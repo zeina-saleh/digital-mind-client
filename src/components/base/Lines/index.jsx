@@ -12,7 +12,7 @@ const Lines = (props) => {
             <></>
         ) : (
             <g>
-                <path d={d} fill='none' stroke="#1e1e1e" />
+                <path d={d} fill='none' stroke="#ccc" />
             </g>
         )}</>
     );
