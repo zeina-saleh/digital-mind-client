@@ -7,6 +7,7 @@ import { TileLayer } from 'react-leaflet/TileLayer'
 import { Marker, Popup } from 'react-leaflet'
 import { sendRequest } from '../../../config/request'
 import marker from '../../../assets/marker.svg'
+import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import './style.css'
 
@@ -16,12 +17,17 @@ const MeetingForm = ({ handleCloseMeetModal, ideaId }) => {
     const [data, setData] = useState({
         title: "",
         date: "",
-        longitude: -0.09,
-        latitude: 51.505,
+        longitude: 35.519789109015015,
+        latitude: 33.86100802163998,
     })
     const [title, setTitle] = useState('')
     const [date, setDate] = useState('')
     const [position, setPosition] = useState([data.latitude, data.longitude])
+
+    const markerIcon = new L.Icon({
+        iconUrl: marker, 
+        iconSize: [35,45]
+    })
 
     const handleLatLng = (lat, lng) => {
         setData({ ...data, latitude: lat, longitude: lng })
@@ -41,24 +47,25 @@ const MeetingForm = ({ handleCloseMeetModal, ideaId }) => {
         };
         try{
             const response = await sendRequest({ method: 'POST', route: `/createMeeting/${ideaId}`, body: formData, });
-                
                 console.log(response);
+                handleCloseMeetModal()
         } catch(error){
             console.log(error)
         }
       }
+
     return (
         <>
             <h6 className='self-center font-semibold'>Setup a meeting</h6>
-            <Input label={'Add a title for your meeting'} className={"input2"} wrapper={"wrapper2"} onChange={(title)=>setTitle(title)} />
-            <Input label={'Pick a date'} className={"input2"} type={'datetime-local'} wrapper={"wrapper2"} onChange={(date)=>setDate(date)} />
+            <Input label={'Add a title for your meeting'} onChange={(title)=>setTitle(title)} />
+            <Input label={'Pick a date'} type={'datetime-local'} onChange={(date)=>setDate(date)} />
 
             <MapContainer center={position} zoom={13} scrollWheelZoom={false} onClick={(e)=> console.log(e)}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={position} draggable eventHandlers={{ dragend: handleMarkerEvent }}>
+                <Marker position={position} icon={markerIcon} draggable eventHandlers={{ dragend: handleMarkerEvent }}>
                     <Popup>
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
