@@ -4,4 +4,12 @@
 
 .search-input {
     outline: none;
+    background: #F3F5F8;
+}
+
+.search-input:-webkit-autofill,
+.search-input:-webkit-autofill:hover,
+.search-input:-webkit-autofill:focus,
+.search-input:-webkit-autofill:active {
+  background-color: #F3F5F8;
 }

@@ -6,7 +6,7 @@ import Input2 from '../../UI/Input2'
 import Button from '../../UI/Button'
 import { sendRequest } from '../../../config/request'
 
-const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) => {
+const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) => {
 
     const [type, setType] = useState({ value: 4, label: 'tag' })
     const [link, setLink] = useState('')
@@ -48,10 +48,6 @@ const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) => {
         }
     };
 
-    const print = () => {
-        console.log('print')
-    }
-
     return (
         <div className='flex flex-col gap-4'>
             <div>
@@ -63,9 +59,9 @@ const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) => {
                     { value: 4, label: 'tag' },
                 ]} />
             </div>
-            {type.value === 2 ? <Input label={'Paste link'} className={"input2"} wrapper={"wrapper2"} onChange={(link) => setLink(link)} />
-                : type.value === 1 ? <Input2 label={'Upload file'} type='file' className={"input2"} wrapper={"wrapper2"} onChange={(pdf) => setPDF(pdf)} accept={'application/pdf'} />
-                    : type.value == 3 ? <Input2 label={'Upload file'} type='file' className={"input2"} wrapper={"wrapper2"} onChange={(image) => setSelectedImage(image)} accept={'image/*'} />
+            {type.value === 2 ? <Input label={'Paste link'} onChange={(link) => setLink(link)} />
+                : type.value === 1 ? <Input2 label={'Upload file'} type='file' onChange={(pdf) => setPDF(pdf)} accept={'application/pdf'} />
+                    : type.value == 3 ? <Input2 label={'Upload file'} type='file' onChange={(image) => setSelectedImage(image)} accept={'image/*'} />
                         : <></>}
             {selectedImage && (
                 <div className='self-center'>
@@ -77,8 +73,8 @@ const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) => {
                 </div>
             )}
             {type.value !== 4 ?
-                <Input label={'Add a caption'} className={"input2"} wrapper={"wrapper2"} onChange={(caption) => setCaption(caption)} />
-                : <Input label={'Add a tag'} className={"input2"} wrapper={"wrapper2"} onChange={(tag) => setTag(tag)} />
+                <Input label={'Add a caption'} onChange={(caption) => setCaption(caption)} />
+                : <Input label={'Add a tag'} onChange={(tag) => setTag(tag)} />
             }
             <div className='flex justify-center gap-5 w-full'>
                 <Button classname={"w-20 h-8 self-center"} text={'Submit'} onClick={handleUpload} />
@@ -88,4 +84,4 @@ const ModalForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) => {
     )
 }
 
-export default ModalForm
+export default ResourceForm

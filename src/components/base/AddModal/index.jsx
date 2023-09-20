@@ -34,7 +34,7 @@ const AddModal = ({ openModal, placeholder = 'title', ideaFunc, onCancel, setTit
   return (
     <Modal overlayClassName='overlay' isOpen={openModal} onRequestClose={onCancel} className='mini-modal flex flex-col gap-5 items-center w-96 h-50 bg-white'>
       <div className='flex flex-col gap-7 w-full p-8'>
-        <Input label={editMode? 'Edit title' : 'Enter title'} value={editMode? title : ''}  className={"input2"} wrapper={"wrapper2"} placeholder={placeholder}
+        <Input label={editMode? 'Edit title' : 'Enter title'} value={editMode? title : ''} placeholder={placeholder}
           onChange={(title) => setTitle(title)} />
 
         <div className='flex justify-center gap-5 w-full'>
