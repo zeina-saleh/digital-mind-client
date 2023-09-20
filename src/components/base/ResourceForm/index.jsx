@@ -5,8 +5,9 @@ import Input from '../../UI/Input'
 import Input2 from '../../UI/Input2'
 import Button from '../../UI/Button'
 import { sendRequest } from '../../../config/request'
+import html2canvas from 'html2canvas'
 
-const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) => {
+const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded, mapRef }) => {
 
     const [type, setType] = useState({ value: 4, label: 'tag' })
     const [link, setLink] = useState('')
@@ -15,8 +16,33 @@ const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) =
     const [PDF, setPDF] = useState(null)
     const [selectedImage, setSelectedImage] = useState(null);
 
+    const takeScreenshot = async () => {
+        try {
+            const canvas = await html2canvas(mapRef.current);
+            const screenshotBlob = await new Promise((resolve) => {
+                canvas.toBlob((blob) => {
+                    resolve(blob);
+                }, "image/jpeg", 0.9);
+            });
+
+            const formData = new FormData();
+            formData.append('file', screenshotBlob, 'screenshot.jpg');
+
+            const response = await sendRequest({
+                method: 'POST', route: `/updateScreenshot/${ideaId}`, body: screenshotBlob,
+                body: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
     const handleUpload = async () => {
-        console.log(type.value);
         try {
             if (type.value === 1 || type.value === 3) {
                 const formData = new FormData();
@@ -24,14 +50,15 @@ const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) =
                 formData.append('caption', caption);
                 formData.append('type_id', type.value);
 
-                const response = await sendRequest({ method: 'POST', route: `/addResource/file/${ideaId}`, body: formData,
+                const response = await sendRequest({
+                    method: 'POST', route: `/addResource/file/${ideaId}`, body: formData,
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
                 });
                 setIsUploaded(!isUploaded)
                 handleCloseModal();
-                console.log(response);
+                // console.log(response);
             } else {
                 const data = {
                     text: type.value === 2 ? link : tag,
@@ -41,8 +68,9 @@ const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded }) =
                 const response = await sendRequest({ method: 'POST', route: `/addResource/text/${ideaId}`, body: data, });
                 setIsUploaded(!isUploaded)
                 handleCloseModal();
-                console.log(response);
+                // console.log(response);
             }
+            takeScreenshot()
         } catch (error) {
             console.error('error:', error);
         }
