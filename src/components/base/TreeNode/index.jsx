@@ -1,7 +1,18 @@
 import React from 'react'
+import { useRef, useState } from 'react';
+import Modal from 'react-modal';
 import './style.css'
+import logo from '../../../assets/logo.svg'
 
 const TreeNode = (props) => {
+
+    // const svgRef = useRef();
+
+    const[path, setpath] = useState('')
+    const [openResModal, setOpenResModal] = useState(false)
+    const handleOpenResModal = () => setOpenResModal(true)
+    const handleCloseResModal = () => setOpenResModal(false)
+
     const width = 100;
     const height = 20;
 
@@ -9,13 +20,11 @@ const TreeNode = (props) => {
     let x = props.x;
     let textAlign = "t-right"
     let textOffset = 3
-    let iconOffset = 28
 
     if (isLeftSide) {
         x -= width
         textAlign = "t-left"
         textOffset = -3
-        iconOffset = 1
     }
     if (props.level === 0) {
         textAlign = "t-middle"
@@ -24,34 +33,44 @@ const TreeNode = (props) => {
     }
 
     const root = <circle className='containerr' cx={props.x} cy={props.y} r="30" fill="none" stroke="#1e1e1e"></circle>
-    const child = <rect className='containerr' rx="3" x={x} y={props.y - height / 2}
-        width={width} height={height} fill='none' stroke='#1e1e1e' />
-    const element = props.level === 0 ? root : child
+    const element = props.level === 0 ? root : <></>
+
+    let classname =''
+    props.type ===1 | props.type ===2 | props.type ===3 ? classname='cursor-pointer hover:fill-[#1ed690]': classname=''
+
+    // function click (){
+    //     svgRef.current.onClick(()=> props.handleOpenModal)
+    // }
+
+    function displayResource(){
+        if(props.element.type_id===3){
+            setpath(props.element.path)
+            handleOpenResModal()
+        }
+        if(props.element.type_id===1){
+            setpath(props.element.path)
+            handleOpenResModal()
+        }
+        if(props.element.type_id===2){
+            openInNewTab(props.element.text)
+        }
+    }
+
+    const openInNewTab = (url) => {
+        window.open(url, "_blank", "noreferrer");
+      };
 
     return (
-        <g>
-            {element}
-            <text className={`text ${textAlign}`} x={props.x + textOffset} y={props.y}>{props.caption}</text>
-            {props.level !== 0 && props.type === 2 ?
-                <svg className='cursor-pointer' x={props.x + iconOffset} y={props.y - 5} width="13" height="13" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="link">
-                        <path d="M9.16488 17.6505C8.92513 17.8743 8.73958 18.0241 8.54996 18.1336C7.62175 18.6695 6.47816 18.6695 5.54996 18.1336C5.20791 17.9361 4.87912 17.6073 4.22153 16.9498C3.56394 16.2922 3.23514 15.9634 3.03767 15.6213C2.50177 14.6931 2.50177 13.5495 3.03767 12.6213C3.23514 12.2793 3.56394 11.9505 4.22153 11.2929L7.04996 8.46448C7.70755 7.80689 8.03634 7.47809 8.37838 7.28062C9.30659 6.74472 10.4502 6.74472 11.3784 7.28061C11.7204 7.47809 12.0492 7.80689 12.7068 8.46448C13.3644 9.12207 13.6932 9.45086 13.8907 9.7929C14.4266 10.7211 14.4266 11.8647 13.8907 12.7929C13.7812 12.9825 13.6314 13.1681 13.4075 13.4078M10.5919 10.5922C10.368 10.8319 10.2182 11.0175 10.1087 11.2071C9.57284 12.1353 9.57284 13.2789 10.1087 14.2071C10.3062 14.5492 10.635 14.878 11.2926 15.5355C11.9502 16.1931 12.279 16.5219 12.621 16.7194C13.5492 17.2553 14.6928 17.2553 15.621 16.7194C15.9631 16.5219 16.2919 16.1931 16.9495 15.5355L19.7779 12.7071C20.4355 12.0495 20.7643 11.7207 20.9617 11.3787C21.4976 10.4505 21.4976 9.30689 20.9617 8.37869C20.7643 8.03665 20.4355 7.70785 19.7779 7.05026C19.1203 6.39267 18.7915 6.06388 18.4495 5.8664C17.5212 5.3305 16.3777 5.3305 15.4495 5.8664C15.2598 5.97588 15.0743 6.12571 14.8345 6.34955" stroke="#000000" stroke-width="2" stroke-linecap="round" />
-                    </g>
-                </svg>
-                : props.level !== 0 && props.type === 1 ?
-                    <svg fill="#000000" x={props.x + iconOffset} y={props.y - 5} width="10" height="10" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-                        <g id="SVGRepo_iconCarrier"> <g fill-rule="evenodd"> <path d="M1251.654 0c44.499 0 88.207 18.07 119.718 49.581l329.223 329.224c31.963 31.962 49.581 74.54 49.581 119.717V1920H169V0Zm-66.183 112.941H281.94V1807.06h1355.294V564.706H1185.47V112.94Zm112.94 23.379v315.445h315.445L1298.412 136.32Z" /> <path d="M900.497 677.67c26.767 0 50.372 12.65 67.991 37.835 41.901 59.068 38.965 121.976 23.492 206.682-5.308 29.14.113 58.617 16.263 83.125 22.814 34.786 55.68 82.673 87.981 123.219 23.718 29.93 60.198 45.854 97.13 40.885 23.718-3.276 52.292-5.986 81.656-5.986 131.012 0 121.186 46.757 133.045 89.675 6.55 25.976 3.275 48.678-10.165 65.506-16.715 22.701-51.162 34.447-101.534 34.447-55.793 0-74.202-9.487-122.767-24.96-27.445-8.81-55.906-10.617-83.69-3.275-55.453 14.456-146.936 36.48-223.284 46.983-40.772 5.647-77.816 26.654-102.438 60.875-55.454 76.8-106.842 148.518-188.273 148.518-21.007 0-40.32-7.567-56.244-22.701-23.492-23.492-33.544-49.581-28.574-79.85 13.778-92.95 128.075-144.79 196.066-182.625 16.037-8.923 28.687-22.589 36.592-39.53l107.86-233.223c7.68-16.377 10.051-34.56 7.228-52.518-12.537-79.059-31.06-211.99 18.748-272.075 10.955-13.44 26.09-21.007 42.917-21.007Zm20.556 339.953c-43.257 126.607-119.718 264.282-129.996 280.32 92.273-43.37 275.916-65.28 275.916-65.28-92.386-88.998-145.92-215.04-145.92-215.04Z" /> </g> </g>
-                    </svg>
-                    : props.level !== 0 && props.type === 3 ?
-                        <svg x={props.x + iconOffset} y={props.y - 8} width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-                            <g id="SVGRepo_iconCarrier"> <path d="M4.02693 18.329C4.18385 19.277 5.0075 20 6 20H18C19.1046 20 20 19.1046 20 18V14.1901M4.02693 18.329C4.00922 18.222 4 18.1121 4 18V6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V14.1901M4.02693 18.329L7.84762 14.5083C8.52765 13.9133 9.52219 13.8482 10.274 14.3494L10.7832 14.6888C11.5078 15.1719 12.4619 15.1305 13.142 14.5865L15.7901 12.4679C16.4651 11.9279 17.4053 11.8856 18.1228 12.3484C18.2023 12.3997 18.2731 12.4632 18.34 12.5302L20 14.1901M11 9C11 10.1046 10.1046 11 9 11C7.89543 11 7 10.1046 7 9C7 7.89543 7.89543 7 9 7C10.1046 7 11 7.89543 11 9Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /> </g>
-                        </svg>
-                        : <></>}
-        </g>
+        <>
+            <g>
+                {element}
+                <text onClick={displayResource} className={`text ${textAlign} ${classname}`} x={props.x + textOffset} y={props.y}>{props.caption}</text>
+            </g>
+            <Modal overlayClassName='overlay' isOpen={openResModal} onRequestClose={handleCloseResModal} className={`modal bg-none h-fit ${props.type===3? 'w-fit' : 'w-11/12'}`}>
+             {props.type === 3? <img src={`http://localhost:8000/${path}`} alt="img" className="img-res" />
+             : props.type === 1? <embed src={`http://localhost:8000/${path}`} type="application/pdf" width="100%" height="600px" /> : <></>}
+            </Modal>
+        </>
     )
 }
 

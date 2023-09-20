@@ -5,7 +5,6 @@
     fill-opacity: 0.9;
     stroke: none;
     paint-order: stroke;
-    cursor: pointer;
 }
 
 .text {
@@ -23,4 +22,16 @@
 }
 .t-middle{
     text-anchor: middle;
+}
+
+.res-icon{
+    pointer-events:all ;
+    cursor: pointer;
+}
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
