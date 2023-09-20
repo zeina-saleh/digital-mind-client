@@ -2,14 +2,14 @@ import React from 'react'
 import { useState } from 'react'
 import { sendRequest } from '../../../config/request';
 import { useNavigate } from "react-router-dom";
-import Input from '../../UI/Input'
 import './style.css'
 import Button from '../../UI/Button'
+import CredentialsInput from '../../UI/CredentialsInput';
 
-const LoginForm = ({ onToggle }) => {
+const LoginForm = ({ onToggle, setIsLogged }) => {
 
   const navigation = useNavigate();
-  //
+  
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
 
@@ -34,6 +34,7 @@ const LoginForm = ({ onToggle }) => {
       const response = await sendRequest({ method: "POST", route: "/login", body: credentials });
       localStorage.setItem("access_token", response.token);
       navigation("/home");
+      setIsLogged(true)
     } catch (error) {
       console.log(error);
       setError("Incorrect Email/Password");
@@ -45,8 +46,8 @@ const LoginForm = ({ onToggle }) => {
         <h1 className='title text-4xl'>Login</h1>
         <h6 className='font-semibold'>Enter your account details</h6>
       </div>
-      <Input label={'Email'} className={'input'} wrapper={"wrapper"} onChange={(email) => setCredentials({ ...credentials, email })} />
-      <Input label={'Password'} className={'input'} wrapper={"wrapper"} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
+      <CredentialsInput label={'Email'} className={'input'} onChange={(email) => setCredentials({ ...credentials, email })} />
+      <CredentialsInput label={'Password'} className={'input'} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
       <h6 className='px-2'>Forgot password?</h6>
       <div className='flex gap-1 px-2'>
         <p className='flex w-full'>Don't have an account?</p>

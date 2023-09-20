@@ -2,9 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import { sendRequest } from '../../../config/request';
 import { useNavigate } from "react-router-dom";
-import Input from '../../UI/Input'
 import './style.css'
 import Button from '../../UI/Button'
+import CredentialsInput from '../../UI/CredentialsInput';
 
 const RegisterForm = ({ onToggle }) => {
 
@@ -30,9 +30,9 @@ const RegisterForm = ({ onToggle }) => {
         <h1 className='title text-4xl'>Signup</h1>
         <h6 className='font-semibold'>Enter your account details</h6>
       </div>
-      <Input label={'Name'} className={"input"} wrapper={'wrapper'} value={credentials.name} onChange={(name) => setCredentials({ ...credentials, name })} />
-      <Input label={'Email'} className={"input"} wrapper={'wrapper'} value={credentials.email} onChange={(email) => setCredentials({ ...credentials, email })} />
-      <Input label={'Password'} className={"input"} wrapper={'wrapper'} value={credentials.password} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
+      <CredentialsInput label={'Name'} value={credentials.name} onChange={(name) => setCredentials({ ...credentials, name })} />
+      <CredentialsInput label={'Email'} value={credentials.email} onChange={(email) => setCredentials({ ...credentials, email })} />
+      <CredentialsInput label={'Password'} value={credentials.password} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
       <h6 className='px-2'>Forgot password?</h6>
       <div className='flex gap-1'>
         <p className='flex w-full px-2'>Already have an account?</p>
