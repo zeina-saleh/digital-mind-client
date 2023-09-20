@@ -1,0 +1,19 @@
+.input {
+    outline: none;
+    border: none;
+}
+
+.wrapper{ 
+    border-bottom: solid 1px #1ED690;
+}
+
+input[type="text"]:enabled {
+    background: #F3F5F8;
+};
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-color: #F3F5F8;
+}
