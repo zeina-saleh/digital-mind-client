@@ -65,11 +65,12 @@ const Collections = () => {
           {collections.map(collection => (
             <CollectionItem key={collection.id} collection={collection} handleOpenModal={handleOpenModal}
               setIdeaFunc={setIdeaFunc} setCollectionId={setCollectionId}
-              handleOpenConsentModal={handleOpenConsentModal} setIdeaId={setIdeaId} editMode={editMode} />
+              handleOpenConsentModal={handleOpenConsentModal} setIdeaId={setIdeaId} 
+              editMode={editMode} setTitle={setTitle} />
           ))}
         </div>
 
-        <AddModal openModal={openModal} ideaFunc={ideaFunc} onCancel={handleCloseModal} title={title} setTitle={setTitle} collectionId={collectionId} editMode={editMode} setEditMode={setEditMode}/>
+        <AddModal openModal={openModal} ideaFunc={ideaFunc} onCancel={handleCloseModal} title={title} setTitle={setTitle} collectionId={collectionId} editMode={editMode} setEditMode={setEditMode} ideaId={ideaId}/>
         <DeleteModal openModal={openConsentModal} ideaFunc={ideaFunc} onCancel={handleCloseConsentModal} setTitle={setTitle} collectionId={collectionId} ideaId={ideaId} editMode={editMode} setEditMode={setEditMode}/>
 
       </div>

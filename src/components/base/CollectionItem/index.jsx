@@ -8,7 +8,7 @@ import './style.css'
 import logo from '../../../assets/logo.svg'
 
 const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectionId,
-    handleOpenConsentModal, setIdeaId, editMode }) => {
+    handleOpenConsentModal, setIdeaId, editMode, setTitle }) => {
 
     const navigation = useNavigate();
     const [showIdeas, setShowIdeas] = useState(false)
@@ -39,16 +39,19 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
         handleOpenConsentModal()
     }
 
-    const handleEditCollection = (event) => {
+    const handleEditCollection = (event, collectionTitle) => {
         event.stopPropagation()
         setIdeaFunc(false);
         setCollectionId(collection.id);
+        setTitle(collectionTitle)
         handleOpenModal()
     }
 
-    const handleEditIdea = (ideaId) => {
+    const handleEditIdea = (ideaId, ideaTitle) => {
         setIdeaFunc(true);
         setCollectionId(collection.id);
+        setIdeaId(ideaId);
+        setTitle(ideaTitle)
         handleOpenModal()
     }
 
@@ -62,7 +65,7 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
                 <div className='flex items-center gap-6'>
                     <p className='text-xl'>{collection.title}</p>
                     <div className='flex gap-5'>
-                        <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b] cursor-pointer hover:text-[#1ed690]`} onClick={(event) => handleEditCollection(event)} />
+                        <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b] cursor-pointer hover:text-[#1ed690]`} onClick={(event) => handleEditCollection(event, collection.title)} />
                         <FontAwesomeIcon icon={faTrashCan} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={(event) => handleDeleteCollection(event)} />
                     </div>
                 </div>
@@ -78,7 +81,7 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
                             </div>
                             <div className='flex gap-3 items-center justify-between'>
                             <div className='w-fit p-2 font-normal'>{idea.title}</div>
-                            <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={() => handleEditIdea(idea.id)} />
+                            <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={() => handleEditIdea(idea.id, idea.title)} />
                             </div>
 
                         </div>
