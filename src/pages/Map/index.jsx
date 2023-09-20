@@ -27,6 +27,7 @@ const Map = () => {
 
     const handleOpenModal = () => setOpenModal(true)
     const handleCloseModal = () => setOpenModal(false)
+    
 
     const fetchIdea = async () => {
         try {
@@ -64,7 +65,9 @@ const Map = () => {
                         <Lines key={index} 
                         x={x0 + R * Math.cos((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))} 
                         y={y0 + R * Math.sin((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))}
-                        px={x0} py={y0} level={index === 0 ? 0 : 1}/>
+                        px={x0} py={y0} level={index === 0 ? 0 : 1}
+                        isLeftSide = {(index * Math.PI * 2 / elements.length > Math.PI / 2) && (index * Math.PI * 2 / elements.length < 3 * Math.PI / 2)}
+                        element={element} />
                     ))}
                     {elements.map((element, index) => (
                         <TreeNode key={index}
@@ -73,7 +76,8 @@ const Map = () => {
                             y={index === 0 ? y0 : y0 + R * Math.sin((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))}
                             px={x0} py={y0} level={index === 0 ? 0 : 1} 
                             isLeftSide = {(index * Math.PI * 2 / elements.length > Math.PI / 2) && (index * Math.PI * 2 / elements.length < 3 * Math.PI / 2)}
-                            caption={element.caption !== null ? element.caption : element.text} type={element.type_id} />
+                            caption={element.caption !== null ? element.caption : element.text} type={element.type_id} element={element}
+                            />
                     ))}
                 </svg>
 
@@ -81,6 +85,7 @@ const Map = () => {
             <Modal overlayClassName='overlay' isOpen={openModal} onRequestClose={handleCloseModal} className={'modal w-1/3 h-fit flex flex-col gap-5 py-8 px-9 active:border-0 bg-white'}>
                 <ModalForm handleCloseModal={handleCloseModal} ideaId={ideaId} setIsUploaded={setIsUploaded} isUploaded={isUploaded} />
             </Modal>
+
         </>
     )
 }
