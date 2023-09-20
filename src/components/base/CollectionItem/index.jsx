@@ -30,13 +30,15 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
         handleOpenConsentModal()
     }
 
-    const handleDeleteCollection = () => {
+    const handleDeleteCollection = (event) => {
+        event.stopPropagation()
         setIdeaFunc(false);
         setCollectionId(collection.id);
         handleOpenConsentModal()
     }
 
-    const handleEditCollection = () => {
+    const handleEditCollection = (event) => {
+        event.stopPropagation()
         setIdeaFunc(false);
         setCollectionId(collection.id);
         handleOpenModal()
@@ -44,12 +46,12 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
 
     return (
         <div className='flex flex-col'>
-            <div className='collection-item flex items-center justify-between p-2'>
+            <div className='collection-item flex items-center justify-between p-2 cursor-pointer' onClick={onToggle}>
                 <div className='flex items-center gap-6'>
                     <p className='text-xl'>{collection.title}</p>
                     <div className='flex gap-5'>
-                        <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b] cursor-pointer hover:text-[#1ed690]`} onClick={handleEditCollection} />
-                        <FontAwesomeIcon icon={faTrashCan} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={handleDeleteCollection} />
+                        <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b] cursor-pointer hover:text-[#1ed690]`} onClick={(event) => handleEditCollection(event)} />
+                        <FontAwesomeIcon icon={faTrashCan} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={(event) => handleDeleteCollection(event)} />
                     </div>
                 </div>
                 <FontAwesomeIcon icon={chevron} style={{ color: "#1e1e1e", }} className='cursor-pointer' onClick={onToggle} />
