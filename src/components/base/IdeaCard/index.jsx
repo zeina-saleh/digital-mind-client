@@ -19,8 +19,8 @@ const IdeaCard = ({ idea, setLiked, liked, setLikesCount }) => {
     return (
         <>
             <div className='flex flex-col'>
-                <div className='card flex items-center justify-center w-64 h-60'>
-                    <img src={`http://localhost:8000/${idea.path}`}></img>
+            <div className='card flex items-center justify-center w-64 h-52 p-2' style={idea.path !== 'storage/screenshots/logo.svg' ? {backgroundColor: '#fff'} : {} }>
+                    <img className='card-img' src={`http://localhost:8000/${idea.path}`}  style={idea.path !== 'storage/screenshots/logo.svg' ? { width: '100%', height: '100%', objectFit: 'cover' } : {}}></img>
                 </div>
                 <div className='flex flex-col w-full p-2'>
                     <p className='font-semibold text-lg'>{idea.collection.user.name}</p>
