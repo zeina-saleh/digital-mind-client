@@ -3,12 +3,12 @@ import LoginForm from "../../components/base/LoginForm";
 import RegisterForm from "../../components/base/RegisterForm";
 import brain from '../../assets/brain.svg'
 
-const Authentication = ({setIsLogged}) => {
+const Authentication = () => {
     const [login, setLogin] = useState(true);
   return (
     <div className="flex justify-center items-center gap-10 mt-20">
       {login ? (
-        <LoginForm setIsLogged={setIsLogged} onToggle={() => setLogin(false)} />
+        <LoginForm onToggle={() => setLogin(false)} />
       ) : (
         <RegisterForm onToggle={() => setLogin(true)} />
       )}

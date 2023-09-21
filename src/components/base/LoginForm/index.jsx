@@ -6,7 +6,7 @@ import './style.css'
 import Button from '../../UI/Button'
 import CredentialsInput from '../../UI/CredentialsInput';
 
-const LoginForm = ({ onToggle, setIsLogged }) => {
+const LoginForm = ({ onToggle }) => {
 
   const navigation = useNavigate();
   
@@ -34,7 +34,6 @@ const LoginForm = ({ onToggle, setIsLogged }) => {
       const response = await sendRequest({ method: "POST", route: "/login", body: credentials });
       localStorage.setItem("access_token", response.token);
       navigation("/home");
-      setIsLogged(true)
     } catch (error) {
       console.log(error);
       setError("Incorrect Email/Password");

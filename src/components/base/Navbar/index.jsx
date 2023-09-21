@@ -4,7 +4,7 @@ import { useState } from 'react';
 import logo from '../../../assets/logo.svg'
 import Button from '../../UI/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { sendRequest } from '../../../config/request';
 import './style.css'
 
@@ -32,10 +32,11 @@ const Navbar = () => {
         <>
             <div className='flex justify-between items-center h-24 max-w-5xl mx-auto px-4 mb-10'>
                 <Link to='/'><img src={logo} alt="logo" className="w-20 h-12" /></Link>
-                <div className='hidden md:flex space-x-4 text-3xl'>
+                <div className='hidden md:flex space-x-4 text-2xl'>
                     <Link to='/home' className='nav-link p-4 cursor-pointer '>Explore</Link>
                     <Link to='/home/planner' className='nav-link p-4 cursor-pointer'>Planner</Link>
                     <Link to='/home/collections' className='nav-link p-4 cursor-pointer'>Collections</Link>
+                    <Link to='/home/discussions' className='nav-link p-4 cursor-pointer'>Discussions</Link>
                 </div>
                 {!nav ? <>
                     <div className='flex items-center'>

@@ -1,7 +1,6 @@
 import './styles/App.css';
 import { Routes, Route, Outlet, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Navbar0 from './components/base/Navbar0';
 import Navbar from './components/base/Navbar';
 import Landing from './pages/Landing';
 import Authentication from './pages/Authentication';
@@ -9,6 +8,7 @@ import Explore from './pages/Explore'
 import Planner from './pages/Planner';
 import Collections from './pages/Collections';
 import Map from './pages/Map';
+import Discussions from './pages/Discussions';
 
 function App() {
 
@@ -24,12 +24,13 @@ function App() {
   return (
     <div className='App'>
       <Routes>
-        <Route path='/' element={<Landing isLogged={isLogged} />}></Route>
-        <Route path='/login' element={<Authentication setIsLogged={setIsLogged}/>}></Route>
-        <Route path='/home' element={isLogged? <Navbar /> : <Authentication />}>
+        <Route path='/' element={<Landing />}></Route>
+        <Route path='/login' element={<Authentication />}></Route>
+        <Route path='/home' element={ <Navbar />}>
           <Route index element={<Explore />} />
           <Route path='/home/planner' element={<Planner />} />
           <Route path='/home/collections' element={<Collections />} />
+          <Route path='/home/discussions' element={<Discussions />} />
           <Route path='/home/collections/idea/:ideaId?' element={<Map />} />
         </Route>
       </Routes>
