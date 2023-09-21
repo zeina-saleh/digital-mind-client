@@ -78,6 +78,7 @@ const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded, map
 
     return (
         <div className='flex flex-col gap-4'>
+            <h6 className='self-center font-semibold'>Add Resources</h6>
             <div>
                 <label className='font-medium px-2'>Select resource type</label>
                 <Select className='px-1' isSearchable placeholder='type' defaultValue={type} onChange={(value) => setType(value)} options={[
