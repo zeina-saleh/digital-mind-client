@@ -9,6 +9,7 @@ import Planner from './pages/Planner';
 import Collections from './pages/Collections';
 import Map from './pages/Map';
 import Discussions from './pages/Discussions';
+import PrivateRoutes from './components/PrivateRoutes';
 
 function App() {
 
@@ -26,7 +27,11 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing />}></Route>
         <Route path='/login' element={<Authentication />}></Route>
-        <Route path='/home' element={ <Navbar />}>
+
+        <Route path='/home' element={ 
+        <PrivateRoutes>
+          <Navbar />
+        </PrivateRoutes> }>
           <Route index element={<Explore />} />
           <Route path='/home/planner' element={<Planner />} />
           <Route path='/home/collections' element={<Collections />} />
