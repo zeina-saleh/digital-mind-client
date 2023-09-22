@@ -8,7 +8,7 @@ import IdeaCard from '../../components/base/IdeaCard'
 const Explore = () => {
 
   const [ideas, setIdeas] = useState([]);
-  const [liked, setLiked] = useState(undefined);
+  const [likeId, setLikeId] = useState(0);
   const [likesCount, setLikesCount] = useState('');
   const [searchField, setSearchField] = useState('')
 
@@ -23,7 +23,7 @@ const Explore = () => {
 
   useEffect(() => {
     fetchIdeas();
-  }, [liked]);
+  }, [likeId]);
 
   const filteredIdeas = ideas.filter((idea) => {
     return idea.title.toLowerCase().includes(searchField) | idea.collection.user.name.toLowerCase().includes(searchField)
@@ -35,7 +35,7 @@ const Explore = () => {
       <h6>Explore ideas and find people with similar interests</h6>
       <div className='flex pl-5 w-10/12 h-screen gap-5 flex-wrap'>
         {filteredIdeas.map(idea => (
-            <IdeaCard key={idea.id} idea={idea} setLiked={setLiked} liked={liked} setLikesCount={setLikesCount}/>
+            <IdeaCard key={idea.id} idea={idea} setLikeId={setLikeId} setLikesCount={setLikesCount}/>
         ))}
       </div>
     </div>

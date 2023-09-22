@@ -6,7 +6,7 @@ import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { sendRequest } from '../../../config/request';
 import Modal from 'react-modal';
 
-const IdeaCard = ({ idea, setLiked, liked, setLikesCount }) => {
+const IdeaCard = ({ idea, setLikeId, setLikesCount }) => {
 
     const [openResModal, setOpenResModal] = useState(false)
     const handleOpenResModal = () => setOpenResModal(true)
@@ -15,7 +15,7 @@ const IdeaCard = ({ idea, setLiked, liked, setLikesCount }) => {
     async function likeIdea() {
         try {
             const response = await sendRequest({ method: "POST", route: `/likeIdea/${idea.id}`, body: '' });
-            setLiked(true)
+            setLikeId(response.id)
             setLikesCount(response.likes_count)
         } catch (error) {
             console.log(error);
