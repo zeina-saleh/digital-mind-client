@@ -55,7 +55,7 @@ const Collections = () => {
         <div className='flex items-center justify-between w-10/12'>
           <div className='text-3xl page-title'>My Collections</div>
           <div className='flex gap-1'>
-            <Button2 text={"Saved Ideas"} onClick={unhide} icon={faBookmark} />
+            {/* <Button2 text={"Saved Ideas"} onClick={unhide} icon={faBookmark} /> */}
             <Button2 text={"Create Collection"} onClick={handleAddCollection} icon={faPlus} />
             <Button2 text={"Edit"} onClick={unhide} icon={faPen} />
           </div>
