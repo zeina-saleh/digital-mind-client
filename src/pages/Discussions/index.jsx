@@ -8,20 +8,18 @@ import DiscussionCard from '../../components/base/DiscussionCard'
 
 const Discussions = () => {
 
-  const [openChatModal, setOpenChatModal] = useState(false)
   const [discussions, setDiscussions] = useState([])
-
-  const handleOpenChatModal = () => setOpenChatModal(true)
-  const handleCloseChatModal = () => setOpenChatModal(false)
+  const [userId, setUserId] = useState(0)
 
   const fetchDiscussions = async () => {
     try {
       const response = await sendRequest({ route: "/getUserDiscussions", body: "" });
-      setDiscussions(response);
+      setDiscussions(response.discussions);
+      setUserId(response.authUser);
+      console.log(response)
     } catch (error) {
       console.log(error);
     }
-    console.log(discussions)
   };
 
   useEffect(() => {
@@ -43,10 +41,10 @@ const Discussions = () => {
 
         <div className='flex ml-56 w-full h-screen gap-5 flex-wrap'>
           {discussions.map(discussion => (
-            <DiscussionCard key={discussion.id} discussion={discussion} handleOpenChatModal={handleOpenChatModal} />
+            <DiscussionCard key={discussion.id} discussion={discussion} userId={userId} />
           ))}
         </div>
-        
+
       </div>
     </div>
   )
