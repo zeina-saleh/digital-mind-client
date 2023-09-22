@@ -4,13 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { sendRequest } from '../../../config/request';
+import Modal from 'react-modal';
 
 const IdeaCard = ({ idea, setLiked, liked, setLikesCount }) => {
+
+    const [openResModal, setOpenResModal] = useState(false)
+    const handleOpenResModal = () => setOpenResModal(true)
+    const handleCloseResModal = () => setOpenResModal(false)
 
     async function likeIdea() {
         try {
             const response = await sendRequest({ method: "POST", route: `/likeIdea/${idea.id}`, body: '' });
-            setLiked(response.liked)
+            setLiked(true)
             setLikesCount(response.likes_count)
         } catch (error) {
             console.log(error);
@@ -18,9 +23,9 @@ const IdeaCard = ({ idea, setLiked, liked, setLikesCount }) => {
     }
     return (
         <>
-            <div className='flex flex-col'>
-            <div className='card flex items-center justify-center w-64 h-52 p-2' style={idea.path !== 'storage/screenshots/logo.svg' ? {backgroundColor: '#fff'} : {} }>
-                    <img className='card-img' src={`http://localhost:8000/${idea.path}`}  style={idea.path !== 'storage/screenshots/logo.svg' ? { width: '100%', height: '100%', objectFit: 'cover' } : {}}></img>
+            <div className='flex flex-col' >
+                <div className='card flex items-center justify-center w-64 h-52 p-2' style={idea.path !== 'storage/images/logo.svg' ? { backgroundColor: '#fff' } : {}}>
+                    <img className='card-img cursor-pointer' src={`http://localhost:8000/${idea.path}`} style={idea.path !== 'storage/images/logo.svg' ? { width: '100%', height: '100%', objectFit: 'cover' } : {}} onClick={handleOpenResModal}></img>
                 </div>
                 <div className='flex flex-col w-full p-2'>
                     <p className='font-semibold text-lg'>{idea.collection.user.name}</p>
@@ -33,6 +38,10 @@ const IdeaCard = ({ idea, setLiked, liked, setLikesCount }) => {
                     </div>
                 </div>
             </div>
+
+            <Modal overlayClassName='overlay' isOpen={openResModal} onRequestClose={handleCloseResModal} className='modal bg-none h-fit w-fit'>
+                <img src={`http://localhost:8000/${idea.path}`} alt="img" className="img-res" />
+            </Modal>
         </>
     )
 }
