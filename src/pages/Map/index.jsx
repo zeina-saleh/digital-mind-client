@@ -83,8 +83,8 @@ const Map = () => {
                     <Button2 text={"Add Resource"} onClick={handleOpenModal} icon={faPlus} />
                 </div>
             </div>
-            <div className='flex flex-col justify-center items-center w-full min-h-screen'>
-                <svg ref={mapRef} viewBox='0 0 400 200'>
+            <div ref={mapRef} className='flex flex-col justify-center items-center w-full min-h-screen'>
+                <svg viewBox='0 0 400 200'>
                     {elements.map((element, index) => (
                         <Lines key={index}
                             x={x0 + R * Math.cos((index * Math.PI * 2 / elements.length) * Math.PI * 2 / (elements.length))}
