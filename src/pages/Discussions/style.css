@@ -10,6 +10,10 @@
     font-family: 'Roboto';
 }
 
+.modal:focus {
+    outline: none;
+}
+
 .overlay{
     position: fixed;
     top: 0;

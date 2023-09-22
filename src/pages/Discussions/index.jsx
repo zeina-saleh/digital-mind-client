@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Button from '../../components/UI/Button'
 import Modal from 'react-modal'
 import ChatBox from '../../components/base/ChatBox'
 import { sendRequest } from '../../config/request'
@@ -44,13 +43,10 @@ const Discussions = () => {
 
         <div className='flex ml-56 w-full h-screen gap-5 flex-wrap'>
           {discussions.map(discussion => (
-            <DiscussionCard key={discussion.id} discussion={discussion} />
+            <DiscussionCard key={discussion.id} discussion={discussion} handleOpenChatModal={handleOpenChatModal} />
           ))}
         </div>
-
-        <Modal overlayClassName='overlay' isOpen={openChatModal} onRequestClose={handleCloseChatModal} className='modal flex flex-col w-8/12 h-5/6 rounded-t-3xl rounded-b-none bg-none'>
-          <ChatBox handleCloseChatModal={handleCloseChatModal} />
-        </Modal>
+        
       </div>
     </div>
   )
