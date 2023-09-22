@@ -10,6 +10,7 @@ const Discussions = () => {
 
   const [discussions, setDiscussions] = useState([])
   const [userId, setUserId] = useState(0)
+  const [ exit, setExit] = useState(0)
 
   const fetchDiscussions = async () => {
     try {
@@ -24,7 +25,7 @@ const Discussions = () => {
 
   useEffect(() => {
     fetchDiscussions();
-  }, []);
+  }, [exit]);
 
   return (
     <div className='flex flex-col items-center w-full gap-5'>
@@ -41,7 +42,7 @@ const Discussions = () => {
 
         <div className='flex ml-56 w-full h-screen gap-5 flex-wrap'>
           {discussions.map(discussion => (
-            <DiscussionCard key={discussion.id} discussion={discussion} userId={userId} />
+            <DiscussionCard key={discussion.id} discussion={discussion} userId={userId} setExit={setExit} />
           ))}
         </div>
 

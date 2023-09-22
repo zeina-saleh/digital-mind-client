@@ -2,16 +2,25 @@ import React from 'react'
 import Modal from 'react-modal'
 import { useState } from 'react'
 import ChatBox from '../ChatBox'
+import { sendRequest } from '../../../config/request'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
-const DiscussionCard = ({ discussion, userId }) => {
+const DiscussionCard = ({ discussion, userId, setExit }) => {
 
     const [openChatModal, setOpenChatModal] = useState(false)
 
     const handleOpenChatModal = () => setOpenChatModal(true)
     const handleCloseChatModal = () => setOpenChatModal(false)
 
-    const print = () => {
-        console.log("")
+    const exitDiscussion = async () => {
+        try {
+            const response = await sendRequest({ route: `/exitDiscussion/${discussion.id}`, body: "" });
+            console.log(response)
+            setExit(response.id)
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -21,17 +30,15 @@ const DiscussionCard = ({ discussion, userId }) => {
             </div>
             <div className='flex flex-col w-full p-2'>
                 {/* <p className='font-semibold text-lg'>{idea.collection.user.name}</p> */}
-                <div className='flex justify-between items-center w-full'>
+                <div className='flex justify-between items-center w-full px-3'>
                     <p className='font-semibold' >{discussion.title}</p>
-                    <div className='flex items-center gap-2'>
-                        {/* <p>{idea.likes_count}</p> */}
-                        {/* <FontAwesomeIcon icon={idea.liked ? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-5 h-5 cursor-pointer' onClick={likeIdea} /> */}
-                    </div>
+                    <FontAwesomeIcon className='self-end' icon={faArrowRightFromBracket} style={{ color: "#1ae690", }} onClick={exitDiscussion} />
+                    
                 </div>
             </div>
 
             <Modal overlayClassName='overlay' isOpen={openChatModal} onRequestClose={handleCloseChatModal} className='modal flex flex-col w-8/12 h-5/6 rounded-t-3xl rounded-b-none bg-none'>
-                <ChatBox handleCloseChatModal={handleCloseChatModal} title={discussion.title} userId={userId} members={discussion.users} discussionId={discussion.id}/>
+                <ChatBox handleCloseChatModal={handleCloseChatModal} title={discussion.title} userId={userId} members={discussion.users} discussionId={discussion.id} />
             </Modal>
         </div>
     )
