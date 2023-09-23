@@ -6,7 +6,7 @@ import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
 import { sendRequest } from '../../../config/request';
 import Modal from 'react-modal';
 
-const IdeaCard = ({ idea, setLikeId, setLikesCount }) => {
+const IdeaCard = ({ idea, setLikesCount }) => {
 
     const [openResModal, setOpenResModal] = useState(false)
     const handleOpenResModal = () => setOpenResModal(true)
@@ -15,8 +15,8 @@ const IdeaCard = ({ idea, setLikeId, setLikesCount }) => {
     async function likeIdea() {
         try {
             const response = await sendRequest({ method: "POST", route: `/likeIdea/${idea.id}`, body: '' });
-            setLikeId(response.id)
-            setLikesCount(response.likes_count)
+            setLikesCount(response.idea[0].likes_count)
+            // console.log(response.idea[0].likes_count)
         } catch (error) {
             console.log(error);
         }
@@ -32,8 +32,8 @@ const IdeaCard = ({ idea, setLikeId, setLikesCount }) => {
                     <div className='flex justify-between items-center w-full'>
                         <p>{idea.title}</p>
                         <div className='flex items-center gap-2'>
-                            <p>{idea.likes_count}</p>
-                            <FontAwesomeIcon icon={idea.liked ? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-5 h-5 cursor-pointer' onClick={likeIdea} />
+                            <p className='text-lg'>{idea.likes_count}</p>
+                            <FontAwesomeIcon icon={idea.liked ? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-7 h-7 cursor-pointer' onClick={likeIdea} />
                         </div>
                     </div>
                 </div>
