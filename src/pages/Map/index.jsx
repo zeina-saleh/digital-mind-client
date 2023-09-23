@@ -11,6 +11,8 @@ import TreeNode from '../../components/base/TreeNode';
 import Lines from '../../components/base/Lines';
 import MeetingForm from '../../components/base/MeetingForm';
 import InviteForm from '../../components/base/InviteForm';
+import html2canvas from 'html2canvas'
+
 import './style.css'
 
 const Map = () => {
@@ -41,6 +43,30 @@ const Map = () => {
     const handleOpenInviteModal = () => setOpenInviteModal(true)
     const handleCloseInviteModal = () => setOpenInviteModal(false)
 
+    const takeScreenshot = async () => {
+        try {
+            const canvas = await html2canvas(mapRef.current);
+            const screenshotBlob = await new Promise((resolve) => {
+                canvas.toBlob((blob) => {
+                    resolve(blob);
+                }, "image/jpeg", 0.9);
+            });
+
+            const formData = new FormData();
+            formData.append('file', screenshotBlob, 'screenshot.jpg');
+
+            const response = await sendRequest({
+                method: 'POST', route: `/updateScreenshot/${ideaId}`, body: screenshotBlob,
+                body: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const fetchIdea = async () => {
         try {
@@ -72,6 +98,11 @@ const Map = () => {
         fetchIdea();
         fetchUsers();
     }, [isUploaded]);
+
+
+    useEffect(()=> {
+        takeScreenshot()
+    }, [elements])
 
     return (
         <>
