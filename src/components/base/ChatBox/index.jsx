@@ -6,7 +6,7 @@ import { firestore } from '../../../config/firebase';
 import { addDoc, collection, query, orderBy, limit, onSnapshot } from '@firebase/firestore';
 import './style.css'
 
-const ChatBox = ({ handleCloseChatModal, title, userId, members, discussionId }) => {
+const ChatBox = ({ handleCloseChatModal, title, user, members, discussionId }) => {
 
   const [text, setText] = useState('')
   const [msgs, setMsgs] = useState([])
@@ -24,13 +24,14 @@ const ChatBox = ({ handleCloseChatModal, title, userId, members, discussionId })
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const updatedMsgs = snapshot.docs.map((doc) => doc.data());
       setMsgs(updatedMsgs);
+      console.log(msgs)
     });
     if (q) {
       return () => {
         unsubscribe();
       };
     }
-  }, [q]);
+  }, []);
 
   const handleDataChange = (e) => {
     setText(e.target.value);
@@ -41,7 +42,7 @@ const ChatBox = ({ handleCloseChatModal, title, userId, members, discussionId })
       await addDoc(messagesRef, {
         text,
         createdAt: new Date(),
-        uid: userId,
+        uid: user.name,
       });
       setText('');
     } catch (error) {
@@ -63,10 +64,10 @@ const ChatBox = ({ handleCloseChatModal, title, userId, members, discussionId })
       <div className='chat-area flex flex-col flex-1 w-full p-2 bg-white'>
         {msgs.map((msg, index) => (
           <>
-            <div key={index} className={`flex w-full ${msg.uid === userId ? 'justify-end' : ''}`}>
-              <div className={`flex w-1/2 ${msg.uid === userId ? 'authUser self-end' : 'user2'}`}>
+            <div key={index} className={`flex w-full ${msg.uid === user.name ? 'justify-end' : ''}`}>
+              <div className={`flex w-1/2 ${msg.uid === user.name ? 'authUser self-end' : 'user2'}`}>
                 <div className='flex flex-col'>
-                  { msg.uid === userId ? <></> : <p className='font-semibold text-[#33443d]'>{msg.uid}</p>}
+                  { msg.uid === user.name ? <></> : <p className='font-semibold text-[#33443d]'>{msg.uid}</p>}
                   <p className='text-[#1e1e1e]'>{msg.text}</p>
                 </div>
               </div>
