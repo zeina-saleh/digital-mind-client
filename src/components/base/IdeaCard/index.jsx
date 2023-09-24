@@ -15,7 +15,7 @@ const IdeaCard = ({ idea, setLikesCount }) => {
     async function likeIdea() {
         try {
             const response = await sendRequest({ method: "POST", route: `/likeIdea/${idea.id}`, body: '' });
-            setLikesCount(response.idea[0].likes_count)
+            setLikesCount({id:response.idea[0].id, likes_count: response.idea[0].likes_count} )
             // console.log(response.idea[0].likes_count)
         } catch (error) {
             console.log(error);
@@ -33,7 +33,7 @@ const IdeaCard = ({ idea, setLikesCount }) => {
                         <p>{idea.title}</p>
                         <div className='flex items-center gap-2'>
                             <p className='text-lg'>{idea.likes_count}</p>
-                            <FontAwesomeIcon icon={idea.liked ? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-7 h-7 cursor-pointer' onClick={likeIdea} />
+                            <FontAwesomeIcon icon={idea.liked ? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-5 h-5 hover:scale-125 cursor-pointer' onClick={likeIdea} />
                         </div>
                     </div>
                 </div>
