@@ -11,7 +11,7 @@ const Authentication = () => {
   return (
     <>
       <Link to='/'><FontAwesomeIcon icon={faChevronLeft} className="w-14 h-6 cursor-pointer mt-6 ml-6 text-[#1ae690] hover:text-[#fff]" /></Link>
-      <div className="flex justify-center items-center gap-10 mt-16">
+      <div className="flex justify-center items-center gap-32 mt-10">
         {login ? (
           <LoginForm onToggle={() => setLogin(false)} />
         ) : (
