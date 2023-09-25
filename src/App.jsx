@@ -1,6 +1,5 @@
 import './styles/App.css';
 import { Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Navbar from './components/base/Navbar';
 import Landing from './pages/Landing';
 import Authentication from './pages/Authentication';
@@ -9,7 +8,7 @@ import Planner from './pages/Planner';
 import Collections from './pages/Collections';
 import Map from './pages/Map';
 import Discussions from './pages/Discussions';
-import PrivateRoutes from './components/PrivateRoutes'
+import PrivateRoutes from './components/PrivateRoutes';
 
 function App() {
 
