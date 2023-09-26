@@ -1,0 +1,41 @@
+
+
+.Table {
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.TableHeader,
+.TableCell {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #383838;
+}
+
+.t-head {
+  text-align: left;
+}
+
+thead .TableHeader {
+  background-color: #1ae690;
+}
+
+.t-body .TableRow:hover {
+  background-color: rgba(26, 230, 144, 0.3);
+}
+
+.t-body td {
+  position: relative;
+}
+
+.t-body td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(26, 230, 144, 0.2);
+  z-index: -1;
+}
