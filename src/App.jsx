@@ -41,7 +41,7 @@ function App() {
         <Route path="/admin/*" element={<PanelLayout />}></Route>
 
         <Route path='/' element={<Landing />}></Route>
-        <Route path='/login' element={<Authentication />}></Route>
+        <Route path='/userlogin' element={<Authentication />}></Route>
 
         <Route path='/home' element={
           <PrivateRoutes>
