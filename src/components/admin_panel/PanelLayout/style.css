@@ -4,13 +4,13 @@
     font-family: 'Ropa Sans';
 }
 
-body {
+/* body {
   margin: 0;
   padding: 0;
   background-color: #F3F5F8;
   color: #9e9ea4;
   font-family: 'Montserrat', sans-serif;
-}
+} */
 
 .icon {
   vertical-align: middle;
@@ -145,7 +145,7 @@ body {
   margin: 15px 0;
 }
 
-.card {
+.card-3 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
