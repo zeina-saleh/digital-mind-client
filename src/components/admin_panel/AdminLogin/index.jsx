@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { sendRequest2 } from '../../../config/request2';
+import { nodeRequest } from '../../../config/nodeRequest';
 import { useNavigate, Link } from "react-router-dom";
 import Button from '../../UI/Button'
 import CredentialsInput from '../../UI/CredentialsInput';
@@ -20,7 +20,7 @@ const AdminLogin = ({ onToggle }) => {
         return emailRegex.test(email);
     };
 
-    const loginHandler = async () => {
+    const loginLogger = async () => {
 
         if (!validateEmail(credentials.email)) {
             setError({ ...error, email: "Invalid Email Address" });
@@ -35,10 +35,10 @@ const AdminLogin = ({ onToggle }) => {
         try {
             console.log(credentials)
 
-            const response = await sendRequest2({ method: "POST", route: "/auth/login", body: credentials, });
+            const response = await nodeRequest({ method: "POST", route: "http://127.0.0.1:8000/auth/adminlogin", body: credentials, });
             console.log(response)
             if (response.token) {
-                localStorage.setItem("access_token", response.token);
+                localStorage.setItem("node_token", response.token);
                 navigation("/admin/");
             } else {
                 setError(response.message);
@@ -67,7 +67,7 @@ const AdminLogin = ({ onToggle }) => {
                         <CredentialsInput label={'Password'} className={'input'} onChange={(password) => setCredentials({ ...credentials, password })} type='password' />
                         <div className='text-[#e75454]'>{error.password}</div>
                     </div>
-                    <Button text={"LOGIN"} onClick={loginHandler} classname={'w-full h-9 text-white'} />
+                    <Button text={"LOGIN"} onClick={loginLogger} classname={'w-full h-9 text-white'} />
                 </div>
                 <div className="flex justify-center items-center p-2"><img src={brain} alt="logo"></img></div>
             </div>

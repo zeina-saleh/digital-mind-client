@@ -32,9 +32,9 @@ const LoginForm = ({ onToggle }) => {
 
     try {
       console.log(credentials)
-      const response = await sendRequest({ method: "POST", route: "/login", body: credentials });
+      const response = await sendRequest({ method: "POST", route: "/userlogin", body: credentials });
       localStorage.setItem("access_token", response.token);
-      // console.log(response.token)
+      console.log(response.token)
       navigation("/home");
     } catch (error) {
       console.log(error);
