@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300;400;700;900&family=Ropa+Sans&display=swap');
+
+.idea-title {
+    font-family: 'Ropa Sans';
+}
+
+.card-1 {
+    height: 150px;
+    width: 200px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.carousel {
+    z-index: -1 !important;
+}

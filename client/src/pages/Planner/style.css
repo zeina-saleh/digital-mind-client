@@ -1,0 +1,41 @@
+.fc .fc-daygrid-day-frame {
+    background-color: #F3F5F8;
+}
+
+.fc .fc-timegrid-slot {
+    background-color: #F3F5F8;
+}
+
+.fc .fc-button-primary:disabled {
+    background-color: #1ae690;
+}
+
+.fc .fc-button:not(:disabled) { 
+    background-color: #1ae690;
+    cursor: pointer;
+}
+
+.fc-direction-ltr .fc-button-group>.fc-button:not(:last-child) {
+    background-color: #1ae690;
+}
+
+.fc-direction-ltr .fc-button-group>.fc-button:not(:last-child):hover {
+    filter: brightness(110%);
+}
+
+.fc-direction-ltr .fc-button-group>.fc-button:not(:first-child) {
+    background-color: #1ae690;
+
+}
+
+.fc-direction-ltr .fc-button-group>.fc-button:not(:first-child):hover {
+    filter: brightness(110%);
+}
+
+.fc-h-event .fc-event-main {
+    color: #1e1e1e;
+}
+
+.fc-event-title {
+    color: #1e1e1e;
+}
