@@ -7,7 +7,7 @@ import './style.css'
 import UsersTable from '../UsersTable'
 import Collections from '../Collection'
 import Files from '../Files'
-import Chats from '../Chats'
+import Discussions from '../ChatRooms'
 
 const PanelLayout = () => {
     return (
@@ -19,7 +19,7 @@ const PanelLayout = () => {
                 <Route path='users' element={<UsersTable />} />
                 <Route path='collections' element={<Collections />} />
                 <Route path='files' element={<Files />} />
-                <Route path='discussions' element={<Chats />} />
+                <Route path='discussions' element={<Discussions />} />
             </Routes>
         </div>
     )
