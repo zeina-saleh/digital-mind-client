@@ -141,7 +141,7 @@ const Map = () => {
                 <ResourceForm handleCloseModal={handleCloseModal} ideaId={ideaId} setIsUploaded={setIsUploaded} isUploaded={isUploaded} mapRef={mapRef} />
             </Modal>
 
-            <Modal overlayClassName='overlay' isOpen={openMeetModal} onRequestClose={handleCloseMeetModal} className={'modal w-1/3 h-fit flex flex-col gap-5 py-8 px-9 active:border-0 bg-white'}>
+            <Modal overlayClassName='overlay' isOpen={openMeetModal} onRequestClose={handleCloseMeetModal} className={'modal w-9/12 h-full flex flex-col gap-5 py-8 px-9 active:border-0 bg-white'}>
                 <MeetingForm handleCloseMeetModal={handleCloseMeetModal} ideaId={ideaId} />
             </Modal>
 
