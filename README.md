@@ -32,7 +32,7 @@
 > This design was created on Figma app. I used tailwind framework during implementation and was able to replicate the figma design acurately
 
 Landing Page
-<img width="250" src="./readme/Home_Page.png"/>
+<img width="250" src="./readme/demo/landing.png"/>
 
 
 <br><br>
