@@ -44,7 +44,12 @@
 ### Login / Signup
 | Login                                                            | SignUp                                                            |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![login](./readme/demo/Login.png) | ![signup](./readme/demo/SingUp.png) |
+| ![login](./readme/demo/Login.png) | ![signup](./readme/demo/SignUp.png) |
+
+### Platform
+| Explore Tab                                                      | Single View                                                       |
+|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![explore_tab](./readme/demo/explore1.png) | ![single_view](./readme/demo/explore2.png) |
 
 
 <br><br>
