@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../UI/Button'
 
-const DiscussionCard = ({ discussion, user, setExit, editMode }) => {
-
+const DiscussionCard = ({ discussion, user, setExit, editMode, tokens }) => {
+console.log(tokens)
     const [openChatModal, setOpenChatModal] = useState(false)
     const [openModal, setOpenModal] = useState(false)
     const [openConfirmModal, setOpenConfirmModal] = useState(false)
@@ -59,7 +59,7 @@ const DiscussionCard = ({ discussion, user, setExit, editMode }) => {
             </div>
 
             <Modal overlayClassName='overlay' isOpen={openChatModal} onRequestClose={handleCloseChatModal} className='modal flex flex-col w-8/12 h-5/6 rounded-t-3xl rounded-b-none bg-none'>
-                <ChatBox handleCloseChatModal={handleCloseChatModal} title={discussion.title} user={user} discussionId={discussion.id} ideaId={discussion.idea_id}/>
+                <ChatBox handleCloseChatModal={handleCloseChatModal} title={discussion.title} user={user} discussionId={discussion.id} ideaId={discussion.idea_id} tokens={tokens}/>
             </Modal>
 
             <Modal overlayClassName='overlay' isOpen={openModal} onRequestClose={handleCloseModal} className='mini-modal flex flex-col gap-5 items-center w-96 h-50 bg-white'>
