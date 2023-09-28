@@ -55,6 +55,10 @@
 | Collapsed                                                        | Expanded                                                          |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![expanded](./readme/demo/collections1.png) | ![collapsed](./readme/demo/collections2.png) |
+ 
+| Edit Mode                                                        | Crud Modal                                                        |
+|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![expanded](./readme/demo/edit_mode.png) | ![collapsed](./readme/demo/add.png) |
 
 
 <br><br>
