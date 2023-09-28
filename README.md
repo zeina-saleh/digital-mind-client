@@ -70,5 +70,26 @@
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![discussion](./readme/demo/discussions.png) | ![resources_modal](./readme/demo/chatbox.png) |
 
+### Planner Tab
+| Schedule                                                         | Event Modal                                                       |
+|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![discussion](./readme/demo/discussions.png) | ![resources_modal](./readme/demo/chatbox.png) |
 
 <br><br>
+
+<img id="tech-stack" src="./readme/title5.svg"/>
+
+Here's a brief high-level overview of the tech stack the Ucard app uses:
+
+- This project uses [React](https://react.dev/) for the Frontend. React lets you build user interfaces out of individual pieces called components. Then combine them into entire screens, pages, and apps.
+- This project uses [Laravel]() for the User type backend. Laravel is a web application framework with expressive, elegant syntax. Laravel can serve as a robust backend API for your web or mobile app. 
+- This project uses [ExpressJS](https://expressjs.com/) for the Admin type Backend. Fast, unopinionated, minimalist web framework for [NodeJS](https://nodejs.org/en/).
+- For persistent storage (database), the app uses the [MySQL](https://www.mysql.com/). The world's most popular open source database.
+- To send push notifications, the app uses [FireBase FCM](https://firebase.google.com/docs/cloud-messaging) package which server-to-server communication.
+
+
+
+<br><br>
+<img id="impplementation" src="./readme/title4.svg"/>
+
+> Using the above mentioned tech stacks and the wireframes built with figma from the user stories we have, the implementation of the app is shown below, these are screenshots/gifs from the real app.
