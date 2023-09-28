@@ -109,7 +109,11 @@ This is a list of the dependencies you need to install on your OS to run Digital
   ```
 * Download and Install Postman 
   ```sh
-  ([https://nodejs.org/en](https://www.postman.com/downloads/))
+  (https://www.postman.com/downloads/))
+  ```
+* Download and Install XAMPP 
+  ```sh
+  (https://www.apachefriends.org/)
   ```
 
 ### Installation
@@ -147,6 +151,9 @@ This is a list of the dependencies you need to install on your OS to run Digital
    ```sh
    php artisan serve
    ```
+5. Open XAMPP panel
+6. Start Apache and MySQL servers
+   🚨 To access your db press on admin button next to MySQL server
 
 ~~ Admin Panel:
 1. Clone the repo
