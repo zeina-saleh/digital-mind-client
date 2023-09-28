@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import send from '../../../assets/send.svg'
 import { firestore } from '../../../config/firebase';
 import { addDoc, collection, query, orderBy, limit, onSnapshot } from '@firebase/firestore';
+import { sendRequest } from '../../../config/request'
 import './style.css'
 
-const ChatBox = ({ handleCloseChatModal, title, user, discussionId, ideaId }) => {
+const ChatBox = ({ handleCloseChatModal, title, user, discussionId, ideaId, tokens }) => {
+console.log(tokens)
 
   const [text, setText] = useState('')
   const [msgs, setMsgs] = useState([])
@@ -16,8 +18,8 @@ const ChatBox = ({ handleCloseChatModal, title, user, discussionId, ideaId }) =>
   const navigate = useNavigate()
 
   useEffect(() => {
-    ref.current?.scrollIntoView({behavior: 'smooth'})
-  },[msgs])
+    ref.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [msgs])
 
   const messagesRef = collection(firestore, `messages${discussionId}`)
   const q = query(messagesRef, orderBy('createdAt'), limit(25));
@@ -41,12 +43,26 @@ const ChatBox = ({ handleCloseChatModal, title, user, discussionId, ideaId }) =>
 
   const sendMessage = async () => {
     try {
-      await addDoc(messagesRef, {
+      const docRef = await addDoc(messagesRef, {
         text,
         createdAt: new Date(),
         uid: user.name,
       });
-      setText('');
+
+      if (docRef) {
+        const response = await sendRequest({
+          method: 'POST', route: "/sendNotification",
+          body: {
+            title: 'Digital Mind',
+            message: `${user.name}: ${text}`,
+            fcmToken: tokens
+          }
+        })
+        console.log(response)
+        setText('');
+      } else {
+        console.log('Failed to add message to Firestore');
+      }
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +85,7 @@ const ChatBox = ({ handleCloseChatModal, title, user, discussionId, ideaId }) =>
             <div key={index} className={`flex w-full ${msg.uid === user.name ? 'justify-end' : ''}`}>
               <div className={`flex w-1/2 ${msg.uid === user.name ? 'authUser self-end' : 'user2'}`}>
                 <div className='flex flex-col'>
-                  { msg.uid === user.name ? <></> : <p className='font-semibold text-[#33443d]'>{msg.uid}</p>}
+                  {msg.uid === user.name ? <></> : <p className='font-semibold text-[#33443d]'>{msg.uid}</p>}
                   <p className='text-[#1e1e1e]'>{msg.text}</p>
                 </div>
               </div>
