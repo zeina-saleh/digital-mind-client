@@ -13,6 +13,7 @@ import collections from '../../assets/collections.png'
 import map from '../../assets/map.png'
 import chatbox from '../../assets/chatbox.png'
 import planner from '../../assets/planner.png'
+import location from '../../assets/location.png'
 
 
 const Landing = () => {
@@ -74,14 +75,22 @@ const Landing = () => {
                 <div>
                   <img src={chatbox} />
                 </div>
+                <div>
+                  <img src={location} />
+                </div>
               </Carousel>
             </div>
             <div className='flex flex-col w-1/2 h-1/2 items-center justify-between self-end'>
               <div className='flex flex-col items-center text-xl'>
-                <h4>It all starts with an idea</h4>
-                <div className='w-3/4'>We are a group of people who love to learn new things and we want you to be part of it too.
-                  <br></br> Bring your ideas to life
-                  Brainstorm, visualize and plan your next step with a mind map</div>
+                <h4>Never miss out on a feature</h4>
+                <p>Live chats, location maps and a calendar to keep you on track</p>
+                <p>Create beautiful maps with images, pdfs, links and texts</p>
+                <p>Connect, view and map your resources all in one place </p>
+              </div>
+              <div class="loader">
+                <div class="loader-logo">
+                  <img src={logo} className='h-14 w-14'></img>
+                </div>
               </div>
             </div>
           </div>
