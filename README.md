@@ -56,9 +56,14 @@
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![expanded](./readme/demo/collections1.png) | ![collapsed](./readme/demo/collections2.png) |
  
-| Edit Mode                                                        | Crud Modal                                                        |
+| Edit Mode                                                        | CRUD Modal                                                        |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![expanded](./readme/demo/edit_mode.png) | ![collapsed](./readme/demo/add.png) |
+| ![edit_mode](./readme/demo/edit_mode.png) | ![CRUD_modal](./readme/demo/add.png) |
+
+### Mind Map View
+| Map                                                              | Resources Modal                                                   |
+|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![map](./readme/demo/map.png) | ![resources_modal](./readme/demo/resource.png) |
 
 
 <br><br>
