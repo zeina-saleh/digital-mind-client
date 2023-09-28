@@ -31,8 +31,15 @@
 
 > This design was created on Figma app. I used tailwind framework during implementation and was able to replicate the figma design acurately
 
-Landing Page
-<img width="250" src="./readme/demo/landing.png"/>
+### Landing Page
+| Landing                                               |
+|-------------------------------------------------------|
+| ![landing](./readme/demo/landing1.png) |
+
+
+| Overview                                              |
+|-------------------------------------------------------|
+| ![overview](./readme/demo/landing2.png) |
 
 
 <br><br>
