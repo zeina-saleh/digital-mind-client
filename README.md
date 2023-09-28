@@ -93,3 +93,65 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 <img id="impplementation" src="./readme/title4.svg"/>
 
 > Using the above mentioned tech stacks and the wireframes built with figma from the user stories we have, the implementation of the app is shown below, these are screenshots/gifs from the real app.
+<br><br>
+<img id="how-to-run" src="./readme/title6.svg"/>
+
+
+> This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+~~ Frontend:
+1. Clone the repo
+   ```sh
+   git clone https://github.com/hassankhalil33/ucard.git
+   ```
+2. Navigate to the frontend folder
+   ```sh
+   cd frontend/
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+   🚨 you might need to run `npm install --force`  if you face any dependency conflicts.
+4. Install Expo CLI
+   ```sh
+   npm install --global expo-cli
+   ```
+5. Rename `.env.example` to `.env` then set your credentials.
+6. Install Expo Go app for Android (Optional)
+   > [Android Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)
+7. Run the Start-Up Command
+   ```sh
+   npx expo start -c
+   ```
+8. Scan the QR Code with Expo Go App.
+    -or-
+   Press 'a' to run locally on Android Emulator (Requires an Active Android Emulator [Android Studio](https://developer.android.com/studio/install)).
+   
+~~ Backend:
+1. Navigate to the backend folder (from root folder)
+   ```sh
+   cd backend/
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Rename `.env.example` to `.env` then set your credentials.
+4. Run the Start-Up Command
+   ```sh
+   npm start
+   ```
