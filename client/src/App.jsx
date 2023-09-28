@@ -10,28 +10,11 @@ import Collections from './pages/Collections';
 import Map from './pages/Map';
 import Discussions from './pages/Discussions';
 import PrivateRoutes from './components/PrivateRoutes';
-import { messaging } from './config/firebase';
-import { getToken } from 'firebase/messaging';
 import PanelLayout from './components/admin_panel/PanelLayout';
 import AdminLogin from './components/admin_panel/AdminLogin';
 
 
 function App() {
-
-  async function requestPermission() {
-    const permission = await Notification.requestPermission()
-    if (permission === 'granted') {
-      const token = await getToken(messaging, { vapidKey: 'BO6L1QNjM1ZshA5CvXqEC7XxfIdzGyBZfV6iTQzpL69f3uiT4oIVIbZgCXr5LruMlB76VR-zZscGcH7m_3PbVPM' })
-      console.log('Token generated', token)
-
-    } else if (permission === 'denied') {
-      console.log('permission denied')
-    }
-  }
-
-  useEffect(() => {
-    requestPermission()
-  })
 
   return (
     <div className='App'>
