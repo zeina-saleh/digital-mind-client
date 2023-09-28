@@ -65,5 +65,10 @@
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![map](./readme/demo/map.png) | ![resources_modal](./readme/demo/resource.png) |
 
+### Discussions Tab
+| Discussions                                                      | Chat Box                                                          |
+|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![discussion](./readme/demo/discussions.png) | ![resources_modal](./readme/demo/chatbox.png) |
+
 
 <br><br>
