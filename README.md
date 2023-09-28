@@ -165,7 +165,6 @@ This is a list of the dependencies you need to install on your OS to run Digital
    ```sh
    nodemon index.js
    ```
-   kkddkkd
 5. Aternatively startup default node server
    ```sh
    node index.js
