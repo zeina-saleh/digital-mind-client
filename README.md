@@ -51,5 +51,10 @@
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![explore_tab](./readme/demo/explore1.png) | ![single_view](./readme/demo/explore2.png) |
 
+### Collections Tab
+| Collapsed                                                        | Expanded                                                          |
+|------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![expanded](./readme/demo/collections1.png) | ![collapsed](./readme/demo/collections2.png) |
+
 
 <br><br>
