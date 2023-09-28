@@ -97,61 +97,77 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 <img id="how-to-run" src="./readme/title6.svg"/>
 
 
-> This is an example of how you may give instructions on setting up your project locally.
+> These are guidlines for setting up digital mind locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+This is a list of the dependencies you need to install on your OS to run Digital Mind.
+* Download and Install Node.js 
   ```sh
-  npm install npm@latest -g
+  (https://nodejs.org/en)
+  ```
+* Download and Install Postman 
+  ```sh
+  ([https://nodejs.org/en](https://www.postman.com/downloads/))
   ```
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 ~~ Frontend:
 1. Clone the repo
    ```sh
-   git clone https://github.com/hassankhalil33/ucard.git
+   git clone https://github.com/zeina-saleh/digital-mind-client
    ```
-2. Navigate to the frontend folder
+2. Navigate to the client folder
    ```sh
-   cd frontend/
+   cd client
    ```
 3. Install NPM packages
    ```sh
    npm install
    ```
    🚨 you might need to run `npm install --force`  if you face any dependency conflicts.
-4. Install Expo CLI
+4. Run the Start-Up Command
    ```sh
-   npm install --global expo-cli
+   npm run start
    ```
-5. Rename `.env.example` to `.env` then set your credentials.
-6. Install Expo Go app for Android (Optional)
-   > [Android Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent)
-7. Run the Start-Up Command
-   ```sh
-   npx expo start -c
-   ```
-8. Scan the QR Code with Expo Go App.
-    -or-
-   Press 'a' to run locally on Android Emulator (Requires an Active Android Emulator [Android Studio](https://developer.android.com/studio/install)).
    
 ~~ Backend:
-1. Navigate to the backend folder (from root folder)
+1. Clone the repo
    ```sh
-   cd backend/
+   git clone https://github.com/zeina-saleh/digital-mind-server
+   ```
+2. Install composer packages
+   ```sh
+   composer install
+   ```
+3. Rename `.env.example` to `.env` then set your credentials.
+4. Run the Start-Up Command
+   ```sh
+   php artisan serve
+   ```
+
+~~ Admin Panel:
+1. Clone the repo
+   ```sh
+   git clone https://github.com/zeina-saleh/digital-mind-admin-backend
    ```
 2. Install NPM packages
    ```sh
    npm install
    ```
-3. Rename `.env.example` to `.env` then set your credentials.
+3. Install Nodemon Server NPM package (optional)
+   ```sh
+   npm install -g nodemon 
+   ```
 4. Run the Start-Up Command
    ```sh
-   npm start
+   nodemon index.js
    ```
+5. Aternatively startup default node server
+   ```sh
+   node index.js
+   ```
+6. Use postman to register an admin user
+7. Navigate to the admin login page and login in
