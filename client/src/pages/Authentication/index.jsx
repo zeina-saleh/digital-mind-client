@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 const Authentication = () => {
   const [login, setLogin] = useState(true);
-  // const [isAdmin, setIsAdmin] = useState(false);
 
   const navigate =useNavigate()
 

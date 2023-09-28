@@ -34,7 +34,6 @@ const MeetingForm = ({ handleCloseMeetModal, ideaId }) => {
     }
 
     const handleMarkerEvent = (e) => {
-        // if (!draggable) return
         handleLatLng(e.target._latlng.lat, e.target._latlng.lng)
     }
 

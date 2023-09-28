@@ -17,9 +17,7 @@ const IdeaCard = ({ idea, setLikesCount }) => {
     async function likeIdea() {
         try {
             const response = await sendRequest({ method: "POST", route: `/likeIdea/${idea.id}`, body: '' });
-            // setLike({count: response.idea.likes_count})
             console.log(response)
-            // console.log(likesCount)
         } catch (error) {
             console.log(error);
         }
@@ -38,16 +36,11 @@ const IdeaCard = ({ idea, setLikesCount }) => {
                 </div>
                 <div className='flex flex-col p-2 w-64'>
                     <p className='font-semibold text-lg'>{idea.collection.user.name}</p>
-                    {/* <div className='flex justify-between items-center w-full'> */}
                         <p className='text-base'>{idea.title}</p>
-                        {/* <div className='flex items-center gap-2'>
-                            <FontAwesomeIcon icon={idea.liked ? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-5 h-5 hover:scale-125 cursor-pointer' onClick={likeIdea} />
-                        </div> */}
-                    {/* </div> */}
                 </div>
             </div>
 
-            <Modal overlayClassName='overlay' isOpen={openResModal} onRequestClose={handleCloseResModal} className='modal flex flex-col py-10 px-20 bg-white max-h-full w-3/5 items-center gap-4'>
+            <Modal overlayClassName='overlay' isOpen={openResModal} onRequestClose={handleCloseResModal} className='modal flex flex-col py-10 px-20 bg-white h-5/6 w-2/3 items-center gap-4'>
                 <div className='flex justify-end w-full'>
                     <FontAwesomeIcon icon={faXmark} className='text-[#1e1e1e] w-5 h-5 hover:text-[#1ae690] cursor-pointer' onClick={handleCloseResModal} />
                 </div>
@@ -58,11 +51,6 @@ const IdeaCard = ({ idea, setLikesCount }) => {
                 <div className='flex w-11/12 flex-1 justify-between h-2/3'>
                     <img src={`http://localhost:8000/${idea.path}`} alt="img" className={ idea.path=='storage/images/logo.svg'? 'h-72 w-72' : `img-res w-full`} />
                     <div className='flex flex-col h-1/2 justify-around items-center gap-5'>
-                        {/* <div className='flex flex-col gap-1 items-center'>
-                            <FontAwesomeIcon icon={like.liked ? fasHeart : faHeart} style={{ color: "#1ED690", }} className='w-5 h-5 hover:scale-125 cursor-pointer' onClick={handleLike} />
-                            <p className='text-lg'>{like.count}</p>
-                        </div> */}
-                        {/* <FontAwesomeIcon icon={faShareNodes} style={{ color: "#1ED690", }} className='w-6 h-6 hover:scale-125 cursor-pointer' /> */}
                     </div>
                 </div>
                 <div className='flex gap-3 self-start items-baseline'>

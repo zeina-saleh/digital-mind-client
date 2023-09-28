@@ -6,7 +6,6 @@ const Lines = (props) => {
     const dx = props.x - props.px;
     const dy = props.y - props.py;
     const d = `M ${props.px} ${props.py} c ${DX} 0, ${dx-DX} ${dy}, ${dx} ${dy}`;
-    // x1={props.x} y1={props.y} x2={props.px} y2={props.py}
     let x=props.x 
     if(props.isLeftSide) x=x-15
 

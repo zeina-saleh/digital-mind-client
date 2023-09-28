@@ -6,8 +6,6 @@ import logo from '../../../assets/logo.svg'
 
 const TreeNode = (props) => {
 
-    // const svgRef = useRef();
-
     const[path, setpath] = useState('')
     const [openResModal, setOpenResModal] = useState(false)
     const handleOpenResModal = () => setOpenResModal(true)
@@ -37,10 +35,6 @@ const TreeNode = (props) => {
 
     let classname =''
     props.type ===1 | props.type ===2 | props.type ===3 ? classname='cursor-pointer hover:fill-[#1ed690]': classname=''
-
-    // function click (){
-    //     svgRef.current.onClick(()=> props.handleOpenModal)
-    // }
 
     function displayResource(){
         if(props.element.type_id===3){

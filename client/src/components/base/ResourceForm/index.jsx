@@ -31,7 +31,6 @@ const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded, map
                 });
                 setIsUploaded(!isUploaded)
                 handleCloseModal();
-                // console.log(response);
             } else {
                 const data = {
                     text: type.value === 2 ? link : tag,
@@ -41,7 +40,6 @@ const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded, map
                 const response = await sendRequest({ method: 'POST', route: `/addResource/text/${ideaId}`, body: data, });
                 setIsUploaded(!isUploaded)
                 handleCloseModal();
-                // console.log(response);
             }
         } catch (error) {
             console.error('error:', error);

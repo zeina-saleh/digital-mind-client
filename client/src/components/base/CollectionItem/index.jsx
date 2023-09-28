@@ -83,10 +83,6 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
                             <div className='flex gap-3 items-center justify-between px-1 w-64'>
                                 <div className='w-fit p-2 font-normal'>{idea.title}</div>
                                 <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={() => handleEditIdea(idea.id, idea.title)} />
-                                {/* <div className='flex items-center gap-1'>
-                                    <p className='text-lg'>{idea.likes_count}</p>
-                                    <FontAwesomeIcon icon={fasHeart} style={{ color: "#1ED690", }} className='w-5 h-5' />
-                                </div> */}
                             </div>
 
                         </div>

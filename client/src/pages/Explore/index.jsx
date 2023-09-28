@@ -34,7 +34,6 @@ const Explore = () => {
       const page = response.data.current_page
       setPage_num(page_num => page_num + 1)
       if (page === response.data.data.last_page) setHasMore(false)
-      // console.log(response)
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +43,6 @@ const Explore = () => {
     async function search() {
       try {
         const response = await sendRequest({ method: 'POST', route: `/search`, body: { param: debouncedValue } });
-        // console.log(response);
         setSearchResult(response)
       } catch (error) {
         console.log(error);
@@ -70,10 +68,6 @@ const Explore = () => {
       filterCriteria.push(element)
     })
   }
-  const print = () => {
-    console.log(ideas)
-    // console.log(debouncedValue)
-  }
 
   const filteredIdeas = ideas.filter((obj1) =>
     filterCriteria.some((obj2) => obj2.id === obj1.id)
@@ -83,7 +77,6 @@ const Explore = () => {
     <div className='flex flex-col items-center gap-5'>
       <SearchBar setSearchField={setSearchField} />
       <h6>Explore ideas and find people with similar interests</h6>
-      {/* <div onClick={print}>clickmme</div> */}
       <div className='flex pl-5 w-10/12 h-screen gap-5 flex-wrap'>
         <InfiniteScroll dataLength={filteredIdeas.length} next={fetchIdeas} hasMore={hasMore} className='flex flex-wrap gap-5'>
           {filteredIdeas.length > 0 ? (

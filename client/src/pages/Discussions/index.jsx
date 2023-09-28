@@ -21,7 +21,6 @@ const Discussions = () => {
       console.log(token)
       try {
         const response = await sendRequest({ method: "POST", route: '/saveToken', body: {token: token} });
-        // console.log(response.tokens)
         setTokens(response.tokens)
     } catch (error) {
         console.log(error);

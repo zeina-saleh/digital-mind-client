@@ -20,7 +20,6 @@ const Navbar = () => {
 
     const logout = async () => {
         try {
-            // const response = await sendRequest({ route: "/logout", body: "" });
             localStorage.clear()
             navigation('/')
         } catch (error) {
@@ -45,11 +44,6 @@ const Navbar = () => {
                 </>
                     : <>
                         <FontAwesomeIcon icon={faBars} style={{ color: "#1e1e1e", }} className="w-14 h-6 cursor-pointer" />
-                        {/* <ul className='hidden md:flex space-x-4'>
-                            <li className='p-4 cursor-pointer'>Explore</li>
-                            <li className='p-4 cursor-pointer'>Planner</li>
-                            <li className='p-4 cursor-pointer'>My Topics</li>
-                        </ul> */}
                     </>}
             </div>
 
