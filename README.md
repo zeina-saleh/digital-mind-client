@@ -91,10 +91,19 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 
 <br><br>
 <img id="impplementation" src="./readme/title4.svg"/>
+<br><br>
+### Landing Page
+| Landing                                               |
+|-------------------------------------------------------|
+| ![landing](./readme/demo/landing.png) |
+
+
 
 > Using the above mentioned tech stacks and the wireframes built with figma from the user stories we have, the implementation of the app is shown below, these are screenshots/gifs from the real app.
 <br><br>
 <img id="how-to-run" src="./readme/title6.svg"/>
+
+
 
 
 > These are guidlines for setting up digital mind locally.
