@@ -95,7 +95,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 ### Landing Page
 | Landing                                               |
 |-------------------------------------------------------|
-| ![landing](./readme/demo/landing.png) |
+| ![landing](./readme/gif/landing.gif) |
 
 
 
