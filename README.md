@@ -97,6 +97,28 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 |-------------------------------------------------------|
 | ![landing](./readme/gif/landing.gif) |
 
+### Login / SignUp
+| Login                                                 |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/login.gif) |
+
+### Platform
+| Explore                                               |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/explore.gif) |
+
+| Collections                                           |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/collections.gif) |
+
+| Map                                                   |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/map.gif) |
+
+| Planner                                               |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/planner.gif) |
+
 
 
 > Using the above mentioned tech stacks and the wireframes built with figma from the user stories we have, the implementation of the app is shown below, these are screenshots/gifs from the real app.
