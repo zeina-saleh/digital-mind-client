@@ -14,6 +14,8 @@ import map from '../../assets/map.png'
 import chatbox from '../../assets/chatbox.png'
 import planner from '../../assets/planner.png'
 import location from '../../assets/location.png'
+import firebase1 from '../../assets/firebase1.png'
+import Button from '../../components/UI/Button'
 
 
 const Landing = () => {
@@ -97,9 +99,21 @@ const Landing = () => {
         </section>
 
 
-        <section id='contact' className='flex flex-col w-full h-full justify-center'>
-          <div className='idea-title text-7xl font-medium'>
+        <section id='contact' className='flex flex-col w-full h-full justify-end items-center'>
+          <div className='flex flex-col w-10/12 h-3/4 gap-10 justify-center items-center'>
+            <div className='flex flex-col w-fit items-center gap-6'>
+              <div className='text-6xl'>We'd love to hear from you</div>
+              <div className='text-xl'>Whether you’re curious about features or want to join us as an admin —we’re ready to answer any and all questions.</div>
+            </div>
+            <div className='flex gap-2 text-xl w-1/3 h-10'>
+              <input className='contact-input flex-1 px-2' placeholder='enter email'></input>
+              <Button text={"Submit"} classname={'w-24 h-9 text-white'} />
+            </div>
+            <div className='flex w-fit items-center'>
+              <div className='brand-border'><img src={logo} className='w-40 h-16'></img></div>
+              <img src={firebase1} className='w-48 h-32'></img>
 
+            </div>
           </div>
         </section>
       </div>

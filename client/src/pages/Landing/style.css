@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300;400;700;900&family=Ropa+Sans&display=swap');
 
 .idea-title {
-    font-family: 'Ropa Sans';
+	font-family: 'Ropa Sans';
 }
 
 .card-1 {
-    height: 150px;
-    width: 200px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
+	height: 150px;
+	width: 200px;
+	border-radius: 20px;
+	border: 1px solid #ccc;
 }
 
 .carousel {
-    z-index: -1 !important;
+	z-index: -1 !important;
 }
 
-.loader{
+.loader {
 	transform: translateX(46%);
 }
 
@@ -26,7 +26,12 @@
 	overflow: hidden;
 	transform: translatey(0px);
 	animation: float 3s ease-in-out infinite;
-	img { width: 100%; height: auto; }
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
 	svg {
 		fill: #fff;
 	}
@@ -36,10 +41,24 @@
 	0% {
 		transform: translatey(0px);
 	}
+
 	50% {
 		transform: translatey(-20px);
 	}
+
 	100% {
 		transform: translatey(0px);
 	}
+}
+
+.brand-border {
+	border-right: #ccc solid 2px;
+}
+
+.contact-input {
+	outline: none;
+	border: none;
+	background: linear-gradient(145deg, #dbdddf, #ffffff);
+	box-shadow: 20px 20px 60px #cfd0d3,
+		-20px -20px 60px #ffffff;
 }
