@@ -107,13 +107,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 |-------------------------------------------------------|
 | ![landing](./readme/gif/explore.gif) |
 
-| Collections                                           |
-|-------------------------------------------------------|
-| ![landing](./readme/gif/collections.gif) |
 
-| Map                                                   |
-|-------------------------------------------------------|
-| ![landing](./readme/gif/map.gif) |
 
 | Planner                                               |
 |-------------------------------------------------------|
