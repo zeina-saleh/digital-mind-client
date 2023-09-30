@@ -5,12 +5,17 @@ import { sendRequest } from '../../../config/request'
 
 const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, ideaId, editMode, setEditMode }) => {
 
+    const handleCancel = () => {
+        onCancel()
+        if (editMode) setEditMode(!editMode)
+    }
+
     const deleteIdea = async () => {
         try {
+            onCancel();
             const response = await sendRequest({ route: `/deleteIdea/${ideaId}`, body: "", });
             console.log(response);
             setTitle(response.idea.id)
-            onCancel();
         } catch (error) {
             console.log(error);
         }
@@ -18,11 +23,11 @@ const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, id
 
     const deleteCollection = async () => {
         try {
+            onCancel();
+            if (editMode) setEditMode(!editMode)
             const response = await sendRequest({ route: `/deleteCollection/${collectionId}`, body: "", });
             console.log(response);
             setTitle(response.collection.id)
-            onCancel();
-            if (editMode) setEditMode(!editMode)
         } catch (error) {
             console.log(error);
         }
@@ -33,7 +38,7 @@ const DeleteModal = ({ openModal, ideaFunc, onCancel, setTitle, collectionId, id
             <div className='flex flex-col items-center p-8 gap-3 w-full'>
                 <div className=''>Are you sure you want to delete?</div>
                 <div className='flex justify-center gap-5 w-full'>
-                    <Button classname={"w-20 h-8"} text={'No'} onClick={onCancel} />
+                    <Button classname={"w-20 h-8"} text={'No'} onClick={handleCancel} />
                     <Button classname={"w-20 h-8"} text={'Yes'} onClick={ideaFunc ? deleteIdea : deleteCollection} />
                 </div>
             </div>

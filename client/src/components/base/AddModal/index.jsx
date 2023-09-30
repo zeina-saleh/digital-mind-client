@@ -7,12 +7,17 @@ import { sendRequest } from '../../../config/request'
 
 const AddModal = ({ openModal, placeholder = 'title', ideaFunc, onCancel, setTitle, title, collectionId, ideaId, editMode, setEditMode }) => {
 
+  const handleCancel = () => {
+    onCancel()
+    if(editMode) setEditMode(!editMode)
+  }
+
   const createCollection = async () => {
     try {
+      onCancel();
       const response = await sendRequest({ method: 'POST', route: `/createCollection${editMode ? `/${collectionId}` : ""}`, body: { title: title }, });
       console.log(response);
       setTitle('');
-      onCancel();
       if (editMode) setEditMode(!editMode)
     } catch (error) {
       console.log(error);
@@ -21,10 +26,10 @@ const AddModal = ({ openModal, placeholder = 'title', ideaFunc, onCancel, setTit
 
   const addIdea = async () => {
     try {
+      onCancel();
       const response = await sendRequest({ method: 'POST', route: `/addIdea/${collectionId}${editMode ? `/${ideaId}` : ""}`, body: { title: title }, });
       console.log(response);
       setTitle('')
-      onCancel();
       if (editMode) setEditMode(!editMode)
     } catch (error) {
       console.log(error);
@@ -38,7 +43,7 @@ const AddModal = ({ openModal, placeholder = 'title', ideaFunc, onCancel, setTit
           onChange={(title) => setTitle(title)} />
 
         <div className='flex justify-center w-full gap-5'>
-          <Button classname={"w-20 h-8"} text={'Cancel'} onClick={onCancel} />
+          <Button classname={"w-20 h-8"} text={'Cancel'} onClick={handleCancel} />
           <Button classname={"w-20 h-8"} text={'Submit'} onClick={ideaFunc ? addIdea : createCollection} />
         </div>
       </div>
