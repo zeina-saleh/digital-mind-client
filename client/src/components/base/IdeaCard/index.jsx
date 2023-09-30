@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHeart as fasHeart, faXmark, faShareNodes, faSwatchbook } from '@fortawesome/free-solid-svg-icons';
-import { sendRequest } from '../../../config/request';
+import { faXmark, faShareNodes, faSwatchbook, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom'
+
 
 const IdeaCard = ({ idea, setLikesCount }) => {
 
@@ -35,9 +35,15 @@ const IdeaCard = ({ idea, setLikesCount }) => {
                 <div className='flex items-center w-5/6 h-full'>
                     <img src={`http://localhost:8000/${idea.path}`} alt="map" className={idea.path == 'storage/images/logo.svg' ? 'h-72 w-72' : `img-res scale-125`} />
                 </div>
-                <div className='flex gap-3 self-start items-baseline'>
-                    <FontAwesomeIcon icon={faSwatchbook} style={{ color: "#1e1e1e", }} className='w-6 h-6' />
-                    <div>{idea.collection.title} Collection</div>
+                <div className='flex w-full justify-between'>
+                    <div className='flex gap-3 self-start items-baseline'>
+                        <FontAwesomeIcon icon={faSwatchbook} style={{ color: "#383838", }} className='w-6 h-6' />
+                        <div>{idea.collection.title}</div>
+                    </div>
+                    <div className='flex gap-2 self-end items-baseline'>
+                        <FontAwesomeIcon icon={faCodeBranch} style={{ color: "#383838", }} className='w-6 h-6 self-end' />
+                        <Link to={`/home/collections/idea/${idea.id}/${true}`}><p className='hover:text-[#1ae690] cursor-pointer self-end'>View Map</p></Link>
+                    </div>
                 </div>
             </Modal>
         </>

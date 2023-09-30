@@ -24,7 +24,7 @@ const Map = () => {
     const y0 = height / 2;
 
     const mapRef = useRef(null);
-    const { ideaId } = useParams();
+    const { ideaId, read } = useParams();
     const [openModal, setOpenModal] = useState(false)
     const [openMeetModal, setOpenMeetModal] = useState(false)
     const [openInviteModal, setOpenInviteModal] = useState(false)
@@ -100,7 +100,7 @@ const Map = () => {
     }, [isUploaded]);
 
 
-    useEffect(()=> {
+    useEffect(() => {
         takeScreenshot()
     }, [elements])
 
@@ -108,11 +108,13 @@ const Map = () => {
         <>
             <div className='flex flex-col items-center w-full gap-4'>
                 <div className='line w-11/12'></div>
-                <div className='flex gap-1 w-11/12 justify-end'>
-                    <Button2 text={"Schedule Meeting"} onClick={handleOpenMeetModal} icon={faCalendar} />
-                    <Button2 text={"Group Discussion"} onClick={handleOpenInviteModal} icon={faComments} />
-                    <Button2 text={"Add Resource"} onClick={handleOpenModal} icon={faPlus} />
-                </div>
+                {!read ? (
+                    <div className='flex gap-1 w-11/12 justify-end'>
+                        <Button2 text={"Schedule Meeting"} onClick={handleOpenMeetModal} icon={faCalendar} />
+                        <Button2 text={"Group Discussion"} onClick={handleOpenInviteModal} icon={faComments} />
+                        <Button2 text={"Add Resource"} onClick={handleOpenModal} icon={faPlus} />
+                    </div>
+                ) : (<></>)}
             </div>
             <div ref={mapRef} className='flex flex-col justify-center items-center w-full min-h-screen'>
                 <svg viewBox='0 0 400 200'>
@@ -146,7 +148,7 @@ const Map = () => {
             </Modal>
 
             <Modal overlayClassName='overlay' isOpen={openInviteModal} onRequestClose={handleCloseInviteModal} className={'modal w-1/3 h-fit flex flex-col gap-5 py-8 px-9 active:border-0 bg-white'}>
-                <InviteForm handleCloseInviteModal={handleCloseInviteModal} ideaId={ideaId} options={options}/>
+                <InviteForm handleCloseInviteModal={handleCloseInviteModal} ideaId={ideaId} options={options} />
             </Modal>
         </>
     )

@@ -34,7 +34,7 @@ function App() {
           <Route path='/home/planner' element={<Planner />} />
           <Route path='/home/collections' element={<Collections />} />
           <Route path='/home/discussions' element={<Discussions />} />
-          <Route path='/home/collections/idea/:ideaId?' element={<Map />} />
+          <Route path='/home/collections/idea/:ideaId/:read?' element={<Map />} />
         </Route>
       </Routes>
     </div>
