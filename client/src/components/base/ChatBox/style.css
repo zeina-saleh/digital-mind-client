@@ -6,7 +6,9 @@
 
 .msg-area {
     font-family: 'Ropa Sans';
-    border-top: 1px solid #ccc;
+    /* border-top: 1px solid #ccc; */
+    overflow: auto; 
+    resize: none;
 }
 
 .msg-area:focus{
@@ -16,7 +18,8 @@
 .msg-send {
     z-index: 2;
     position: absolute;
-    right: 30px;
+    bottom: 25px;
+    right: 50px;
     transform: translate(50%, 50%);
     overflow: scroll;
 }
@@ -38,5 +41,5 @@
   }
 
   .user2 {
-    background-color: #B1B1B1;
+    background-color: #e0dfdf;
   }

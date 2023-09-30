@@ -9,9 +9,9 @@ import { sendRequest } from '../../../config/request'
 import './style.css'
 
 const ChatBox = ({ handleCloseChatModal, title, user, discussionId, ideaId, tokens }) => {
-console.log(tokens)
+  console.log(tokens)
 
-  const [text, setText] = useState('')
+  const [textt, setText] = useState('')
   const [msgs, setMsgs] = useState([])
 
   const ref = useRef()
@@ -42,6 +42,8 @@ console.log(tokens)
   };
 
   const sendMessage = async () => {
+    let text = textt;
+    setText('')
     try {
       const docRef = await addDoc(messagesRef, {
         text,
@@ -58,8 +60,8 @@ console.log(tokens)
             fcmToken: tokens
           }
         })
-        console.log(response)
         setText('');
+        console.log(response)
       } else {
         console.log('Failed to add message to Firestore');
       }
@@ -75,9 +77,9 @@ console.log(tokens)
   return (
     <>
       <div className='flex w-full h-14 items-center justify-between px-4 bg-[#1ED690] rounded-t-3xl rounded-b-none'>
-        <div className='chat-header text-xl text-[#2b2b2b] hover:text-[#F3F5F8] cursor-pointer' onClick={handelNavigate}>Map</div>
-        <div className='chat-header text-2xl text-[#2b2b2b]'>{title}</div>
-        <FontAwesomeIcon icon={faXmark} className="text-[#2b2b2b] w-14 h-6 cursor-pointer hover:text-[#F3F5F8]" onClick={handleCloseChatModal} />
+        <div className='chat-header text-xl text-white hover:text-[#3d524a] cursor-pointer' onClick={handelNavigate}>Map</div>
+        <div className='chat-header text-2xl text-white'>{title}</div>
+        <FontAwesomeIcon icon={faXmark} className="text-white w-14 h-6 cursor-pointer hover:text-[#F3F5F8]" onClick={handleCloseChatModal} />
       </div>
       <div className='chat-area flex flex-col flex-1 w-full p-2 bg-white'>
         {msgs.map((msg, index) => (
@@ -85,7 +87,7 @@ console.log(tokens)
             <div key={index} className={`flex w-full ${msg.uid === user.name ? 'justify-end' : ''}`}>
               <div className={`flex w-1/2 ${msg.uid === user.name ? 'authUser self-end' : 'user2'}`}>
                 <div className='flex flex-col'>
-                  {msg.uid === user.name ? <></> : <p className='font-semibold text-[#33443d]'>{msg.uid}</p>}
+                  {msg.uid === user.name ? <></> : <p className='font-semibold text-[#3d524a]'>{msg.uid}</p>}
                   <p className='text-[#1e1e1e]'>{msg.text}</p>
                 </div>
               </div>
@@ -95,7 +97,10 @@ console.log(tokens)
         ))}
       </div >
       <div className='msg-container flex w-full h-fit min-h-20'>
-        <textarea name='text' value={text || ""} className='msg-area flex w-full h-20 bg-[#F3F5F8] px-5 pr-12 py-3' placeholder='Message' id="" cols="30" rows="10" onChange={handleDataChange}></textarea>
+        <textarea name='text' value={textt || ""} className='msg-area w-full h-12 bg-[#F3F5F8] px-5 pr-20 py-2'
+          placeholder='Message' onChange={handleDataChange} onKeyDown={(e) => {
+            if (e.key === "Enter") { e.preventDefault(); sendMessage(); }
+          }}></textarea>
         <img src={send} className='msg-send h-7 w-8 cursor-pointer' onClick={sendMessage}></img>
       </div>
     </>
