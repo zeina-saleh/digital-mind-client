@@ -70,11 +70,6 @@
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![discussion](./readme/demo/discussions.png) | ![resources_modal](./readme/demo/chatbox.png) |
 
-### Planner Tab
-| Schedule                                                         | Event Modal                                                       |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![discussion](./readme/demo/discussions.png) | ![resources_modal](./readme/demo/chatbox.png) |
-
 <br><br>
 
 <img id="tech-stack" src="./readme/title5.svg"/>
