@@ -3,3 +3,26 @@
 html {
     font-family: 'Roboto';
 }
+
+.load-anim {
+    height: 70vh;
+}
+
+.pulse-logo {
+    transform: scale(1);
+	animation: pulse 0.75s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+
+	100% {
+		transform: scale(0.95);
+	}
+}

@@ -7,6 +7,7 @@ import IdeaCard from '../../components/base/IdeaCard'
 import { useDebounce } from 'usehooks-ts'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import axios from 'axios'
+import brain from '../../assets/brain.svg'
 
 const Explore = () => {
 
@@ -16,7 +17,13 @@ const Explore = () => {
   const [searchResult, setSearchResult] = useState([])
   const [hasMore, setHasMore] = useState(true)
   const [page_num, setPage_num] = useState(1)
+  const [loading, setLoading] = useState(true)
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500)
+  })
 
   useEffect(() => {
     fetchIdeas();
@@ -24,11 +31,13 @@ const Explore = () => {
 
   const fetchIdeas = async () => {
     try {
-      const response = await axios({ method: 'GET', url: "/getIdeas", params: { page: page_num }, body: "", 
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
-        'Content-Type': 'application/json',
-      }, });
+      const response = await axios({
+        method: 'GET', url: "/getIdeas", params: { page: page_num }, body: "",
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          'Content-Type': 'application/json',
+        },
+      });
       const ideass = response.data.data
       setIdeas([...ideas, ...ideass]);
       const page = response.data.current_page
@@ -73,7 +82,11 @@ const Explore = () => {
     filterCriteria.some((obj2) => obj2.id === obj1.id)
   );
 
-  return (
+  return loading ? (
+    <section className='load-anim flex w-full justify-center'>
+      <img className='pulse-logo h-52 w-56 mt-16' src={brain}></img>
+    </section>
+  ) : (
     <div className='flex flex-col items-center gap-5'>
       <SearchBar setSearchField={setSearchField} />
       <h6>Explore ideas and find people with similar interests</h6>
@@ -81,7 +94,7 @@ const Explore = () => {
         <InfiniteScroll dataLength={filteredIdeas.length} next={fetchIdeas} hasMore={hasMore} className='flex flex-wrap gap-5'>
           {filteredIdeas.length > 0 ? (
             filteredIdeas.map((idea) => (
-              <IdeaCard key={idea.id} idea={idea}/>
+              <IdeaCard key={idea.id} idea={idea} />
             ))
           ) : (
             ideas.map((idea) => (
