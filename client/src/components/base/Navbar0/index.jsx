@@ -27,9 +27,9 @@ const Navbar0 = () => {
             <div className='flex justify-between items-center h-24 w-full mx-auto px-8 mb-5 fixed bg-[#F3F5F8]'>
                 <Link to='hero' spy={true} smooth={true} offset={0} duration={500}><img src={logo} alt="logo" className="w-24 h-14 cursor-pointer"/></Link>
                 <div className='hidden md:flex space-x-4 text-3xl font-medium'>
-                    <Link to='about' spy={true} smooth={true} offset={0} duration={500} className='nav-link p-4 cursor-pointer '>Overview</Link>
-                    <Link to='demo' spy={true} smooth={true} offset={0} duration={500} className='nav-link p-4 cursor-pointer'>Demo</Link>
-                    <Link to='contact' spy={true} smooth={true} offset={0} duration={500} className='nav-link p-4 cursor-pointer'>Contact Us</Link>
+                    <Link to='about' spy={true} smooth={true} offset={0} duration={500} className='p-4 cursor-pointer '>Overview</Link>
+                    <Link to='demo' spy={true} smooth={true} offset={0} duration={500} className='p-4 cursor-pointer'>Demo</Link>
+                    <Link to='contact' spy={true} smooth={true} offset={0} duration={500} className='p-4 cursor-pointer'>Contact Us</Link>
                 </div>
                 <div className='flex items-center'>
                     { token? <div className='nav-link p-4 text-3xl font-medium cursor-pointer' onClick={home}>Platform</div>
