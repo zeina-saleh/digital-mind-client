@@ -21,7 +21,7 @@ const Authentication = () => {
     <>
     <div className="flex justify-between items-center px-14 py-4">
       <Link to='/'><FontAwesomeIcon icon={faChevronLeft} className="w-14 h-6 cursor-pointer  text-[#1ae690] hover:text-[#fff]" /></Link>
-      <Button text={"ADMIN LOGIN"} onClick={adminRoutes} classname={'w-32 h-10 text-white'}/>
+      <Button text={"Admin Login"} onClick={adminRoutes} classname={'w-32 h-10 text-white'}/>
       </div>
       <div className="flex justify-center items-center gap-32 mt-10">
         {login ? (

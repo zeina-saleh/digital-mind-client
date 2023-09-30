@@ -9,7 +9,7 @@ import CredentialsInput from '../../UI/CredentialsInput';
 const RegisterForm = ({ onToggle }) => {
 
   const navigation = useNavigate();
-  const [credentials, setCredentials] = useState({email: "", password: "", password_m: "", name: ""});
+  const [credentials, setCredentials] = useState({ email: "", password: "", password_m: "", name: "" });
   const [error, setError] = useState({ email: null, password: null, login: null });
 
   const validateEmail = (email) => {
@@ -23,17 +23,17 @@ const RegisterForm = ({ onToggle }) => {
       setError({ ...error, email: "Invalid Email Address" });
       return;
     }
-  
+
     if (credentials.password.length < 8) {
       setError({ ...error, password: "Password must be at least 8 characters long" });
       return;
     }
-  
+
     if (credentials.password !== credentials.password_m) {
       setError({ ...error, password_m: "Passwords don't match " });
       return;
     }
-  
+
 
     try {
       const response = await sendRequest({ method: "POST", route: "/register", body: credentials });
@@ -62,12 +62,12 @@ const RegisterForm = ({ onToggle }) => {
         <CredentialsInput label={'Confirm Password'} value={credentials.password} onChange={(password_m) => setCredentials({ ...credentials, password_m })} type='password' />
         <div className='text-[#e75454]'>{error.password_m}</div>
       </div>
-      <h6>Forgot password?</h6>
+      {/* <h6>Forgot password?</h6> */}
+      <Button text={"SIGNUP"} onClick={registerHandler} classname={'w-full h-9 my-3 text-white'} />
       <div className='flex gap-1'>
         <p className='flex w-full'>Already have an account?</p>
         <span className='text-[#1ED690] cursor-pointer' onClick={onToggle}>Login</span>
       </div>
-      <Button text={"SIGNUP"} onClick={registerHandler} classname={'w-full h-9 text-white'} />
     </div>
   )
 }
