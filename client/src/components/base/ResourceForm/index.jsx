@@ -47,16 +47,30 @@ const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded, map
     };
 
     return (
-        <div className='flex flex-col gap-4'>
-            <h6 className='self-center font-semibold'>Add Resources</h6>
-            <div>
+        <div className='flex flex-col gap-2'>
+            <h6 className='self-center font-semibold mb-2'>Add Resources</h6>
+            <div className='flex flex-col gap-1'>
                 <label className='font-medium px-2'>Select resource type</label>
                 <Select className='px-1' isSearchable placeholder='type' defaultValue={type} onChange={(value) => setType(value)} options={[
                     { value: 1, label: 'pdf' },
                     { value: 2, label: 'link' },
                     { value: 3, label: 'image' },
                     { value: 4, label: 'tag' },
-                ]} />
+                ]} styles={{
+                    option: (base) => ({
+                        ...base,
+                        border: `none`,
+                        height: '100%',
+                    }),
+                }} theme={(theme) => ({
+                    ...theme,
+                    borderRadius: 15,
+                    colors: {
+                        ...theme.colors,
+                        primary25: '#1ae690',
+                        primary: '#1ae690',
+                    },
+                })} />
             </div>
             {type.value === 2 ? <Input label={'Paste link'} onChange={(link) => setLink(link)} />
                 : type.value === 1 ? <Input2 label={'Upload file'} type='file' onChange={(pdf) => setPDF(pdf)} accept={'application/pdf'} />
@@ -75,9 +89,9 @@ const ResourceForm = ({ handleCloseModal, ideaId, setIsUploaded, isUploaded, map
                 <Input label={'Add a caption'} onChange={(caption) => setCaption(caption)} />
                 : <Input label={'Add a tag'} onChange={(tag) => setTag(tag)} />
             }
-            <div className='flex justify-center gap-5 w-full'>
-                <Button classname={"w-20 h-8 self-center"} text={'Submit'} onClick={handleUpload} />
+            <div className='flex justify-center gap-5 w-full mt-2'>
                 <Button classname={"w-20 h-8"} text={'Cancel'} onClick={handleCloseModal} />
+                <Button classname={"w-20 h-8 self-center"} text={'Submit'} onClick={handleUpload} />
             </div>
         </div>
     )
