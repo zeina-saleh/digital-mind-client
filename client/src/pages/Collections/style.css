@@ -29,3 +29,17 @@ html {
   .page-title {
     font-family: 'Ropa Sans';
   }
+
+  .empty-state {
+    height: 40vh;
+  }
+
+  .empty-div{ 
+    font-family: 'Ropa Sans';
+    font-size: 24px;
+    color: #383838;
+  }
+
+  .empty-div2 {
+    font-family: 'Ropa Sans';
+  }
