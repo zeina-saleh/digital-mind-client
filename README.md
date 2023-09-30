@@ -70,11 +70,6 @@
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![discussion](./readme/demo/discussions.png) | ![resources_modal](./readme/demo/chatbox.png) |
 
-### Planner Tab
-| Schedule                                                         | Event Modal                                                       |
-|------------------------------------------------------------------|-------------------------------------------------------------------|
-| ![discussion](./readme/demo/discussions.png) | ![resources_modal](./readme/demo/chatbox.png) |
-
 <br><br>
 
 <img id="tech-stack" src="./readme/title5.svg"/>
@@ -96,6 +91,28 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 | Landing                                               |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/landing.gif) |
+
+### Login / SignUp
+| Login                                                 |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/login.gif) |
+
+### Platform
+| Explore                                               |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/explore.gif) |
+
+| Collections                                           |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/collections.gif) |
+
+| Map                                                   |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/map.gif) |
+
+| Planner                                               |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/planner.gif) |
 
 
 
