@@ -8,25 +8,9 @@ import Modal from 'react-modal';
 
 const IdeaCard = ({ idea, setLikesCount }) => {
 
-    const [like, setLike] = useState({ liked: idea.liked, count: idea.likes_count })
     const [openResModal, setOpenResModal] = useState(false)
     const handleOpenResModal = () => setOpenResModal(true)
     const handleCloseResModal = () => setOpenResModal(false)
-
-
-    async function likeIdea() {
-        try {
-            const response = await sendRequest({ method: "POST", route: `/likeIdea/${idea.id}`, body: '' });
-            console.log(response)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const handleLike = () => {
-        likeIdea()
-        setLike({ ...like, liked: !like })
-    }
 
     return (
         <>
