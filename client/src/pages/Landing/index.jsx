@@ -34,21 +34,21 @@ const Landing = () => {
             <div className='flex flex-col w-1/2 h-3/4 items-center justify-between self-end'>
               <div className='flex flex-col items-center text-xl'>
                 <h4>It all starts with an idea</h4>
-                <div className='w-3/4'>We are a group of people who love to learn new things and we want you to be part of it too.
+                <div className='w-3/4'>We are a group of people who love to learn new things and we want you to be part of it too
                   <br></br> Bring your ideas to life
                   Brainstorm, visualize and plan your next step with a mind map</div>
               </div>
               <div className='flex gap-2 mt-10'>
                 <div className='flex flex-col card-1 items-center justify-center'>
-                  <FontAwesomeIcon icon={faClipboard} className='text-[#1e1e1e] w-10 h-10 cursor-pointer' />
+                  <FontAwesomeIcon icon={faClipboard} className='text-[#1e1e1e] w-10 h-10' />
                   <p>Plan</p>
                 </div>
                 <div className='flex flex-col card-1 items-center justify-center'>
-                  <FontAwesomeIcon icon={faComments} className='text-[#1e1e1e] w-10 h-10 cursor-pointer' />
+                  <FontAwesomeIcon icon={faComments} className='text-[#1e1e1e] w-10 h-10' />
                   <p>Connect</p>
                 </div>
                 <div className='flex flex-col card-1 items-center justify-center'>
-                  <FontAwesomeIcon icon={faPeopleGroup} className='text-[#1e1e1e] w-10 h-10 cursor-pointer' />
+                  <FontAwesomeIcon icon={faPeopleGroup} className='text-[#1e1e1e] w-10 h-10' />
                   <p>Meetup</p>
                 </div>
               </div>
@@ -99,20 +99,15 @@ const Landing = () => {
         </section>
 
 
-        <section id='contact' className='flex flex-col w-full h-full justify-end items-center'>
+        <section id='contact' className='flex flex-col w-full h-full justify-center items-center'>
           <div className='flex flex-col w-10/12 h-3/4 gap-10 justify-center items-center'>
             <div className='flex flex-col w-fit items-center gap-6'>
               <div className='text-6xl'>We'd love to hear from you</div>
               <div className='text-xl'>Whether you’re curious about features or want to join us as an admin —we’re ready to answer any and all questions.</div>
             </div>
-            <div className='flex gap-2 text-xl w-1/3 h-10'>
-              <input className='contact-input flex-1 px-2' placeholder='enter email'></input>
+            <div className='flex gap-2 items-center text-xl w-1/2 h-10'>
+              <input className='contact-input w-3/4 px-3 h-9 rounded-l-full rounded-r-full' placeholder='enter email'></input>
               <Button text={"Submit"} classname={'w-24 h-9 text-white'} />
-            </div>
-            <div className='flex w-fit items-center'>
-              <div className='brand-border'><img src={logo} className='w-40 h-16'></img></div>
-              <img src={firebase1} className='w-48 h-32'></img>
-
             </div>
           </div>
         </section>
