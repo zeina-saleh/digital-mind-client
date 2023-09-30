@@ -74,6 +74,11 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
             </div>
             {(collection.ideas.length !== 0 && showIdeas) ? (
                 <div className='flex flex-wrap ml-4 px-10 py-4 gap-5 mt-4'>
+                    <div className='idea-item flex justify-center items-center gap-2 w-64 h-60 px-2 pt-2'>
+                        <p>add idea </p>
+                        <FontAwesomeIcon icon={faPlus} style={{ color: "#1ED690", }} onClick={handleAddIdea} className='cursor-pointer h-7 w-7' />
+                    </div>
+
                     {collection.ideas.map(idea => (
                         <div key={idea.id} className='flex flex-col'>
                             <div className='idea-item flex flex-col items-center w-64 h-60 px-2 pt-2 cursor-pointer' onClick={() => handleNavigation(idea.id)}>
@@ -84,13 +89,8 @@ const CollectionItem = ({ collection, setIdeaFunc, handleOpenModal, setCollectio
                                 <div className='w-fit p-2 font-normal'>{idea.title}</div>
                                 <FontAwesomeIcon icon={faPen} className={`${editMode ? "" : 'hidden'} text-[#6b6b6b]  cursor-pointer hover:text-[#1ed690]`} onClick={() => handleEditIdea(idea.id, idea.title)} />
                             </div>
-
                         </div>
                     ))}
-                    <div className='idea-item flex justify-center items-center gap-2 w-64 h-60 px-2 pt-2'>
-                        <p>add idea </p>
-                        <FontAwesomeIcon icon={faPlus} style={{ color: "#1ED690", }} onClick={handleAddIdea} className='cursor-pointer h-7 w-7' />
-                    </div>
                 </div>
             ) : (
                 collection.ideas.length === 0 && showIdeas && (
