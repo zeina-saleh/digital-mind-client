@@ -9,7 +9,7 @@ const Button = ({ text, onClick, classname, enabled = true }) => {
         }
     };
     return (
-        <button className={`${classname} bg-[#1ED690] btn-primary font-semibold rounded-l-full rounded-r-full hover:brightness-90`}
+        <button className={`${classname} bg-[#1ED690] btn-primary text-white font-semibold rounded-l-full rounded-r-full hover:brightness-90`}
             onClick={(e) => clickHandler(e)}>{text}</button>
     )
 }
