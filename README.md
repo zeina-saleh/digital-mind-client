@@ -4,7 +4,7 @@
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
 
-**[PROJECT PHILOSOPHY](https://github.com/hassankhalil33/ucard#project-philosophy) • [PROTOTYPES](https://github.com/hassankhalil33/ucard#wireframes) • [TECH STACK](https://github.com/hassankhalil33/ucard#tech-stack) • [IMPLEMENTATION](https://github.com/hassankhalil33/ucard#impplementation) • [HOW TO RUN?](https://github.com/hassankhalil33/ucard#how-to-run)**
+**[PROJECT PHILOSOPHY](https://github.com/) • [PROTOTYPES](https://github.com/) • [TECH STACK](https://github.com/) • [IMPLEMENTATION](https://github.com/) • [HOW TO RUN?](https://github.com/)**
 
 </div>
 
