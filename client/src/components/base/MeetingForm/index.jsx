@@ -25,8 +25,8 @@ const MeetingForm = ({ handleCloseMeetModal, ideaId }) => {
     const [position, setPosition] = useState([data.latitude, data.longitude])
 
     const markerIcon = new L.Icon({
-        iconUrl: marker, 
-        iconSize: [35,45]
+        iconUrl: marker,
+        iconSize: [35, 45]
     })
 
     const handleLatLng = (lat, lng) => {
@@ -44,22 +44,22 @@ const MeetingForm = ({ handleCloseMeetModal, ideaId }) => {
             latitude: data.latitude,
             longitude: data.longitude
         };
-        try{
+        try {
             const response = await sendRequest({ method: 'POST', route: `/createMeeting/${ideaId}`, body: formData, });
-                console.log(response);
-                handleCloseMeetModal()
-        } catch(error){
+            console.log(response);
+            handleCloseMeetModal()
+        } catch (error) {
             console.log(error)
         }
-      }
+    }
 
     return (
         <>
             <h6 className='self-center font-semibold'>Setup a meeting</h6>
-            <Input label={'Add a title for your meeting'} onChange={(title)=>setTitle(title)} />
-            <Input label={'Pick a date'} type={'datetime-local'} onChange={(date)=>setDate(date)} />
+            <Input label={'Add a title for your meeting'} onChange={(title) => setTitle(title)} />
+            <Input label={'Pick a date'} type={'datetime-local'} onChange={(date) => setDate(date)} />
 
-            <MapContainer center={position} zoom={13} scrollWheelZoom={false} onClick={(e)=> console.log(e)}>
+            <MapContainer center={position} zoom={13} scrollWheelZoom={false} onClick={(e) => console.log(e)}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -72,8 +72,8 @@ const MeetingForm = ({ handleCloseMeetModal, ideaId }) => {
             </MapContainer>
 
             <div className='flex justify-center gap-5 w-full'>
-                <Button classname={"w-20 h-8 self-center"} text={'Submit'} onClick={createMeeting} />
                 <Button classname={"w-20 h-8"} text={'Cancel'} onClick={handleCloseMeetModal} />
+                <Button classname={"w-20 h-8 self-center"} text={'Submit'} onClick={createMeeting} />
             </div>
         </>
     )
