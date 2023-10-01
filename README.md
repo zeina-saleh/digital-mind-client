@@ -118,6 +118,10 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 |-------------------------------------------------------|
 | ![landing](./readme/gif/planner.gif) |
 
+| Discussions                                           |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/discussions.gif) |
+
 
 
 > Using the above mentioned tech stacks and the wireframes built with figma from the user stories we have, the implementation of the app is shown below, these are screenshots/gifs from the real app.
