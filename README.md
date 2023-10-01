@@ -112,11 +112,11 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 
 | Meetings & Discussions                                |
 |-------------------------------------------------------|
-| ![landing](./readme/gif/map.gif) |
+| ![landing](./readme/gif/discuss&meet.gif) |
 
 | Planner                                               |
 |-------------------------------------------------------|
-| ![landing](./readme/gif/discuss&meet.gif) |
+| ![landing](./readme/gif/planner.gif) |
 
 
 
