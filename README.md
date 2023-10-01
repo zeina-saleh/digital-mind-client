@@ -4,7 +4,7 @@
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
 
-**[PROJECT PHILOSOPHY](https://github.com/) • [PROTOTYPES](https://github.com/) • [TECH STACK](https://github.com/) • [IMPLEMENTATION](https://github.com/) • [HOW TO RUN?](https://github.com/)**
+**[PROJECT PHILOSOPHY](https://github.com/zeina-saleh/digital-mind-client#project-philosophy) • [PROTOTYPES](https://github.com/zeina-saleh/digital-mind-client#wireframes) • [TECH STACK](https://github.com/zeina-saleh/digital-mind-client#tech-stack) • [IMPLEMENTATION](https://github.com/zeina-saleh/digital-mind-client#implementation) • [HOW TO RUN?](https://github.com/zeina-saleh/digital-mind-client#how-to-run)**
 
 </div>
 
@@ -85,7 +85,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 
 
 <br><br>
-<img id="impplementation" src="./readme/title4.svg"/>
+<img id="implementation" src="./readme/title4.svg"/>
 <br><br>
 ### Landing Page
 | Landing                                               |
