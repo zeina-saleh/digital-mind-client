@@ -120,7 +120,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 
 | Discussions                                           |
 |-------------------------------------------------------|
-| ![landing](./readme/gif/discussions.gif) |
+| ![landing](./readme/gif/discussions.gif)  |
 
 
 
