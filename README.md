@@ -4,7 +4,7 @@
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
 
-**[PROJECT PHILOSOPHY](https://github.com/hassankhalil33/ucard#project-philosophy) • [PROTOTYPES](https://github.com/hassankhalil33/ucard#wireframes) • [TECH STACK](https://github.com/hassankhalil33/ucard#tech-stack) • [IMPLEMENTATION](https://github.com/hassankhalil33/ucard#impplementation) • [HOW TO RUN?](https://github.com/hassankhalil33/ucard#how-to-run)**
+**[PROJECT PHILOSOPHY](https://github.com/zeina-saleh/digital-mind-client#project-philosophy) • [PROTOTYPES](https://github.com/zeina-saleh/digital-mind-client#wireframes) • [TECH STACK](https://github.com/zeina-saleh/digital-mind-client#tech-stack) • [IMPLEMENTATION](https://github.com/zeina-saleh/digital-mind-client#implementation) • [HOW TO RUN?](https://github.com/zeina-saleh/digital-mind-client#how-to-run)**
 
 </div>
 
@@ -85,7 +85,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 
 
 <br><br>
-<img id="impplementation" src="./readme/title4.svg"/>
+<img id="implementation" src="./readme/title4.svg"/>
 <br><br>
 ### Landing Page
 | Landing                                               |
@@ -110,9 +110,17 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 |-------------------------------------------------------|
 | ![landing](./readme/gif/map.gif) |
 
+| Meetings & Discussions                                |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/discuss&meet.gif) |
+
 | Planner                                               |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/planner.gif) |
+
+| Discussions                                           |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/discussions.gif) |
 
 
 
