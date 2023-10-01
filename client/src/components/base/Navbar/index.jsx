@@ -5,7 +5,6 @@ import logo from '../../../assets/logo.svg'
 import Button from '../../UI/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { sendRequest } from '../../../config/request';
 import './style.css'
 
 
@@ -32,10 +31,10 @@ const Navbar = () => {
             <div className='flex justify-between items-center h-24 max-w-5xl mx-auto px-4 mb-10'>
                 <Link to='/'><img src={logo} alt="logo" className="w-20 h-12" /></Link>
                 <div className='flex space-x-4 text-2xl'>
-                    <Link to='/home' ><div tabindex="-1" className='nav-link px-4 pt-2 cursor-pointer'>Explore</div></Link>
-                    <Link to='/home/planner' ><div tabindex="-1" className='nav-link px-4 pt-2 cursor-pointer'>Planner</div></Link>
-                    <Link to='/home/collections' ><div tabindex="-1" className='nav-link px-4 pt-2 cursor-pointer'>Collections</div></Link>
-                    <Link to='/home/discussions' ><div tabindex="-1" className='nav-link px-4 pt-2 cursor-pointer'>Discussions</div></Link>
+                    <Link to='/home' ><div tabindex="-1" className='nav-link px-4 pt-2 cursor-pointer hover:text-[#1ae690]'>Explore</div></Link>
+                    <Link to='/home/planner' ><div tabindex="-1" className='nav-link px-4 pt-2 cursor-pointer hover:text-[#1ae690]'>Planner</div></Link>
+                    <Link to='/home/collections' ><div tabindex="-1" className='nav-link px-4 pt-2 cursor-pointer hover:text-[#1ae690]'>Collections</div></Link>
+                    <Link to='/home/discussions' ><div tabindex="-1" className='nav-link px-4 pt-2 cursor-pointer hover:text-[#1ae690]'>Discussions</div></Link>
                 </div >
                 {!nav ? <>
                     <div className='flex items-center'>
