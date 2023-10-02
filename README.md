@@ -16,8 +16,9 @@
 > Digital Mind allows you to create beautiful mind maps by uploading links, images or pdf of your ideas or simply writing text. 
 > 
 > Had a vision for a brilliant idea? Don't let it slip! Gather your thoughts and improve on it with a mind map.
-> 
-<h3>User Stories</h3>
+
+
+<span style="font-size: 22px;">User Stories</span>
 - As a user, I want to create mind maps by adding resources, connecting them visually, and arranging ideas so that I can structure my thoughts 
 - As a user, I want to be able to discuss and share ideas with others so that I can find people with similar interests as me
 - As a user, I want to schedule meetings with team members, so that we can discuss project ideas
@@ -26,7 +27,7 @@
 - As a user, I want to view a time schedule of all my meetings and upcoming events so that I can stay on track
 <br>
 
-<h3>Admin Stories</h3>
+<span style="font-size: 22px;">Admin Stories</span>
 - As an admin I want to view a dashboard where I can have full control over my website's user so that I can add, edit and remove users
 <br>
 - As an admin I want to have control over discussions created so that I can remove irrelevant discussions from the platfrom
@@ -137,7 +138,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 > These are guidlines for setting up digital mind locally.
 To get a local copy up and running follow these simple example steps.
 
-<h3>Prerequisites</h3>
+<span style="font-size: 22px;">Prerequisites</span>
 
 This is a list of the dependencies you need to install on your OS to run Digital Mind.
 * Download and Install Node.js 
@@ -153,7 +154,7 @@ This is a list of the dependencies you need to install on your OS to run Digital
   (https://www.apachefriends.org/)
   ```
 
-<h3>Installation</h3>
+<span style="font-size: 22px;">Installation</span>
 
 ~~ Frontend:
 1. Clone the repo
