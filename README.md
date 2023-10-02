@@ -28,6 +28,7 @@
 
 <h3>Admin Stories</h3>
 - As an admin I want to view a dashboard where I can have full control over my website's user so that I can add, edit and remove users
+<br>
 - As an admin I want to have control over discussions created so that I can remove irrelevant discussions from the platfrom
 
 <br><br>
