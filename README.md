@@ -17,7 +17,7 @@
 > 
 > Had a vision for a brilliant idea? Don't let it slip! Gather your thoughts and improve on it with a mind map.
 > 
-### User Stories
+User Stories
 - As a user, I want to create mind maps by adding resources, connecting them visually, and arranging ideas so that I can structure my thoughts 
 - As a user, I want to be able to discuss and share ideas with others so that I can find people with similar interests as me
 - As a user, I want to schedule meetings with team members, so that we can discuss project ideas
@@ -81,17 +81,16 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 <br><br>
 <img id="implementation" src="./readme/title4.svg"/>
 <br><br>
-### Landing Page
+
 | Landing                                               |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/landing.gif) |
 
-### Login / SignUp
+
 | Login                                                 |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/login.gif) |
 
-### Platform
 | Explore                                               |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/explore.gif) |
