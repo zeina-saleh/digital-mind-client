@@ -162,7 +162,6 @@ This is a list of the dependencies you need to install on your OS to run Digital
    ```sh
    npm install
    ```
-   <br><br>
    🚨 you might need to run `npm install --force`  if you face any dependency conflicts.
 4. Run the Start-Up Command
    ```sh
