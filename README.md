@@ -14,10 +14,10 @@
 <img id="project-philosophy" src="./readme/title2.svg"/>
 
 > Digital Mind allows you to create beautiful mind maps by uploading links, images or pdf of your ideas or simply writing text. 
-> 
 > Had a vision for a brilliant idea? Don't let it slip! Gather your thoughts and improve on it with a mind map.
-> 
-### User Stories
+
+
+<span style="font-size: 22px;">User Stories</span>
 - As a user, I want to create mind maps by adding resources, connecting them visually, and arranging ideas so that I can structure my thoughts 
 - As a user, I want to be able to discuss and share ideas with others so that I can find people with similar interests as me
 - As a user, I want to schedule meetings with team members, so that we can discuss project ideas
