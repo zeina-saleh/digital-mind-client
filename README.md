@@ -24,6 +24,11 @@
 - As a user, I want to create group discussions so we can plan our next step
 - As a user, I want to be able to view others mind maps so I can get inspired
 - As a user, I want to view a time schedule of all my meetings and upcoming events so that I can stay on track
+<br>
+
+<h3>Admin Stories</h3>
+- As an admin I want to view a dashboard where I can have full control over my website's user so that I can add, edit and remove users
+- As an admin I want to have control over discussions created so that I can remove irrelevant discussions from the platfrom
 
 <br><br>
 
