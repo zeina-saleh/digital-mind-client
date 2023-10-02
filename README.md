@@ -17,7 +17,7 @@
 > 
 > Had a vision for a brilliant idea? Don't let it slip! Gather your thoughts and improve on it with a mind map.
 > 
-User Stories
+<h3>User Stories</h3>
 - As a user, I want to create mind maps by adding resources, connecting them visually, and arranging ideas so that I can structure my thoughts 
 - As a user, I want to be able to discuss and share ideas with others so that I can find people with similar interests as me
 - As a user, I want to schedule meetings with team members, so that we can discuss project ideas
@@ -127,7 +127,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 > These are guidlines for setting up digital mind locally.
 To get a local copy up and running follow these simple example steps.
 
-Prerequisites
+<h3>Prerequisites</h3>
 
 This is a list of the dependencies you need to install on your OS to run Digital Mind.
 * Download and Install Node.js 
@@ -143,7 +143,7 @@ This is a list of the dependencies you need to install on your OS to run Digital
   (https://www.apachefriends.org/)
   ```
 
-Installation
+<h3>Installation</h3>
 
 ~~ Frontend:
 1. Clone the repo
