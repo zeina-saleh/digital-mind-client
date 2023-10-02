@@ -17,6 +17,7 @@ const Collections = () => {
   const [ideaId, setIdeaId] = useState('')
   const [ideaFunc, setIdeaFunc] = useState(false)
   const [editMode, setEditMode] = useState(false)
+  const [emptyState, setEmptyState] = useState(false)
 
   const [openModal, setOpenModal] = useState(false)
   const handleOpenModal = () => setOpenModal(true)
@@ -34,6 +35,12 @@ const Collections = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setEmptyState(true)
+    }, 1500)
+  })
 
   useEffect(() => {
     fetchCollections();
@@ -62,12 +69,12 @@ const Collections = () => {
         </div>
 
         <div className='flex flex-col w-10/12 gap-6 py-2 pb-20'>
-          {collections.length === 0 ? (
+          {collections.length === 0 && emptyState ? (
             <section className='flex flex-col gap-4 justify-center items-center empty-state w-full'>
               <img className=' h-52 w-56' src={empty}></img>
               <div className='flex flex-col gap-1 items-center'>
                 <div className='empty-div'>It looks empty in here ...</div>
-                <div className='empty-div2'>create a collection</div>
+                <div className='empty-div2'>Create a collection</div>
               </div>
             </section>
           ) : (

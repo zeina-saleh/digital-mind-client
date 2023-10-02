@@ -15,6 +15,7 @@ const Discussions = () => {
   const [exit, setExit] = useState(0)
   const [editMode, setEditMode] = useState(false)
   const [tokens, setTokens] = useState(null)
+  const [emptyState, setEmptyState] = useState(false)
 
   async function requestPermission() {
     const permission = await Notification.requestPermission()
@@ -32,6 +33,12 @@ const Discussions = () => {
       console.log('permission denied')
     }
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setEmptyState(true)
+    }, 1500)
+  })
 
   useEffect(() => {
     requestPermission()
@@ -62,7 +69,7 @@ const Discussions = () => {
         <div className='flex items-center justify-between w-10/12'>
           <div className='text-3xl page-title'>My Discussions</div>
         </div>
-        {discussions.length === 0 ? (
+        {discussions.length === 0 && emptyState ? (
           <section className='flex flex-col gap-4 justify-center items-center empty-state w-full'>
             <FontAwesomeIcon icon={faComments} className='h-52 w-52 text-[#1ae690]' />
             <div className='flex flex-col gap-1 items-center'>
