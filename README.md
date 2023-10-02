@@ -24,6 +24,12 @@
 - As a user, I want to create group discussions so we can plan our next step
 - As a user, I want to be able to view others mind maps so I can get inspired
 - As a user, I want to view a time schedule of all my meetings and upcoming events so that I can stay on track
+<br>
+
+### Admin Stories
+- As an admin I want to view a dashboard where I can have full control over my website's user so that I can add, edit and remove users
+<br>
+- As an admin I want to have control over discussions created so that I can remove irrelevant discussions from the platfrom
 
 <br><br>
 
@@ -31,7 +37,6 @@
 
 > This design was created on Figma app. I used tailwind framework during implementation and was able to replicate the figma design acurately
 
-### Landing Page
 | Landing                                               |
 |-------------------------------------------------------|
 | ![landing](./readme/demo/landing.png) |
@@ -41,17 +46,14 @@
 |-------------------------------------------------------|
 | ![overview](./readme/demo/landing2.png) |
 
-### Login / Signup
 | Login                                                            | SignUp                                                            |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![login](./readme/demo/Login.png) | ![signup](./readme/demo/SignUp.png) |
 
-### Platform
 | Explore Tab                                                      | Single View                                                       |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![explore_tab](./readme/demo/explore1.png) | ![single_view](./readme/demo/explore2.png) |
 
-### Collections Tab
 | Collapsed                                                        | Expanded                                                          |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![expanded](./readme/demo/collections1.png) | ![collapsed](./readme/demo/collections2.png) |
@@ -60,12 +62,10 @@
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![edit_mode](./readme/demo/edit_mode.png) | ![CRUD_modal](./readme/demo/add.png) |
 
-### Mind Map View
 | Map                                                              | Resources Modal                                                   |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![map](./readme/demo/map.png) | ![resources_modal](./readme/demo/resource.png) |
 
-### Discussions Tab
 | Discussions                                                      | Chat Box                                                          |
 |------------------------------------------------------------------|-------------------------------------------------------------------|
 | ![discussion](./readme/demo/discussions.png) | ![resources_modal](./readme/demo/chatbox.png) |
@@ -87,17 +87,16 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 <br><br>
 <img id="implementation" src="./readme/title4.svg"/>
 <br><br>
-### Landing Page
+
 | Landing                                               |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/landing.gif) |
 
-### Login / SignUp
+
 | Login                                                 |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/login.gif) |
 
-### Platform
 | Explore                                               |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/explore.gif) |
@@ -121,6 +120,10 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 | Discussions                                           |
 |-------------------------------------------------------|
 | ![landing](./readme/gif/discussions.gif)  |
+
+| Admin Panel                                           |
+|-------------------------------------------------------|
+| ![landing](./readme/gif/admin.gif)  |
 
 
 
@@ -165,8 +168,6 @@ This is a list of the dependencies you need to install on your OS to run Digital
    ```sh
    npm install
    ```
-   <br><br>
-   🚨 you might need to run `npm install --force`  if you face any dependency conflicts.
 4. Run the Start-Up Command
    ```sh
    npm run start
