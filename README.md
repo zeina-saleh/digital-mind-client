@@ -127,7 +127,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 > These are guidlines for setting up digital mind locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+Prerequisites
 
 This is a list of the dependencies you need to install on your OS to run Digital Mind.
 * Download and Install Node.js 
@@ -143,7 +143,7 @@ This is a list of the dependencies you need to install on your OS to run Digital
   (https://www.apachefriends.org/)
   ```
 
-### Installation
+Installation
 
 ~~ Frontend:
 1. Clone the repo
