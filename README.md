@@ -156,7 +156,7 @@ PASS: Response has the required field - message
 
 ```
 <br>
-URL: http://3.250.52.50/api/search
+URL: http://3.250.52.50/api/getUserDiscussions
 
 ```sh 
 PASS: Response time is within acceptable range //257 ms
