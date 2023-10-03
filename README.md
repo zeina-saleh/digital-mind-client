@@ -6,7 +6,6 @@
 
 <br><br>
 
-> Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
 <img src="./readme/title8.svg"/>
 
 
