@@ -134,6 +134,35 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 
 <br><br>
 <img id="performance" src="./readme/title7.svg"/>
+> The following tests were conducted in Postman to assess the functionality of my application's primary APIs
+<br>
+URL: http://3.250.52.50/api/getUserCollections
+
+```sh 
+PASS: Response time is within acceptable range //581 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+
+```
+<br>
+URL: http://3.250.52.50/api/getIdeas
+
+```sh 
+PASS: Response time is within acceptable range //475 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+
+```
+<br>
+URL: http://3.250.52.50/api/search
+
+```sh 
+PASS: Response time is within acceptable range //257 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+
+```
+<br>
 
 
 <br><br>
