@@ -2,17 +2,21 @@
 <img src="./readme/title.svg"/>
 <div align="center">
 
-<br><br>
-> Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
-<img src="./readme/title8.svg"/>
-<br><br>
-
-**[PROJECT PHILOSOPHY](https://github.com/zeina-saleh/digital-mind-client#project-philosophy) • [PROTOTYPES](https://github.com/zeina-saleh/digital-mind-client#wireframes) • [TECH STACK](https://github.com/zeina-saleh/digital-mind-client#tech-stack) • [IMPLEMENTATION](https://github.com/zeina-saleh/digital-mind-client#implementation) • [HOW TO RUN?](https://github.com/zeina-saleh/digital-mind-client#how-to-run)**
-
 </div>
 
 <br><br>
 
+> Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
+<img src="./readme/title8.svg"/>
+
+
+- [PROJECT PHILOSOPHY](https://github.com/zeina-saleh/digital-mind-client#project-philosophy)
+- [PROTOTYPES](https://github.com/zeina-saleh/digital-mind-client#wireframes)
+-  [TECH STACK](https://github.com/zeina-saleh/digital-mind-client#tech-stack)
+-  [DEMO](https://github.com/zeina-saleh/digital-mind-client#implementation)
+-  [PERFORMANCE](https://github.com/zeina-saleh/digital-mind-client#performance)
+-  [HOW TO RUN?](https://github.com/zeina-saleh/digital-mind-client#how-to-run)
+<br><br>
 
 <img id="project-philosophy" src="./readme/title2.svg"/>
 
@@ -31,7 +35,6 @@
 
 <span style="font-size: 40px;">Admin Stories</span>
 - As an admin I want to view a dashboard where I can have full control over my website's user so that I can add, edit and remove users
-<br>
 - As an admin I want to have control over discussions created so that I can remove irrelevant discussions from the platfrom
 
 <br><br>
@@ -89,6 +92,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 
 <br><br>
 <img id="implementation" src="./readme/title4.svg"/>
+> Using the above mentioned tech stacks and the wireframes built with figma from the user stories we have, the implementation of the app is shown below, these are screenshots/gifs from the real app.
 <br><br>
 
 | Landing                                               |
@@ -128,13 +132,12 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 |-------------------------------------------------------|
 | ![landing](./readme/gif/admin.gif)  |
 
+<br><br>
+<img id="performance" src="./readme/title7.svg"/>
 
 
-> Using the above mentioned tech stacks and the wireframes built with figma from the user stories we have, the implementation of the app is shown below, these are screenshots/gifs from the real app.
 <br><br>
 <img id="how-to-run" src="./readme/title6.svg"/>
-
-
 
 
 > These are guidlines for setting up digital mind locally.
