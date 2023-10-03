@@ -142,6 +142,7 @@ URL: http://3.250.52.50/api/getUserCollections
 PASS: Response time is within acceptable range //581 ms
 PASS: Response content type is JSON
 PASS: Response schema is valid
+PASS: Response has the required field - message
 
 ```
 <br>
@@ -151,6 +152,7 @@ URL: http://3.250.52.50/api/getIdeas
 PASS: Response time is within acceptable range //475 ms
 PASS: Response content type is JSON
 PASS: Response schema is valid
+PASS: Response has the required field - message
 
 ```
 <br>
@@ -160,6 +162,7 @@ URL: http://3.250.52.50/api/search
 PASS: Response time is within acceptable range //257 ms
 PASS: Response content type is JSON
 PASS: Response schema is valid
+PASS: Response has the required field - message
 
 ```
 <br>
