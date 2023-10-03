@@ -86,6 +86,7 @@ Here's a brief high-level overview of the tech stack the Ucard app uses:
 - This project uses [Laravel]() for the User type backend. Laravel is a web application framework with expressive, elegant syntax. Laravel can serve as a robust backend API for your web or mobile app. 
 - This project uses [ExpressJS](https://expressjs.com/) for the Admin type Backend. Fast, unopinionated, minimalist web framework for [NodeJS](https://nodejs.org/en/).
 - For persistent storage (database), the app uses the [MySQL](https://www.mysql.com/). The world's most popular open source database.
+- For live chats, the app uses [FireBase](https://firebase.google.com/)'s Firestore Cloud which is a flexible, scalable NoSQL cloud database to store and sync data for client- and server-side development.
 
 
 
