@@ -33,8 +33,8 @@
 <br>
 
 <span style="font-size: 40px;">Admin Stories</span>
-- As an admin I want to view a dashboard where I can have full control over my website's user so that I can add, edit and remove users
-- As an admin I want to have control over discussions created so that I can remove irrelevant discussions from the platfrom
+- As an admin, I want to view a dashboard where I can have full control over my website's user so that I can add, edit and remove users
+- As an admin, I want to have control over discussions created so that I can remove irrelevant discussions from the platfrom
 
 <br><br>
 
