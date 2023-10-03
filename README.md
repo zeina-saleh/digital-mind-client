@@ -139,30 +139,30 @@ Here's a brief high-level overview of the tech stack the app uses:
 URL: http://3.250.52.50/api/getUserCollections
 
 ```sh 
-PASS: Response time is within acceptable range //581 ms
-PASS: Response content type is JSON
-PASS: Response schema is valid
-PASS: Response has the required field - message
+PASS: The number of collections returned is greater than zero
+PASS: Response time is within acceptable range
+PASS: Response content type is application/json
+FAIL: Schema is valid | AssertionError: expected false to be true
 
 ```
 <br>
 URL: http://3.250.52.50/api/getIdeas
 
 ```sh 
-PASS: Response time is within acceptable range //475 ms
-PASS: Response content type is JSON
+PASS: The number of ideas returned is greater than zero
+PASS: Response time is within acceptable range
+PASS: Response content type is application/json
 PASS: Response schema is valid
-PASS: Response has the required field - message
 
 ```
 <br>
 URL: http://3.250.52.50/api/getUserDiscussions
 
 ```sh 
-PASS: Response time is within acceptable range //257 ms
-PASS: Response content type is JSON
+PASS: The number of discussions returned is greater than zero
+PASS: Response time is within acceptable range
+PASS: Response content type is application/json
 PASS: Response schema is valid
-PASS: Response has the required field - message
 
 ```
 <br>
