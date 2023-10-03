@@ -80,7 +80,7 @@
 
 <img id="tech-stack" src="./readme/title5.svg"/>
 
-Here's a brief high-level overview of the tech stack the Ucard app uses:
+Here's a brief high-level overview of the tech stack the app uses:
 
 - This project uses [React](https://react.dev/) for the Frontend. React lets you build user interfaces out of individual pieces called components. Then combine them into entire screens, pages, and apps.
 - This project uses [Laravel]() for the User type backend. Laravel is a web application framework with expressive, elegant syntax. Laravel can serve as a robust backend API for your web or mobile app. 
