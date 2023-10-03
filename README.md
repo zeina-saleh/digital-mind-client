@@ -2,7 +2,10 @@
 <img src="./readme/title.svg"/>
 <div align="center">
 
+<br><br>
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available.  
+<img src="./readme/title8.svg"/>
+<br><br>
 
 **[PROJECT PHILOSOPHY](https://github.com/zeina-saleh/digital-mind-client#project-philosophy) • [PROTOTYPES](https://github.com/zeina-saleh/digital-mind-client#wireframes) • [TECH STACK](https://github.com/zeina-saleh/digital-mind-client#tech-stack) • [IMPLEMENTATION](https://github.com/zeina-saleh/digital-mind-client#implementation) • [HOW TO RUN?](https://github.com/zeina-saleh/digital-mind-client#how-to-run)**
 
